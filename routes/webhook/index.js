@@ -25,7 +25,7 @@ router.route('/')
     if (mode !== 'subscribe' || token !== webhookVerificationToken) {
       return response.sendStatus(403);
     }
-
+    console.log('hit');
     // Passed all checks, send back the challenge token
     return response.status(200).send(challenge);
   })
