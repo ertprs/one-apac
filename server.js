@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 //middleware function to redirect http requests to https
-app.use(forceSSL());
+// app.use(forceSSL());
 
 //using static frontend routes
 // app.use(express.static(__dirname + '/dist/one-apac-frontend'));
