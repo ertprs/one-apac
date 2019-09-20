@@ -19,7 +19,7 @@ app.use(forceSSL());
 app.use(express.static(__dirname + '/dist/one-apac-frontend'));
 
 //all other api routes
-// app.use('/api', routes);
+app.use('/api', routes);
 
 //catchall to serve back HTML if no routes are met (frontend handles page-not-found view)
 app.get('*', (request, response) => {
