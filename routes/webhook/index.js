@@ -7,7 +7,6 @@ const
 // Creates the endpoint for our webhook
 router.route('/')
   .get((request, response) => {
-    console.log('entered route');
     // Your verify token. Should be a random string.
     const webhookVerificationToken = process.env.WEBHOOK_VERIFICATION_TOKEN;
 
@@ -24,12 +23,10 @@ router.route('/')
 
     // Checks the mode and token sent is correct
     if (mode !== 'subscribe' || token !== webhookVerificationToken) {
-      console.log(webhookVerificationToken, 'Wrong');
       return response.sendStatus(403);
     }
 
     // Passed all checks, send back the challenge token
-    console.log(webhookVerificationToken, 'Correct');
     return response.status(200).send(challenge);
   })
 
