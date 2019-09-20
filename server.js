@@ -1,7 +1,8 @@
 const
   bodyParser = require('body-parser'),
   express = require('express'),
-  forceSSL = require('./utilities/force-ssl');
+  forceSSL = require('./utilities/force-ssl'),
+  routes = require('./routes');
 
 const
   app = express();
