@@ -1,4 +1,4 @@
-module.exports = (function() {
+module.exports = function() {
   return function(request, response, next) {
     if (request.headers['x-forwarded-proto'] !== 'https') {
       return response.redirect(
@@ -7,4 +7,4 @@ module.exports = (function() {
     }
     next();
   }
-})();
+};
