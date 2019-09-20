@@ -23,6 +23,7 @@ router.route('/')
 
     // Checks the mode and token sent is correct
     if (mode !== 'subscribe' || token !== webhookVerificationToken) {
+      console.log('wrong');
       return response.sendStatus(403);
     }
     console.log('hit');
