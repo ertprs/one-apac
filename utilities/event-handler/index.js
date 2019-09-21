@@ -38,7 +38,7 @@ module.exports = (function() {
   function processPayload(entryId, payload) {
     return queries.events.fetchByPageId(entryId)
       .then((result) => {
-        console.log(result);
+        console.log(payload);
         const { description } = result.rows[0];
 
         switch (description) {
