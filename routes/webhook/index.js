@@ -60,7 +60,7 @@ router.route('/')
 
         // based on the entryId, send payload to be processed.. if entry id === one apac, process one apac payload with one apac access token
         const message = processPayload(entryId, payload);
-
+        console.log(message);
         return reply(accessToken, senderId, message);
       })
       .catch((error) => {
