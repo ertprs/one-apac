@@ -1,6 +1,7 @@
 const
   express = require('express'),
-  httpStatusCodes = require('../../utilities/constants/http-status-codes');
+  httpStatusCodes = require('../../utilities/constants/http-status-codes'),
+  { parsePayload } = require('../../utilities/event-handler');
 
 const
   router = express.Router();
@@ -36,11 +37,13 @@ router.route('/')
       const
         entryId = entry.id, // the page entry id
         event = entry.messaging[0], // the webhook event
-        senderId = event.sender.id; // the page-scoped id of event sender
+        senderId = event.sender.id, // the page-scoped id of event sender
+        payload = parsePayload(event); // get payload based on event type
 
       console.log('entryId: ', entryId);
       console.log('event: ', event);
       console.log('senderId: ', senderId);
+      console.log('payload: ', payload);
     });
 
     // Returns a '200 OK' response to all requests
