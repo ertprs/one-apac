@@ -1,6 +1,5 @@
 module.exports = (function() {
   const
-    queries = require('../../db/queries'),
     oneApac = require('../../utilities/responses/one-apac'),
     wld = require('../../utilities/responses/women-at-leadership-day');
 
@@ -36,24 +35,13 @@ module.exports = (function() {
   }
 
   function processPayload(entryId, payload) {
-    queries.events.fetchByPageId(entryId)
-      .then((result) => {
-        console.log(payload);
-        const { description } = result.rows[0];
+    switch (entryId) {
+      case '101827981220121':
+        return oneApac.responses(payload);
 
-        switch (description) {
-          case 'One APAC GMS Conference':
-            console.log('\n', oneApac.responses(payload));
-            return oneApac.responses(payload);
-
-          case 'Women@ Leadership Day':
-            return wld.responses(payload);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        return;
-      })
+      default:
+        break;
+    }
   }
 
   return {
