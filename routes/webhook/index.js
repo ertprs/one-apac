@@ -47,13 +47,13 @@ router.route('/')
 
     return queries.users.fetchByPageUserId(senderId)
       .then((result) => {
-        const { id } = result.rows[0]; // id of users table
+        const user = result.rows[0]; // id of users table
 
-        if (!id) {
+        if (!user) {
           return queries.users.insert(senderId);
         }
 
-        return { rows: [{ id }] };
+        return { rows: [user] };
       })
       .then((result) => {
         const { id } = result.rows[0]; // id of users table
