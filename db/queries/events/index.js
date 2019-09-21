@@ -15,6 +15,6 @@ module.exports = (function() {
   }
 
   return {
-    fetchByPageId: fetchByPageId
-  }
+    fetchByPageId
+  };
 })();

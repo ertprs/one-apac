@@ -43,6 +43,7 @@ module.exports = (function() {
 
         switch (description) {
           case 'One APAC GMS Conference':
+            console.log('\n', oneApac.responses(payload));
             return oneApac.responses(payload);
 
           case 'Women@ Leadership Day':
