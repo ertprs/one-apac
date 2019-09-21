@@ -36,7 +36,7 @@ module.exports = (function() {
   }
 
   function processPayload(entryId, payload) {
-    return queries.events.fetchByPageId(entryId)
+    queries.events.fetchByPageId(entryId)
       .then((result) => {
         console.log(payload);
         const { description } = result.rows[0];
@@ -49,6 +49,10 @@ module.exports = (function() {
           case 'Women@ Leadership Day':
             return wld.responses(payload);
         }
+      })
+      .catch((error) => {
+        console.log(error);
+        return;
       })
   }
 
