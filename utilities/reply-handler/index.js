@@ -1,4 +1,6 @@
 module.exports = (function() {
+  const rp = require('request-promise');
+
   function reply(access_token, recipientId, message) {
     const body = {
       recipient: {
