@@ -4,7 +4,7 @@ module.exports = (function() {
     oneApac = require('../../utilities/responses/one-apac'),
     wld = require('../../utilities/responses/women-at-leadership-day');
 
-  function parsePayload() {
+  function parsePayload(event) {
     switch (true) {
       case !!event.referral:
         return event.referral.ref;
