@@ -1,6 +1,9 @@
 const
   express = require('express'),
-  httpStatusCodes = require('../../utilities/constants/http-status-codes');
+  httpStatusCodes = require('../../utilities/constants/http-status-codes'),
+  { parsePayload, processEntryId, processPayload } = require('../../utilities/event-handler'),
+  { reply } = require('../../utilities/reply-handler'),
+  queries = require('../../db/queries');
 
 const
   router = express.Router();
@@ -28,23 +31,47 @@ router.route('/')
   .post((request, response) => {
     const body = request.body;
 
+    let entryId, event, senderId, payload, accessToken;
+
     if (body.object !== 'page') {
       return response.sendStatus(httpStatusCodes.notFound);
     }
 
     body.entry.forEach((entry) => {
-      const
-        entryId = entry.id, // the page entry id
-        event = entry.messaging[0], // the webhook event
-        senderId = event.sender.id; // the page-scoped id of event sender
-
-      console.log('entryId: ', entryId);
-      console.log('event: ', event);
-      console.log('senderId: ', senderId);
+      entryId = entry.id; // thepage entry id
+      accessToken = processEntryId(entryId); // gets access token by entry id
+      event = entry.messaging[0]; // the webhook event
+      senderId = event.sender.id; // the page-scoped id of event sender
+      payload = parsePayload(event); // get payload based on event type
     });
 
-    // Returns a '200 OK' response to all requests
-    return response.sendStatus(httpStatusCodes.ok);
+    return queries.users.fetchByPageUserId(senderId)
+      .then((result) => {
+        const { id } = result.rows[0]; // id of users table
+
+        if (!id) {
+          return queries.users.insert(senderId);
+        }
+
+        return { rows: [{ id }] };
+      })
+      .then((result) => {
+        const { id } = result.rows[0]; // id of users table
+
+        // based on the entryId, send payload to be processed.. if entry id === one apac, process one apac payload with one apac access token
+        const message = processPayload(entryId, payload);
+
+        return reply(accessToken, senderId, message);
+      })
+      .catch((error) => {
+        // handle error
+        console.log(error);
+        return;
+      })
+      .finally(() => {
+        // Returns a '200 OK' response to all requests
+        return response.sendStatus(httpStatusCodes.ok);
+      });
   });
 
 module.exports = router;
