@@ -1,7 +1,7 @@
 module.exports = (function() {
   const knex = require('../../knex');
 
-  function logError(name, message, file, method) {
+  function logError(name, message, stack) {
     return knex.raw(`
       INSERT INTO
         errors (name, message, stack)
