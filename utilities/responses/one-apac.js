@@ -157,6 +157,359 @@ module.exports = (function() {
         message = new Message(attachment, quickReplies);
         break;
 
+      case 'Day2':
+        buttons = [
+          new Button('Full Day Agenda', 'postback', 'Day2FullDayAgenda'),
+          new Button('Breakout Sessions', 'postback', 'Day2BreakoutSessions'),
+          new Button('Training Sessions', 'postback', 'Day2TrainingSessions')
+        ];
+
+        elements = [
+          new Element('November 15, 2019', 'Main Session & Breakout Sessions', placeholder, buttons)
+        ];
+
+        attachment = new Attachment('generic', elements);
+
+        quickReplies = [
+          new QuickReply('Back', 'Agenda'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2FullDayAgenda':
+        buttons = [
+          new Button('9:00 am - 12:00 pm', 'postback', 'Day2FullDayAgendaPart1'),
+          new Button('12:00 pm - 6:00 pm', 'postback', 'Day2FullDayAgendaPart2'),
+        ];
+
+        elements = [
+          new Element('November 14, 2019', null, placeholder, buttons)
+        ];
+
+        attachment = new Attachment('generic', elements);
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2'),
+          new QuickReply('Home', 'Home'),
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2FullDayAgendaPart1':
+        elements = [
+          new Element('9:00 am - 9:30 am', 'Opening & Kick Off\n\nKaren Teo\nVP, Head of APAC GBG Scaled', placeholder),
+          new Element('9:30 am - 9:45 am', 'Break', placeholder),
+          new Element('9:45 am - 10:15 am', 'Breakout Session 1', placeholder),
+          new Element('10:15 am - 10:45 am', 'Break', placeholder),
+          new Element('10:45 am - 11:15 am', 'Breakout Session 2', placeholder),
+          new Element('11:15 am - 11:30 am', 'Break', placeholder),
+          new Element('11:30 am - 12:00 pm', 'Breakout Session 3', placeholder)
+        ];
+
+        attachment = new Attachment('generic', elements);
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2FullDayAgenda'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2FullDayAgendaPart2':
+        elements = [
+          new Element('12:00 pm - 1:15 pm', 'Lunch Break', placeholder),
+          new Element('1:15 pm - 2:45 pm', 'Training Sessions', placeholder),
+          new Element('2:45 pm - 3:15 pm', 'Break', placeholder),
+          new Element('3:15 pm - 6:00 pm', 'Vertical/Team Meetings', placeholder)
+        ];
+
+        attachment = new Attachment('generic', elements);
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2FullDayAgenda'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2BreakoutSessions':
+        buttons = [
+          new Button('A - L', 'postback', 'Day2BreakoutSessionsPart1'),
+          new Button('M - Z', 'postback', 'Day2BreakoutSessionsPart1')
+        ];
+
+        elements = [
+          new Element('Breakout Sessions', null, placeholder, buttons)
+        ];
+
+        attachment = new Attachment('generic', elements);
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2BreakoutSessionsPart1':
+        elements = [
+          new Element('Breakouts A - L', 'Choose 3 of 11 breakout sessions to attend at:\n9:45 am\n10:45 am\n11:30 am', placeholder),
+          new Element('Brand Safety', null, placeholder, [new Button('Details', 'postback', 'Day2BreakoutSessionsPart1Details1')]),
+          new Element('Conversational Commerce: Building Business Success on Messaging Foundations', null, placeholder, [new Button('Details', 'postback', 'Day2BreakoutSessionsPart1Details2')]),
+          new Element('Driving Campaign Performance Through Liquidity & Optimization', null, placeholder, [new Button('Details', 'postback', 'Day2BreakoutSessionsPart1Details3')]),
+          new Element('The Future of Signals', null, placeholder, [new Button('Details', 'postback', 'Day2BreakoutSessionsPart1Details4')]),
+          new Element('#GoGlobal: Winning Across Borders', null, placeholder, [new Button('Details', 'postback', 'Day2BreakoutSessionsPart1Details5')]),
+          new Element('Influencer Marketing: Using Instagram Branded Content Solutions', null, placeholder, [new Button('Details', 'postback', 'Day2BreakoutSessionsPart1Details6')])
+        ];
+
+        attachment = new Attachment('generic', elements);
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2BreakoutSessions'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2BreakoutSessionsPart1Details1':
+        attachment = 'Review the latest brand safety framework, our approach to reporting & enforcing community standards and evaluate new advertiser controls built for contextual placements.\n\n#Blocklist #Inventory Filters #Dynamic Content Sets #Publisher Whitelisting';
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2BreakoutSessionsPart1'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2BreakoutSessionsPart1Details2':
+        attachment = 'Learn about the many ways that commerce is taking place across the family of apps and how clients can leverage the growing opportunity.\n\n#Marketplace #IG Shopping #Facebook Pay #Facebook Pages #Messenger #WhatsApp';
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2BreakoutSessionsPart1'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2BreakoutSessionsPart1Details3':
+        attachment = 'An in-depth, tactical session going beyond placement and audience liquidity to explore tools, including placement asset customization and campaign budget optimization to increase performance at a lower cost.\n\n#Placement Liquidity #Audience Liquidity #Campaign Budget Optimization #Placement Asset Customization #Dynamic Creative Optimization';
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2BreakoutSessionsPart1'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2BreakoutSessionsPart1Details4':
+        attachment = 'Signals are fundamental to our targeting and measurement capabilities. Learn how the changes in the ecosystem impact your clients and our product developments in the areas of signal resiliency and privacy.\n\n#Signals (Pixel, SDK, Offline Conversions) #Advanced Matching #Server-side Events';
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2BreakoutSessionsPart1'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2BreakoutSessionsPart1Details5':
+        attachment = '52% of APAC cross-channel revenue goes across borders. Get the latest updates on our cross border products, tools and insights; and programs to remove operational barriers for market diversification.\n\n#Auto Translate for Dynamic Language Optimization (DLO) #Localized Catalog #Multi-Language and Country Dynamic Ads (MMDA)';
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2BreakoutSessionsPart1'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2BreakoutSessionsPart1Details6':
+        attachment = 'Instagram is at the epicenter of the creator ecosystem. We will review the influencer landscape, client best practices, and deep dive into our branded content solutions.\n\n#Branded Content Ads';
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2BreakoutSessionsPart1'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2BreakoutSessionsPart2':
+        elements = [
+          new Element('Breakouts M - Z', 'Choose 3 of 11 breakout sessions to attend at:\n9:45 am\n10:45 am\n11:30 am', placeholder),
+          new Element('In-Stream & Watch: Building for and Thriving in the Facebook Video Ecosystem', null, placeholder, [new Button('Details', 'postback', 'Day2BreakoutSessionsPart2Details1')]),
+          new Element('The Next Chapter for Stories Creative', null, placeholder, [new Button('Details', 'postback', 'Day2BreakoutSessionsPart2Details2')]),
+          new Element('O2O (Online to Offline): Building a 0→1 Loyalty Product for APAC', null, placeholder, [new Button('Details', 'postback', 'Day2BreakoutSessionsPart2Details3')]),
+          new Element('SBG: Growing Businesses Through the Funnel', null, placeholder, [new Button('Details', 'postback', 'Day2BreakoutSessionsPart2Details4')]),
+          new Element('Short Form Video Ads: Facebook Thumbstoppers', null, placeholder, [new Button('Details', 'postback', 'Day2BreakoutSessionsPart2Details5')])
+        ];
+
+        attachment = new Attachment('generic', elements);
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2BreakoutSessions'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2BreakoutSessionsPart2Details1':
+        attachment = 'Learn how we are building a video ecosystem comprising Users (role of WATCH in our ecosystem), Media Companies (getting premium video content) & Advertisers (new monetization products like Reserve).\n\n#Watch #In-stream #Reserve #Contextual Targeting';
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2BreakoutSessionsPart2'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2BreakoutSessionsPart2Details2':
+        attachment = 'A dual session focused on the latest ad products for Stories creative including tools like Stories Templates, Editing Toolkits and stickers, paired with a fun session on creative best practices.\n\n#IG Stories #Stories Templates #Video Cropping and Editing #Stickers & Templates';
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2BreakoutSessionsPart2'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2BreakoutSessionsPart2Details3':
+        attachment = 'Come learn about our journey launching an APAC-centric, QR-code powered loyalty product and forging partnerships with Point of Sale (POS) providers to help businesses bridge the O2O divide.\n\n#Loyalty #QR code #Offline Signals #Retargeting';
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2BreakoutSessionsPart2'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2BreakoutSessionsPart2Details4':
+        attachment = 'SBG: Growing businesses through the funnel';
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2BreakoutSessionsPart2'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2BreakoutSessionsPart2Details5':
+        attachment = 'How strong XFN partnership between GBM, CAP & FCS can unlock short-form video adoption by inspiring, educating and empowering creative agencies to believe \'Powerful storytelling is possible in <10 secs\'.\n\n#Short Form Video Ads';
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2BreakoutSessionsPart2'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2TrainingSessions':
+        elements = [
+          new Element('Training Sessions', 'Choose from one Training Session from 1:15 pm - 2:45 pm', placeholder),
+          new Element('Always Do the Right Thing', 'Legal Learning Team / HRBPs', placeholder, [new Button('Details', 'postback', 'Day2TrainingSessionsDetails1')]),
+          new Element('Handling Hard Topics with External Audiences (V2)', 'GMS Learning & PR', placeholder, [new Button('Details', 'postback', 'Day2TrainingSessionsDetails2')]),
+          new Element('Living Your Values, 24/7', 'L&D / HRBPs', placeholder, [new Button('Details', 'postback', 'Day2TrainingSessionsDetails3')]),
+          new Element('Fighting Fit & Mentally Strong', 'Benefits APAC', placeholder, [new Button('Details', 'postback', 'Day2TrainingSessionsDetails4')]),
+          new Element('XFN Collaboration through Coaching', 'L&D', placeholder, [new Button('Details', 'postback', 'Day2TrainingSessionsDetails5')])
+        ];
+
+        attachment = new Attachment('generic', elements);
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2TrainingSessionsDetails1':
+        attachment = 'Interactive session on handling difficult situations in the workplace. The outcome is to build your confidence and collective capability in this area as leaders at Facebook.';
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2TrainingSessions'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2TrainingSessionsDetails2':
+        attachment = 'Learn the skills needed to engage in difficult conversations with external audiences from one of the most influential executive media trainers, Lee Woodruff.';
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2TrainingSessions'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2TrainingSessionsDetails3':
+        attachment = 'Aspire to always be your own culture champion? Discuss/reflect on where you could reinvest energy to optimize your personal values individually and in our community, in order to be fully authentic and engaged!';
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2TrainingSessions'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2TrainingSessionsDetails4':
+        attachment = 'Get great tips to enhance our resilience, stay true to ourselves and thrive in an environment where we are expected to move fast and create impact!';
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2TrainingSessions'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Day2TrainingSessionsDetails5':
+        attachment = 'Coaching skills enables us to realize our potential in a variety of contexts. In this interactive workshop you’ll learn, practice and apply key coaching principles to better support and align with your XFN colleagues.';
+
+        quickReplies = [
+          new QuickReply('Back', 'Day2TrainingSessions'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'DinnerEvents':
+        elements = [
+          new Element('Welcome Dinner', 'Date: Nov 13, Wed\nTime: 6:30 pm - 10:00 pm\nVenue: ArtScience Museum', placeholder, [new Button('Getting There', 'postback', 'DinnerEventsPart1')]),
+          new Element('Dinner & Party', 'Date: Nov 14, Thurs\nTime: 8:00 pm - 2:00 am\nVenue: Marquee', placeholder, [new Button('Getting There', 'postback', 'DinnerEventsPart2')])
+        ];
+
+        attachment = new Attachment('generic', elements);
+
+        quickReplies = [
+          new QuickReply('Back', 'Agenda'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
       default:
         attachment = 'Sorry, I don\'t understand what you\'re saying :(';
 
