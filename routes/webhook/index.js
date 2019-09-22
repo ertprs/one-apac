@@ -70,6 +70,7 @@ router.route('/')
       })
       .finally(() => {
         // Returns a '200 OK' response to all requests
+        console.log('testing finally');
         return response.sendStatus(httpStatusCodes.ok);
       });
   });
