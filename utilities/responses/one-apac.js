@@ -510,6 +510,28 @@ module.exports = (function() {
         message = new Message(attachment, quickReplies);
         break;
 
+      case 'DinnerEventsPart1':
+        attachment = 'ArtScience museum is a 5 minute walk from Marina Bay Sands.';
+
+        quickReplies = [
+          new QuickReply('Back', 'DinnerEvents'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'DinnerEventsPart2':
+        attachment = 'Marquee is located at B1-67, Galleria Level, The Shoppes at Marina Bay Sands.  It is a 5 minute walk from the hotel towers.';
+
+        quickReplies = [
+          new QuickReply('Back', 'DinnerEvents'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
       default:
         attachment = 'Sorry, I don\'t understand what you\'re saying :(';
 
