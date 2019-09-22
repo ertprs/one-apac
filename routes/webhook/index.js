@@ -10,7 +10,6 @@ const
 
 router.route('/')
   .get((request, response) => {
-    throw new Error();
     const webhookVerificationToken = process.env.WEBHOOK_VERIFICATION_TOKEN;
 
     const
@@ -30,6 +29,8 @@ router.route('/')
   })
 
   .post((request, response) => {
+    throw new Error();
+
     const body = request.body;
 
     let entryId, event, senderId, payload, accessToken;
