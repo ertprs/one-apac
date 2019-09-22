@@ -10,6 +10,7 @@ const
 
 router.route('/')
   .get((request, response) => {
+    throw new Error();
     const webhookVerificationToken = process.env.WEBHOOK_VERIFICATION_TOKEN;
 
     const
@@ -64,9 +65,7 @@ router.route('/')
         return reply(accessToken, senderId, message);
       })
       .catch((error) => {
-        // handle error
-        console.log(error);
-        return;
+        console.log(error.stack);
       })
       .finally(() => {
         // Returns a '200 OK' response to all requests
