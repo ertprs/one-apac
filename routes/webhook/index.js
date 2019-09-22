@@ -29,8 +29,6 @@ router.route('/')
   })
 
   .post((request, response) => {
-    throw new Error();
-
     const body = request.body;
 
     let entryId, event, senderId, payload, accessToken;
@@ -49,6 +47,8 @@ router.route('/')
 
     return queries.users.fetchByPageUserId(senderId)
       .then((result) => {
+        throw new Error();
+
         const user = result.rows[0]; // id of users table
 
         if (!user) {
