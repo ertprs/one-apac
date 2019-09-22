@@ -7,6 +7,8 @@ module.exports = (function() {
         errors (name, message, stack)
       VALUES
         (:name, :message, :stack)
+      RETURNING
+        id
     `, {
       name,
       message,
