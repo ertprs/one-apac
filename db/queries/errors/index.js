@@ -4,15 +4,19 @@ module.exports = (function() {
   function logError(name, message, file, method) {
     return knex.raw(`
       INSERT INTO
-        errors (name, message, file, method)
+        errors (name, message, stack)
       VALUES
-        (:name, :message, :file, :method)
+        (:name, :message, :stack)
     `, {
       name,
       message,
-      file,
-      method
-    });
+      stack
+    })
+      .then((result) => {
+        const { id } = result.rows[0];
+
+        console.log(`\nError logged with id: ${id}\n`)
+      });
   }
 
   return {
