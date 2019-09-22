@@ -33,7 +33,7 @@ module.exports = (function() {
         attachment = 'Sorry, I don\'t understand what you\'re saying :(';
 
         quickReplies = [
-          new QuickReply('Home', 'Home');
+          new QuickReply('Home', 'Home')
         ];
 
         message = new Message(attachment, quickReplies);
