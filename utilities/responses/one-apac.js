@@ -105,7 +105,7 @@ module.exports = (function() {
           new Element('12:20 pm - 12:35 pm', 'Creative Shop\n\nRapha Vasconcellos\nVP, The Creative Shop', placeholder)
         ];
 
-        attachment = new Attachment('generic', attachment);
+        attachment = new Attachment('generic', elements);
 
         quickReplies = [
           new QuickReply('Back', 'Day1'),
@@ -125,7 +125,7 @@ module.exports = (function() {
           new Element('3:10 pm - 3:25 pm', 'SBG\n\nRich Rao\nVP, SBG', placeholder)
         ];
 
-        attachment = new Attachment('generic', attachment);
+        attachment = new Attachment('generic', elements);
 
         quickReplies = [
           new QuickReply('Back', 'Day1'),
@@ -147,7 +147,7 @@ module.exports = (function() {
           new Element('5:50 pm - 6:10 pm', 'Dan Neary\n\nVP, GBG APAC', placeholder)
         ];
 
-        attachment = new Attachment('generic', attachment);
+        attachment = new Attachment('generic', elements);
 
         quickReplies = [
           new QuickReply('Back', 'Day1'),
