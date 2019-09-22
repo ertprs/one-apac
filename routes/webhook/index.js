@@ -58,15 +58,11 @@ router.route('/')
       .then((result) => {
         const { id } = result.rows[0]; // id of users table
 
-        // based on the entryId, send payload to be processed.. if entry id === one apac, process one apac payload with one apac access token
         const message = processPayload(entryId, payload);
-
         return reply(accessToken, senderId, message);
       })
       .catch((error) => {
-        // handle error
-        console.log(error);
-        return;
+        return queries.errors.logError(error.name, error.message, error.stack);
       })
       .finally(() => {
         // Returns a '200 OK' response to all requests
