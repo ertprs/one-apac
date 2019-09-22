@@ -47,8 +47,6 @@ router.route('/')
 
     return queries.users.fetchByPageUserId(senderId)
       .then((result) => {
-        throw new Error();
-
         const user = result.rows[0]; // id of users table
 
         if (!user) {
@@ -60,7 +58,6 @@ router.route('/')
       .then((result) => {
         const { id } = result.rows[0]; // id of users table
 
-        // based on the entryId, send payload to be processed.. if entry id === one apac, process one apac payload with one apac access token
         const message = processPayload(entryId, payload);
         return reply(accessToken, senderId, message);
       })
