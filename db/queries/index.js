@@ -1,10 +1,12 @@
 const
+  errors = require('./errors'),
   events = require('./events'),
   users = require('./users');
 
 const queries = {
+  errors,
   events,
-  users,
+  users
 }
 
 module.exports = queries;
