@@ -53,7 +53,7 @@ module.exports = (function() {
         buttons = [
           new Button('Day 1', 'postback', 'Day1'),
           new Button('Day 2', 'postback', 'Day2'),
-          new Button('DinnerEvents', 'postback', 'DinnerEvents')
+          new Button('Dinner Events', 'postback', 'DinnerEvents')
         ];
 
         elements = [
@@ -165,7 +165,7 @@ module.exports = (function() {
         ];
 
         elements = [
-          new Element('November 15, 2019', 'Main Session & Breakout Sessions', placeholder, buttons)
+          new Element('November 14, 2019', 'Main Session & Breakout Sessions', placeholder, buttons)
         ];
 
         attachment = new Attachment('generic', elements);
