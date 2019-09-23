@@ -31,7 +31,7 @@ router.route('/')
   .post((request, response) => {
     const body = request.body;
 
-    let entryId, event, senderId, payload, accessToken;
+    let entryId, event, senderId, payload, accessToken, eventId;
 
     if (body.object !== 'page') {
       return response.sendStatus(httpStatusCodes.notFound);
@@ -45,13 +45,19 @@ router.route('/')
       payload = parsePayload(event); // get payload based on event type
     });
 
-    console.log(entryId);
-    return queries.users.fetchByPageUserId(senderId)
+    return queries.events.fetchByPageId(entryId)
+      .then((result) => {
+        const { id } = result.rows[0]; // id of events table
+
+        eventId = id;
+
+        return queries.users.fetchByPageUserId(senderId)
+      })
       .then((result) => {
         const user = result.rows[0]; // id of users table
 
         if (!user) {
-          return queries.users.insert(senderId);
+          return queries.users.insert(senderId, eventId);
         }
 
         return { rows: [user] };
