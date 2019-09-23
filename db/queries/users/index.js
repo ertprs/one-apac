@@ -19,7 +19,7 @@ module.exports = (function() {
       INSERT INTO
         users (page_user_id, event_id)
       VALUES
-        (:pageUserId)
+        (:pageUserId, :eventId)
       RETURNING
         id
     `, {
