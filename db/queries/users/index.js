@@ -14,15 +14,16 @@ module.exports = (function() {
     });
   }
 
-  function insert(pageUserId) {
+  function insert(pageUserId, eventId) {
     return knex.raw(`
       INSERT INTO
-        users (page_user_id)
+        users (page_user_id, event_id)
       VALUES
         (:pageUserId)
       RETURNING
         id
     `, {
+      eventId,
       pageUserId
     });
   }
