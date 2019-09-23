@@ -1,7 +1,6 @@
 module.exports = (function() {
   function responses(payload) {
     const
-
       placeholder = 'https://via.placeholder.com/1910x1000',
 
       Attachment = require('../../utilities/models/Attachment'),

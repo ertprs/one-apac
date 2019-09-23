@@ -29,7 +29,7 @@ module.exports = (function() {
       case '101827981220121':
         return process.env.ONE_APAC_ACCESS_TOKEN;
 
-      case 'something else':
+      case '120785812649183':
         return process.env.WLD_ACCESS_TOKEN;
     }
   }
@@ -39,8 +39,8 @@ module.exports = (function() {
       case '101827981220121':
         return oneApac.responses(payload);
 
-      default:
-        break;
+      case '120785812649183':
+        return wld.responses(payload);
     }
   }
 
