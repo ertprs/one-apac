@@ -45,6 +45,7 @@ router.route('/')
       payload = parsePayload(event); // get payload based on event type
     });
 
+    console.log(entryId);
     return queries.users.fetchByPageUserId(senderId)
       .then((result) => {
         const user = result.rows[0]; // id of users table
