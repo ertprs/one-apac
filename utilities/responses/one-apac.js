@@ -741,7 +741,8 @@ module.exports = (function() {
           .then((result) => {
             const rows = result;
 
-            console.log(rows);
+            console.log('typeof rows: ' + typeof rows);
+            console.log('rows: ' + rows);
             if (rows.includes(payloadRegion)) {
               attachment = `Your already voted for ${payloadRegion}!`
 
