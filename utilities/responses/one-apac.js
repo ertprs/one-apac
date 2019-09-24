@@ -615,7 +615,7 @@ module.exports = (function() {
         ];
 
         elements = [
-          new Element('Venue Maps', null, placeholder, butons)
+          new Element('Venue Maps', null, placeholder, buttons)
         ];
 
         attachment = new Attachment('generic', elements);
