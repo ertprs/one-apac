@@ -32,12 +32,7 @@ module.exports = (function() {
         buttons = [
           new Button('Agenda', 'postback', 'Agenda'),
           new Button('Experience Showcase', 'postback', 'ExperienceShowcase'),
-          new Button('Venue Maps', 'postback', 'VenueMaps':
-            buttons = [
-              new Button('Breakout Rooms', 'postback', 'VenueMapsBreakout'),
-              new Button('Breakout Rooms', 'postback', 'VenueMapsBreakout'),
-              new Button('Breakout Rooms', 'postback', 'VenueMapsBreakout'),
-            ];)
+          new Button('Venue Maps', 'postback', 'VenueMaps')
         ];
 
         elements = [
