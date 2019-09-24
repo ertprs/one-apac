@@ -740,7 +740,7 @@ module.exports = (function() {
         return queries.votes.fetchVotes(userId)
           .then((result) => {
             const rows = result;
-
+            console.log('result: ' + result);
             console.log('typeof rows: ' + typeof rows);
             console.log('rows: ' + rows);
             if (rows.includes(payloadRegion)) {
