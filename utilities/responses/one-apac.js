@@ -767,27 +767,22 @@ module.exports = (function() {
 
         message = new Message(attachment, quickReplies);
         return message;
-    })
-          .catch ((error) => {
-      console.log(error);
-      return;
-    });
 
       default:
-    attachment = 'Sorry, I don\'t understand what you\'re saying :(';
+        attachment = 'Sorry, I don\'t understand what you\'re saying :(';
 
-    quickReplies = [
-      new QuickReply('Home', 'Home')
-    ];
+        quickReplies = [
+          new QuickReply('Home', 'Home')
+        ];
 
-    message = new Message(attachment, quickReplies);
-    break;
+        message = new Message(attachment, quickReplies);
+        break;
+    }
+
+    return message;
   }
 
-  return message;
-}
-
   return {
-  responses
-};
-}) ();
+    responses
+  };
+})();
