@@ -37,6 +37,7 @@ module.exports = (function() {
   function processPayload(entryId, payload, userId) {
     switch (entryId) {
       case '101827981220121':
+        console.log(oneApac.responses(payload, userId));
         return oneApac.responses(payload, userId);
 
       case '120785812649183':
