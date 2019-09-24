@@ -740,7 +740,7 @@ module.exports = (function() {
         return queries.votes.fetchVotes(userId)
           .then((result) => {
             const rows = result;
-            console.log('rows:\n', rows);
+
             if (rows.includes(payloadRegion)) {
               attachment = `Your already voted for ${payloadRegion}!`
 
