@@ -9,6 +9,7 @@ module.exports = (function() {
         return event.referral.ref;
 
       case !!event.message:
+        console.log(event.message.text);
         if (event.message.quick_reply) {
           console.log(event.message.quick_reply.payload)
           return event.message.quick_reply.payload;
