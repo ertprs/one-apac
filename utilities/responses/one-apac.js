@@ -649,6 +649,67 @@ module.exports = (function() {
         message = new Message(attachment, quickReplies);
         break;
 
+      case 'Transport&Contacts':
+        buttons = [
+          new Button('Transportation', 'postback', 'Transportation'),
+          new Button('Key Contacts', 'postback', 'Contacts')
+        ];
+
+        elements = [
+          new Element('Transport details and contacts', null, placeholder, buttons)
+        ];
+
+        attachment = new Attachment('generic', elements);
+
+        quickReplies = [
+          new QuickReply('Back', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Transportation':
+        buttons = [
+          new Button('Marina Bay Sands', 'postback', 'TransportationMBS'),
+          new Button('Marquee', 'web_url', 'https://facebook.com')
+        ];
+
+        elements = [
+          new Element('Transportation', null, placeholder, buttons)
+        ];
+
+        attachment = new Attachment('generic', elements);
+
+        quickReplies = [
+          new QuickReply('Back', 'Transport&Contacts'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'TransportationMBS':
+        attachment = 'MRT:\nMarina Bay Sands is linked directly to Bayfront MRT station (CE1, Exit B, C, D, E) along the Circle Line Extension.\n\nBus:\nThe following bus routes serve Marina Bay Sands Hotel: 97, 106, 133, 502 and 518.\n\nTaxi:\nTo get around, we recommend Grab or calling +65-6552-1111 for a local cab.\nPlease alight at the drop-off point at the Sands Expo & Convention Centre.\n\nIf you are driving, please collect your complimentary parking coupons from the registration counter daily. Please note that parking coupons will be issued on a first-come-first-serve basis. Kindly refer to map below for entrance to the car park of Sands Expo & Convention Centre.'
+
+        quickReplies = [
+          new QuickReply('Back', 'Transportation'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Contacts':
+        attachment = '[Emergency Contacts]\nPolice\n999\n\nAmbulance/Fire\n995\n\nISOS APAC\n+65-6338-7800\n\nFB GSOC\n+1-650-384-2000\n\nFB SOC-APAC\n+65-6704-3000\n\nEmail\nsecurity@fb.com\n\n[Facebook Onsite Help]\nHours of Operations\n13 November 2019\n8am-10pm\n\n14 November 2019\n8am-12am\n\n[Hotel Contacts]\nHotel Address\n10 Bayfront Avenue, Singapore 018956\n\nDuty Manager\n+65-6688-8833\n\nConcierge\n+65-6688-6061\n\nLost & Found\n+65-6688-0966';
+
+        quickReplies = [
+          new QuickReply('Back', 'Transport&Contacts'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
       default:
         attachment = 'Sorry, I don\'t understand what you\'re saying :(';
 
