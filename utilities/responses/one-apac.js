@@ -769,7 +769,7 @@ module.exports = (function() {
             ];
 
             message = new Message(attachment, quickReplies);
-            break;
+            return message;
           })
           .catch((error) => {
             console.log(error);
