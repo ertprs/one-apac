@@ -15,7 +15,7 @@ module.exports = (function() {
     `, {
       userId
     });
-
+    console.log(response.rows);
     return response.rows;
   }
 
