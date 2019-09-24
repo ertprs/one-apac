@@ -15,7 +15,7 @@ module.exports = (function() {
     `, {
       userId
     });
-    console.log('\n\n\n' + JSON.parse(response));
+    console.log('\n\n\n' + JSON.stringify(response));
 
     return response;
   }
