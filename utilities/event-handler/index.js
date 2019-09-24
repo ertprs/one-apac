@@ -10,6 +10,7 @@ module.exports = (function() {
 
       case !!event.message:
         if (event.message.quick_reply) {
+          console.log(event.message.quick_reply.payload)
           return event.message.quick_reply.payload;
         }
 
