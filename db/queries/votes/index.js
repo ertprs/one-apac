@@ -15,9 +15,8 @@ module.exports = (function() {
     `, {
       userId
     });
-    console.log('\n\n\n' + JSON.stringify(response));
 
-    return response;
+    return response.rows;
   }
 
   return {
