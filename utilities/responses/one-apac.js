@@ -2,6 +2,7 @@ module.exports = (function() {
   function responses(payload, userId) {
     const
       placeholder = 'https://via.placeholder.com/1910x1000',
+      knex = require('../../db/knex'),
       queries = require('../../db/queries'),
       Attachment = require('../../utilities/models/Attachment'),
       Button = require('../../utilities/models/Button'),
