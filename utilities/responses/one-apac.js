@@ -32,7 +32,12 @@ module.exports = (function() {
         buttons = [
           new Button('Agenda', 'postback', 'Agenda'),
           new Button('Experience Showcase', 'postback', 'ExperienceShowcase'),
-          new Button('Venue Maps', 'postback', 'VenueMaps')
+          new Button('Venue Maps', 'postback', 'VenueMaps':
+            buttons = [
+              new Button('Breakout Rooms', 'postback', 'VenueMapsBreakout'),
+              new Button('Breakout Rooms', 'postback', 'VenueMapsBreakout'),
+              new Button('Breakout Rooms', 'postback', 'VenueMapsBreakout'),
+            ];)
         ];
 
         elements = [
@@ -100,7 +105,7 @@ module.exports = (function() {
           new Element('11:20 am - 11:35 am', 'Messaging: Messenger\n\nStan Chudnovsky\nVP, Messenger', placeholder),
           new Element('11:35 am - 11:50 am', 'Messaging: WhatsApp\n\nMaz Sharafi\nDirector, WhatsApp', placeholder),
           new Element('11:50 am - 12:05 pm', 'TBC', placeholder),
-          new Element('12:05 pm - 12:20 pm', 'Partners and Technologies\n\nChristine Warner\nDirector, Global Partnerships Management', placeholder),
+          new Element('12:05 pm - 12:20 pm', 'Partners and Technologies\n\nChristine Warner\nDirector, Global Partnerships Mgmt', placeholder),
           new Element('12:20 pm - 12:35 pm', 'Creative Shop\n\nRapha Vasconcellos\nVP, The Creative Shop', placeholder)
         ];
 
@@ -525,6 +530,124 @@ module.exports = (function() {
 
         quickReplies = [
           new QuickReply('Back', 'DinnerEvents'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'ExperienceShowcase':
+        buttons = [
+          new Button('Business', 'postback', 'ExperienceShowcaseBusiness'),
+          new Button('Community', 'postback', 'ExperienceShowcaseCommunity'),
+          new Button('People', 'postback', 'ExperienceShowcasePeople')
+        ];
+
+        elements = [
+          new Element('Experience Showcase', 'Engage with activations featuring Facebook services, orgs, and partners', placeholder, buttons)
+        ];
+
+        attachment = new Attachment('generic', elements);
+
+        quickReplies = [
+          new QuickReply('Back', 'Agenda&Maps'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'ExperienceShowcaseBusiness':
+        elements = [
+          new Element('Analog Lab', null, placeholder),
+          new Element('Business Integrity', null, placeholder),
+          new Element('Instagram', null, placeholder),
+          new Element('Workplace', null, placeholder),
+          new Element('SBG', null, placeholder),
+          new Element('PSO', null, placeholder),
+          new Element('Helpdesk', null, placeholder)
+        ];
+
+        attachment = new Attachment('generic', elements);
+
+        quickReplies = [
+          new QuickReply('Back', 'ExperienceShowcase'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'ExperienceShowcaseCommunity':
+        elements = [
+          new Element('Pride@', null, placeholder),
+          new Element('Developer Partnerships', null, placeholder),
+          new Element('Entertainment Partnerships', null, placeholder),
+          new Element('Mobile Partnerships', null, placeholder),
+          new Element('Room to Read', null, placeholder)
+        ];
+
+        attachment = new Attachment('generic', elements);
+
+        quickReplies = [
+          new QuickReply('Back', 'ExperienceShowcase'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'ExperienceShowcasePeople':
+        elements = [
+          new Element('Fuel', null, placeholder),
+          new Element('People@', null, placeholder)
+        ];
+
+        attachment = new Attachment('generic', elements);
+
+        quickReplies = [
+          new QuickReply('Back', 'ExperienceShowcase'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'VenueMaps':
+        buttons = [
+          new Button('Breakout Rooms', 'postback', 'VenueMapsBreakout'),
+          new Button('Experience Showcase', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/breakout+sessions+map.jpg')
+        ];
+
+        elements = [
+          new Element('Venue Maps', null, placeholder, butons)
+        ];
+
+        attachment = new Attachment('generic', elements);
+
+        quickReplies = [
+          new QuickReply('Back', 'Agenda&Maps'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'VenueMapsBreakout':
+        buttons = [
+          new Button('Breakout Sessions', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/breakout+sessions+map.jpg'),
+          new Button('Training Sessions', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/breakout+sessions+map.jpg'),
+          new Button('Vertical Meetings', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/breakout+sessions+map.jpg')
+        ];
+
+        elements = [
+          new Element('Breakout Rooms', null, placeholder, buttons)
+        ];
+
+        attachment = new Attachment('generic', elements);
+
+        quickReplies = [
+          new QuickReply('Back', 'VenueMaps'),
           new QuickReply('Home', 'Home')
         ];
 
