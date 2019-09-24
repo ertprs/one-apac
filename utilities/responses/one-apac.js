@@ -742,6 +742,7 @@ module.exports = (function() {
         //query for votes using userId
         return queries.votes.fetchVotes(userId)
           .then((result) => {
+            console.log(result);
             const { rows } = result;
 
             if (rows.includes(payloadRegion)) {
