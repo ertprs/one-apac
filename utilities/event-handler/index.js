@@ -4,6 +4,7 @@ module.exports = (function() {
     wld = require('../../utilities/responses/women-at-leadership-day');
 
   function parsePayload(event) {
+    console.log('\n\n' + event + '\n\n');
     switch (true) {
       case !!event.referral:
         return event.referral.ref;
