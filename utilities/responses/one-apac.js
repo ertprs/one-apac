@@ -2,7 +2,6 @@ module.exports = (function() {
   function responses(payload, userId) {
     const
       placeholder = 'https://via.placeholder.com/1910x1000',
-      knex = require('../../db/knex'),
       queries = require('../../db/queries'),
       Attachment = require('../../utilities/models/Attachment'),
       Button = require('../../utilities/models/Button'),
@@ -739,50 +738,40 @@ module.exports = (function() {
       case 'Vote_Southeast Asia':
         const payloadRegion = payload.split('_')[1];
 
+        console.log(queries.votes.fetchVotes(userId));
         //query for votes using userId
-        return knex.raw(`
-        SELECT
-          c.region
-        FROM
-          contestants_users cu
-        JOIN
-          contestants c
-          ON c.id = cu.contestant_id
-        WHERE
-          cu.user_id = :userId
-      `, {
-          userId
-        }).then((result) => {
-          const { rows } = result;
+        return queries.votes.fetchVotes(userId)
+          .then((result) => {
+            const { rows } = result;
 
-          if (rows.includes(payloadRegion)) {
-            attachment = `Your already voted for ${payloadRegion}!`
+            if (rows.includes(payloadRegion)) {
+              attachment = `Your already voted for ${payloadRegion}!`
 
-            quickReplies = [
-              new QuickReply('Back', 'LipSyncBattle'),
-              new QuickReply('Home', 'Home')
-            ];
-          }
+              quickReplies = [
+                new QuickReply('Back', 'LipSyncBattle'),
+                new QuickReply('Home', 'Home')
+              ];
+            }
 
-          if (rows.length >= 2) {
-            attachment = 'You already casted both of your votes!';
+            if (rows.length >= 2) {
+              attachment = 'You already casted both of your votes!';
+
+              quickReplies = [
+                new QuickReply('Back', 'LipSyncBattle'),
+                new QuickReply('Home', 'Home')
+              ];
+            }
+
+            attachment = `Are you sure you want to vote for ${payloadRegion}?`;
 
             quickReplies = [
-              new QuickReply('Back', 'LipSyncBattle'),
-              new QuickReply('Home', 'Home')
+              new QuickReply('Confirm', `Confirm_${payloadRegion}`),
+              new QuickReply('Cancel', 'LipSyncBattle')
             ];
-          }
 
-          attachment = `Are you sure you want to vote for ${payloadRegion}?`;
-
-          quickReplies = [
-            new QuickReply('Confirm', `Confirm_${payloadRegion}`),
-            new QuickReply('Cancel', 'LipSyncBattle')
-          ];
-
-          message = new Message(attachment, quickReplies);
-          return message;
-        })
+            message = new Message(attachment, quickReplies);
+            return message;
+          })
           .catch((error) => {
             console.log(error);
             return;
