@@ -65,7 +65,7 @@ router.route('/')
       .then((result) => {
         const { id } = result.rows[0]; // id of users table
 
-        const message = processPayload(entryId, payload);
+        const message = processPayload(entryId, payload, id);
         return reply(accessToken, senderId, message);
       })
       .catch((error) => {
