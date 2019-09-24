@@ -43,6 +43,8 @@ router.route('/')
       event = entry.messaging[0]; // the webhook event
       senderId = event.sender.id; // the page-scoped id of event sender
       payload = parsePayload(event); // get payload based on event type
+
+      console.log('\n\n' + event + '\n\n');
     });
 
     return queries.events.fetchByPageId(entryId)
