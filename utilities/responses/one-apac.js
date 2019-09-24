@@ -1,8 +1,8 @@
 module.exports = (function() {
-  function responses(payload) {
+  function responses(payload, userId) {
     const
       placeholder = 'https://via.placeholder.com/1910x1000',
-
+      queries = require('../../db/queries'),
       Attachment = require('../../utilities/models/Attachment'),
       Button = require('../../utilities/models/Button'),
       Element = require('../../utilities/models/Element'),
@@ -709,6 +709,72 @@ module.exports = (function() {
 
         message = new Message(attachment, quickReplies);
         break;
+
+      case 'LipSyncBattle':
+        elements = [
+          new Element('Lip Sync Battle', 'Vote for the top 2 Lip Sync Battle champions\n*Both votes are equal 1 point each', placeholder),
+          new Element('Australia/New Zealand', null, placeholder, [new Button('Vote', 'postback', 'Vote_Australia/NewZealand')]),
+          new Element('Greater China', null, placeholder, [new Button('Vote', 'postback', 'Vote_Greater China')]),
+          new Element('India', null, placeholder, [new Button('Vote', 'postback', 'Vote_India')]),
+          new Element('Japan', null, placeholder, [new Button('Vote', 'postback', 'Vote_Japan')]),
+          new Element('Korea', null, placeholder, [new Button('Vote', 'postback', 'Vote_Korea')]),
+          new Element('Southeast Asia', null, placeholder, [new Button('Vote', 'postback', 'Vote_Southeast Asia')])
+        ];
+
+        attachment = new Attachment('generic', elements);
+
+        quickReplies = [
+          new QuickReply('Back', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        break;
+
+      case 'Vote_Australia/New Zealand':
+      case 'Vote_Greater China':
+      case 'Vote_India':
+      case 'Vote_Japan':
+      case 'Vote_Korea':
+      case 'Vote_Southeast Asia':
+        const payloadRegion = payload.split('_')[1];
+
+        //query for votes using userId
+        return queries.votes.fetchVotes(userId)
+          .then((result) => {
+            const { rows } = result;
+
+            if (rows.includes(payloadRegion)) {
+              attachment = `Your already voted for ${payloadRegion}!`
+
+              quickReplies = [
+                new QuickReply('Back', 'LipSyncBattle'),
+                new QuickReply('Home', 'Home')
+              ];
+            }
+
+            if (rows.length >= 2) {
+              attachment = 'You already casted both of your votes!';
+
+              quickReplies = [
+                new QuickReply('Back', 'LipSyncBattle'),
+                new QuickReply('Home', 'Home')
+              ];
+            }
+
+            attachment = `Are you sure you want to vote for ${payloadRegion}?`;
+
+            quickReplies = [
+              new QuickReply('Confirm', `Confirm_${payloadRegion}`),
+              new QuickReply('Cancel', 'LipSyncBattle')
+            ];
+
+            message = new Message(attachment, quickReplies);
+            break;
+          })
+          .catch((error) => {
+            console.log(error);
+            return;
+          });
 
       default:
         attachment = 'Sorry, I don\'t understand what you\'re saying :(';
