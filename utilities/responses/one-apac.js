@@ -737,36 +737,39 @@ module.exports = (function() {
       case 'Vote_Korea':
       case 'Vote_Southeast Asia':
         const payloadRegion = payload.split('_')[1];
-        const rows = queries.votes.fetchVotes(userId);
+        return queries.votes.fetchVotes(userId)
+          .then((result) => {
+            const rows = result;
 
-        console.log(rows);
-        if (rows.includes(payloadRegion)) {
-          attachment = `Your already voted for ${payloadRegion}!`
+            console.log(rows);
+            if (rows.includes(payloadRegion)) {
+              attachment = `Your already voted for ${payloadRegion}!`
 
-          quickReplies = [
-            new QuickReply('Back', 'LipSyncBattle'),
-            new QuickReply('Home', 'Home')
-          ];
-        }
+              quickReplies = [
+                new QuickReply('Back', 'LipSyncBattle'),
+                new QuickReply('Home', 'Home')
+              ];
+            }
 
-        if (rows.length >= 2) {
-          attachment = 'You already casted both of your votes!';
+            if (rows.length >= 2) {
+              attachment = 'You already casted both of your votes!';
 
-          quickReplies = [
-            new QuickReply('Back', 'LipSyncBattle'),
-            new QuickReply('Home', 'Home')
-          ];
-        }
+              quickReplies = [
+                new QuickReply('Back', 'LipSyncBattle'),
+                new QuickReply('Home', 'Home')
+              ];
+            }
 
-        attachment = `Are you sure you want to vote for ${payloadRegion}?`;
+            attachment = `Are you sure you want to vote for ${payloadRegion}?`;
 
-        quickReplies = [
-          new QuickReply('Confirm', `Confirm_${payloadRegion}`),
-          new QuickReply('Cancel', 'LipSyncBattle')
-        ];
+            quickReplies = [
+              new QuickReply('Confirm', `Confirm_${payloadRegion}`),
+              new QuickReply('Cancel', 'LipSyncBattle')
+            ];
 
-        message = new Message(attachment, quickReplies);
-        return message;
+            message = new Message(attachment, quickReplies);
+            return message;
+          })
 
       default:
         attachment = 'Sorry, I don\'t understand what you\'re saying :(';
