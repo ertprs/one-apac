@@ -3,6 +3,7 @@ module.exports = (function() {
     const
       placeholder = 'https://via.placeholder.com/1910x1000',
       queries = require('../../db/queries'),
+      { reply } = require('../reply-handler'),
       Attachment = require('../../utilities/models/Attachment'),
       Button = require('../../utilities/models/Button'),
       Element = require('../../utilities/models/Element'),

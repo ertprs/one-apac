@@ -2,7 +2,6 @@ const
   express = require('express'),
   httpStatusCodes = require('../../utilities/constants/http-status-codes'),
   { parsePayload, processEntryId, processPayload } = require('../../utilities/event-handler'),
-  { reply } = require('../../utilities/reply-handler'),
   queries = require('../../db/queries');
 
 const
