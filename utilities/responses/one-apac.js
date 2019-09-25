@@ -737,7 +737,7 @@ module.exports = (function() {
       case 'Vote_Korea':
       case 'Vote_Southeast Asia':
         const payloadRegion = payload.split('_')[1];
-        return queries.votes.fetchVotes(userId)
+        queries.votes.fetchVotes(userId)
           .then((result) => {
             const rows = result;
 
