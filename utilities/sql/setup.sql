@@ -22,3 +22,9 @@ VALUES
   ('Japan'),
   ('Korea'),
   ('Southeast Asia');
+
+-- controls
+INSERT INTO
+  controls (description)
+VALUES
+  ('Lip Sync Battle');
