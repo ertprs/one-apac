@@ -10,7 +10,7 @@ module.exports = (function() {
       Message = require('../../utilities/models/Message'),
       QuickReply = require('../../utilities/models/QuickReply');
 
-    let attachment, buttons, elements, message, quickReplies;
+    let attachment, buttons, elements, message, quickReplies, payloadRegion;
 
     switch (payload) {
       case 'Home':
@@ -737,12 +737,11 @@ module.exports = (function() {
       case 'Vote_Japan':
       case 'Vote_Korea':
       case 'Vote_Southeast Asia':
-        const payloadRegion = payload.split('_')[1];
+        payloadRegion = payload.split('_')[1];
 
         return queries.votes.fetchVotes(userId)
           .then((result) => {
             const { rows } = result;
-            console.log(rows);
 
             if (rows.includes(payloadRegion)) {
               attachment = `Your already voted for ${payloadRegion}!`
@@ -772,6 +771,35 @@ module.exports = (function() {
             message = new Message(attachment, quickReplies);
             return reply(accessToken, recipientId, message);
           })
+          .catch((error) => {
+            console.log(error);
+            return;
+          });
+
+      case 'Confirm_Australia/New Zealand':
+      case 'Confirm_Greater China':
+      case 'Confirm_India':
+      case 'Confirm_Japan':
+      case 'Confirm_Korea':
+      case 'Confirm_Southeast Asia':
+        payloadRegion = payload.split('_')[1];
+
+        return queries.votes.castVote(payloadRegion, userId)
+          .then(() => {
+            attachment = `You have successfully voted for ${payloadRegion}!`;
+
+            quickReplies = [
+              new QuickReply('Back', 'LipSyncBattle'),
+              new QuickReply('Home', 'Home')
+            ];
+
+            message = new Message(attachment, quickReplies);
+            return reply(accessToken, recipientId, message);
+          })
+          .catch((error) => {
+            console.log(error);
+            return;
+          });
 
       default:
         attachment = 'Sorry, I don\'t understand what you\'re saying :(';

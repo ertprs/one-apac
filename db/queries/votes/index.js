@@ -15,10 +15,27 @@ module.exports = (function() {
     `, {
       userId
     });
+  }
 
+  function castVote(region, userId) {
+    return knex.raw(`
+      INSERT INTO
+        contestants_users cu (contestant_id, user_id)
+      SELECT
+        id,
+        :userId
+      FROM
+        contestants c
+      WHERE
+        c.region = :region
+    `, {
+      region,
+      userId
+    });
   }
 
   return {
+    castVote,
     fetchVotes
   };
 })();
