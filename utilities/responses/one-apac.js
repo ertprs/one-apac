@@ -713,7 +713,7 @@ module.exports = (function() {
       case 'LipSyncBattle':
         elements = [
           new Element('Lip Sync Battle', 'Vote for the top 2 Lip Sync Battle champions\n*Both votes are equal 1 point each', placeholder),
-          new Element('Australia/New Zealand', null, placeholder, [new Button('Vote', 'postback', 'Vote_Australia/NewZealand')]),
+          new Element('Australia/New Zealand', null, placeholder, [new Button('Vote', 'postback', 'Vote_Australia/New Zealand')]),
           new Element('Greater China', null, placeholder, [new Button('Vote', 'postback', 'Vote_Greater China')]),
           new Element('India', null, placeholder, [new Button('Vote', 'postback', 'Vote_India')]),
           new Element('Japan', null, placeholder, [new Button('Vote', 'postback', 'Vote_Japan')]),
