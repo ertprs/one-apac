@@ -789,6 +789,7 @@ module.exports = (function() {
                   new QuickReply('Home', 'Home')
                 ];
               } else {
+                console.log(rows.length);
                 attachment = `Your 1st of 2 votes is final. Are you sure you want to vote for ${payloadRegion}?`;
 
                 quickReplies = [
