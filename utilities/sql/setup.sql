@@ -28,3 +28,8 @@ INSERT INTO
   controls (description)
 VALUES
   ('Lip Sync Battle');
+
+-- views
+INSERT INTO
+  views (description)
+VALUES

@@ -2,6 +2,7 @@ module.exports = (function() {
   function responses(accessToken, payload, recipientId, userId) {
     const
       placeholder = 'https://via.placeholder.com/1910x1000',
+      menus = require('../constants/menus'),
       queries = require('../../db/queries'),
       { reply } = require('../reply-handler'),
       Attachment = require('../../utilities/models/Attachment'),
@@ -14,20 +15,26 @@ module.exports = (function() {
 
     switch (payload) {
       case 'Home':
-        buttons = [
-          new Button('Agenda & Maps', 'postback', 'Agenda&Maps'),
-          new Button('Transport & Contacts', 'postback', 'Transport&Contacts'),
-          new Button('Lip Sync Battle', 'postback', 'LipSyncBattle')
-        ];
+        return queries.views.addView(menus.home)
+          .then(() => {
+            buttons = [
+              new Button('Agenda & Maps', 'postback', 'Agenda&Maps'),
+              new Button('Transport & Contacts', 'postback', 'Transport&Contacts'),
+              new Button('Lip Sync Battle', 'postback', 'LipSyncBattle')
+            ];
 
-        elements = [
-          new Element('One APAC GMS Conference 2019', 'What would you like to know more about?', placeholder, buttons)
-        ];
+            elements = [
+              new Element('One APAC GMS Conference 2019', 'What would you like to know more about?', placeholder, buttons)
+            ];
 
-        attachment = new Attachment('generic', elements);
+            attachment = new Attachment('generic', elements);
 
-        message = new Message(attachment);
-        return reply(accessToken, recipientId, message);
+            message = new Message(attachment);
+            return reply(accessToken, recipientId, message);
+          })
+          .catch((error) => {
+            return queries.errors.logError('ViewCounterError', error.message, error.stack);
+          });
 
       case 'Agenda&Maps':
         buttons = [
@@ -781,7 +788,7 @@ module.exports = (function() {
                 }
               });
 
-              if (rows.length >= 2) {
+              if (rows.length === 2) {
                 attachment = 'You already placed both of your votes!';
 
                 quickReplies = [
@@ -789,21 +796,17 @@ module.exports = (function() {
                   new QuickReply('Home', 'Home')
                 ];
               } else {
+                console.log(rows.length);
                 attachment = `Your 1st of 2 votes is final. Are you sure you want to vote for ${payloadRegion}?`;
-
-                quickReplies = [
-                  new QuickReply('Confirm', 'LipSyncBattle')
-                ];
 
                 if (rows.length > 0) {
                   attachment = `Your 2nd of 2 votes is final. Are you sure you want to vote for ${payloadRegion}?`
-
-                  quickReplies = [
-                    new QuickReply('Confirm', `Confirm_${payloadRegion}`),
-                  ];
                 }
 
-                quickReplies.push(new QuickReply('Cancel', 'LipSyncBattle'))
+                quickReplies = [
+                  new QuickReply('Confirm', `Confirm_${payloadRegion}`),
+                  new QuickReply('Cancel', 'LipSyncBattle')
+                ];
               }
             }
 
@@ -825,10 +828,31 @@ module.exports = (function() {
 
         return queries.votes.castVote(payloadRegion, userId)
           .then(() => {
-            attachment = `You have successfully voted for ${payloadRegion}!`;
+
+            return queries.votes.fetchVotes(userId);
+          })
+          .then((result) => {
+            const { rows } = result;
+
+            if (rows.length === 1) {
+              elements = [
+                new Element('Lip Sync Battle', 'Vote for the top 2 Lip Sync Battle champions\n*Both votes are equal 1 point each', placeholder),
+                new Element('Australia/New Zealand', null, placeholder, [new Button('Vote', 'postback', 'Vote_Australia/New Zealand')]),
+                new Element('Greater China', null, placeholder, [new Button('Vote', 'postback', 'Vote_Greater China')]),
+                new Element('India', null, placeholder, [new Button('Vote', 'postback', 'Vote_India')]),
+                new Element('Japan', null, placeholder, [new Button('Vote', 'postback', 'Vote_Japan')]),
+                new Element('Korea', null, placeholder, [new Button('Vote', 'postback', 'Vote_Korea')]),
+                new Element('Southeast Asia', null, placeholder, [new Button('Vote', 'postback', 'Vote_Southeast Asia')])
+              ];
+
+              attachment = new Attachment('generic', elements);
+            }
+
+            if (rows.length === 2) {
+              attachment = 'Thank you for voting!  Please wait until the final tally to see who won.';
+            }
 
             quickReplies = [
-              new QuickReply('Back', 'LipSyncBattle'),
               new QuickReply('Home', 'Home')
             ];
 
