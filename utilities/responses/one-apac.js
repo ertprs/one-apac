@@ -33,7 +33,7 @@ module.exports = (function() {
             return reply(accessToken, recipientId, message);
           })
           .catch((error) => {
-            return queries.errors.logError('ViewCounterError', error.message, error.stack);
+            return queries.errors.logError(error.name, error.message, error.stack);
           });
 
       case 'Agenda&Maps':
