@@ -20,7 +20,7 @@ module.exports = (function() {
   function castVote(region, userId) {
     return knex.raw(`
       INSERT INTO
-        contestants_users cu (contestant_id, user_id)
+        contestants_users (contestant_id, user_id)
       SELECT
         id,
         :userId
