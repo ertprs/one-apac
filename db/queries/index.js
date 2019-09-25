@@ -3,6 +3,7 @@ const
   errors = require('./errors'),
   events = require('./events'),
   users = require('./users'),
+  views = require('./views'),
   votes = require('./votes');
 
 const queries = {
@@ -10,6 +11,7 @@ const queries = {
   errors,
   events,
   users,
+  views,
   votes
 }
 

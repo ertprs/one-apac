@@ -2,6 +2,7 @@ module.exports = (function() {
   function responses(accessToken, payload, recipientId, userId) {
     const
       placeholder = 'https://via.placeholder.com/1910x1000',
+      menus = require('../constants/menus'),
       queries = require('../../db/queries'),
       { reply } = require('../reply-handler'),
       Attachment = require('../../utilities/models/Attachment'),
@@ -14,20 +15,26 @@ module.exports = (function() {
 
     switch (payload) {
       case 'Home':
-        buttons = [
-          new Button('Agenda & Maps', 'postback', 'Agenda&Maps'),
-          new Button('Transport & Contacts', 'postback', 'Transport&Contacts'),
-          new Button('Lip Sync Battle', 'postback', 'LipSyncBattle')
-        ];
+        return queries.views.addView(menus.home)
+          .then(() => {
+            buttons = [
+              new Button('Agenda & Maps', 'postback', 'Agenda&Maps'),
+              new Button('Transport & Contacts', 'postback', 'Transport&Contacts'),
+              new Button('Lip Sync Battle', 'postback', 'LipSyncBattle')
+            ];
 
-        elements = [
-          new Element('One APAC GMS Conference 2019', 'What would you like to know more about?', placeholder, buttons)
-        ];
+            elements = [
+              new Element('One APAC GMS Conference 2019', 'What would you like to know more about?', placeholder, buttons)
+            ];
 
-        attachment = new Attachment('generic', elements);
+            attachment = new Attachment('generic', elements);
 
-        message = new Message(attachment);
-        return reply(accessToken, recipientId, message);
+            message = new Message(attachment);
+            return reply(accessToken, recipientId, message);
+          })
+          .catch((error) => {
+            return queries.errors.logError('ViewCounterError', error.message, error.stack);
+          });
 
       case 'Agenda&Maps':
         buttons = [
