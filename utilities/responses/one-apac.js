@@ -26,7 +26,7 @@ module.exports = (function() {
         attachment = new Attachment('generic', elements);
 
         message = new Message(attachment);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Agenda&Maps':
         buttons = [
@@ -46,7 +46,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Agenda':
         buttons = [
@@ -67,7 +67,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day1':
         buttons = [
@@ -88,7 +88,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day1Part1':
         elements = [
@@ -112,7 +112,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day1Part2':
         elements = [
@@ -132,7 +132,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day1Part3':
         elements = [
@@ -154,7 +154,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2':
         buttons = [
@@ -175,7 +175,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2FullDayAgenda':
         buttons = [
@@ -195,7 +195,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2FullDayAgendaPart1':
         elements = [
@@ -216,7 +216,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2FullDayAgendaPart2':
         elements = [
@@ -234,7 +234,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessions':
         buttons = [
@@ -254,7 +254,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart1':
         elements = [
@@ -275,7 +275,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart1Details1':
         attachment = 'Review the latest brand safety framework, our approach to reporting & enforcing community standards and evaluate new advertiser controls built for contextual placements.\n\n#Blocklist #Inventory Filters #Dynamic Content Sets #Publisher Whitelisting';
@@ -286,7 +286,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart1Details2':
         attachment = 'Learn about the many ways that commerce is taking place across the family of apps and how clients can leverage the growing opportunity.\n\n#Marketplace #IG Shopping #Facebook Pay #Facebook Pages #Messenger #WhatsApp';
@@ -297,7 +297,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart1Details3':
         attachment = 'An in-depth, tactical session going beyond placement and audience liquidity to explore tools, including placement asset customization and campaign budget optimization to increase performance at a lower cost.\n\n#Placement Liquidity #Audience Liquidity #Campaign Budget Optimization #Placement Asset Customization #Dynamic Creative Optimization';
@@ -308,7 +308,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart1Details4':
         attachment = 'Signals are fundamental to our targeting and measurement capabilities. Learn how the changes in the ecosystem impact your clients and our product developments in the areas of signal resiliency and privacy.\n\n#Signals (Pixel, SDK, Offline Conversions) #Advanced Matching #Server-side Events';
@@ -319,7 +319,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart1Details5':
         attachment = '52% of APAC cross-channel revenue goes across borders. Get the latest updates on our cross border products, tools and insights; and programs to remove operational barriers for market diversification.\n\n#Auto Translate for Dynamic Language Optimization (DLO) #Localized Catalog #Multi-Language and Country Dynamic Ads (MMDA)';
@@ -330,7 +330,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart1Details6':
         attachment = 'Instagram is at the epicenter of the creator ecosystem. We will review the influencer landscape, client best practices, and deep dive into our branded content solutions.\n\n#Branded Content Ads';
@@ -341,7 +341,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart2':
         elements = [
@@ -361,7 +361,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart2Details1':
         attachment = 'Learn how we are building a video ecosystem comprising Users (role of WATCH in our ecosystem), Media Companies (getting premium video content) & Advertisers (new monetization products like Reserve).\n\n#Watch #In-stream #Reserve #Contextual Targeting';
@@ -372,7 +372,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart2Details2':
         attachment = 'A dual session focused on the latest ad products for Stories creative including tools like Stories Templates, Editing Toolkits and stickers, paired with a fun session on creative best practices.\n\n#IG Stories #Stories Templates #Video Cropping and Editing #Stickers & Templates';
@@ -383,7 +383,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart2Details3':
         attachment = 'Come learn about our journey launching an APAC-centric, QR-code powered loyalty product and forging partnerships with Point of Sale (POS) providers to help businesses bridge the O2O divide.\n\n#Loyalty #QR code #Offline Signals #Retargeting';
@@ -394,7 +394,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart2Details4':
         attachment = 'SBG: Growing businesses through the funnel';
@@ -405,7 +405,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart2Details5':
         attachment = 'How strong XFN partnership between GBM, CAP & FCS can unlock short-form video adoption by inspiring, educating and empowering creative agencies to believe \'Powerful storytelling is possible in <10 secs\'.\n\n#Short Form Video Ads';
@@ -416,7 +416,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2TrainingSessions':
         elements = [
@@ -436,7 +436,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2TrainingSessionsDetails1':
         attachment = 'Interactive session on handling difficult situations in the workplace. The outcome is to build your confidence and collective capability in this area as leaders at Facebook.';
@@ -447,7 +447,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2TrainingSessionsDetails2':
         attachment = 'Learn the skills needed to engage in difficult conversations with external audiences from one of the most influential executive media trainers, Lee Woodruff.';
@@ -458,7 +458,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2TrainingSessionsDetails3':
         attachment = 'Aspire to always be your own culture champion? Discuss/reflect on where you could reinvest energy to optimize your personal values individually and in our community, in order to be fully authentic and engaged!';
@@ -469,7 +469,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2TrainingSessionsDetails4':
         attachment = 'Get great tips to enhance our resilience, stay true to ourselves and thrive in an environment where we are expected to move fast and create impact!';
@@ -480,7 +480,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Day2TrainingSessionsDetails5':
         attachment = 'Coaching skills enables us to realize our potential in a variety of contexts. In this interactive workshop you’ll learn, practice and apply key coaching principles to better support and align with your XFN colleagues.';
@@ -491,7 +491,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'DinnerEvents':
         elements = [
@@ -507,7 +507,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'DinnerEventsPart1':
         attachment = 'ArtScience museum is a 5 minute walk from Marina Bay Sands.';
@@ -518,7 +518,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'DinnerEventsPart2':
         attachment = 'Marquee is located at B1-67, Galleria Level, The Shoppes at Marina Bay Sands.  It is a 5 minute walk from the hotel towers.';
@@ -529,7 +529,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'ExperienceShowcase':
         buttons = [
@@ -550,7 +550,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'ExperienceShowcaseBusiness':
         elements = [
@@ -571,7 +571,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'ExperienceShowcaseCommunity':
         elements = [
@@ -590,7 +590,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'ExperienceShowcasePeople':
         elements = [
@@ -606,7 +606,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'VenueMaps':
         buttons = [
@@ -626,7 +626,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'VenueMapsBreakout':
         buttons = [
@@ -647,7 +647,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Transport&Contacts':
         buttons = [
@@ -666,7 +666,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Transportation':
         buttons = [
@@ -686,7 +686,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'TransportationMBS':
         attachment = 'MRT:\nMarina Bay Sands is linked directly to Bayfront MRT station (CE1, Exit B, C, D, E) along the Circle Line Extension.\n\nBus:\nThe following bus routes serve Marina Bay Sands Hotel: 97, 106, 133, 502 and 518.\n\nTaxi:\nTo get around, we recommend Grab or calling +65-6552-1111 for a local cab.\nPlease alight at the drop-off point at the Sands Expo & Convention Centre.\n\nIf you are driving, please collect your complimentary parking coupons from the registration counter daily. Please note that parking coupons will be issued on a first-come-first-serve basis. Kindly refer to map below for entrance to the car park of Sands Expo & Convention Centre.'
@@ -697,7 +697,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Contacts':
         attachment = '[Emergency Contacts]\nPolice\n999\n\nAmbulance/Fire\n995\n\nISOS APAC\n+65-6338-7800\n\nFB GSOC\n+1-650-384-2000\n\nFB SOC-APAC\n+65-6704-3000\n\nEmail\nsecurity@fb.com\n\n[Facebook Onsite Help]\nHours of Operations\n13 November 2019\n8am-10pm\n\n14 November 2019\n8am-12am\n\n[Hotel Contacts]\nHotel Address\n10 Bayfront Avenue, Singapore 018956\n\nDuty Manager\n+65-6688-8833\n\nConcierge\n+65-6688-6061\n\nLost & Found\n+65-6688-0966';
@@ -708,7 +708,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'LipSyncBattle':
         elements = [
@@ -728,7 +728,7 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
 
       case 'Vote_Australia/New Zealand':
       case 'Vote_Greater China':
@@ -769,7 +769,7 @@ module.exports = (function() {
             ];
 
             message = new Message(attachment, quickReplies);
-            return message;
+            return reply(accessToken, recipientId, message);
           })
 
       default:
@@ -780,10 +780,8 @@ module.exports = (function() {
         ];
 
         message = new Message(attachment, quickReplies);
-        break;
+        return reply(accessToken, recipientId, message);
     }
-
-    return message;
   }
 
   return {
