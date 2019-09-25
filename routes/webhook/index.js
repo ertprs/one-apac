@@ -2,7 +2,6 @@ const
   express = require('express'),
   httpStatusCodes = require('../../utilities/constants/http-status-codes'),
   { parsePayload, processEntryId, processPayload } = require('../../utilities/event-handler'),
-  { reply } = require('../../utilities/reply-handler'),
   queries = require('../../db/queries');
 
 const
@@ -63,10 +62,9 @@ router.route('/')
         return { rows: [user] };
       })
       .then((result) => {
-        const { id } = result.rows[0]; // id of users table
+        const userId = result.rows[0].id; // id of users table
 
-        const message = processPayload(entryId, payload);
-        return reply(accessToken, senderId, message);
+        return processPayload(accessToken, payload, senderId, userId);
       })
       .catch((error) => {
         return queries.errors.logError(error.name, error.message, error.stack);
