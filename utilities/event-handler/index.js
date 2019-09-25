@@ -34,15 +34,13 @@ module.exports = (function() {
     }
   }
 
-  function processPayload(entryId, payload, userId) {
-    switch (entryId) {
-      case '101827981220121':
-        console.log(payload);
-        console.log('message:\n', oneApac.responses(payload, userId));
-        return oneApac.responses(payload, userId);
+  function processPayload(accessToken, payload, recipientId, userId) {
+    switch (accessToken) {
+      case process.env.ONE_APAC_ACCESS_TOKEN:
+        return oneApac.responses(accessToken, payload, recipientId, userId);
 
-      case '120785812649183':
-        return wld.responses(payload);
+      case process.env.WLD_ACCESS_TOKEN:
+        return wld.responses(accessToken, payload, recipientId, userId);
     }
   }
 

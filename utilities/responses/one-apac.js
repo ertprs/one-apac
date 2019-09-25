@@ -1,5 +1,5 @@
 module.exports = (function() {
-  function responses(payload, userId) {
+  function responses(accessToken, payload, recipientId, userId) {
     const
       placeholder = 'https://via.placeholder.com/1910x1000',
       queries = require('../../db/queries'),
@@ -737,9 +737,11 @@ module.exports = (function() {
       case 'Vote_Korea':
       case 'Vote_Southeast Asia':
         const payloadRegion = payload.split('_')[1];
-        queries.votes.fetchVotes(userId)
+
+        return queries.votes.fetchVotes(userId)
           .then((result) => {
-            const rows = result;
+            const { rows } = result;
+            console.log(rows);
 
             if (rows.includes(payloadRegion)) {
               attachment = `Your already voted for ${payloadRegion}!`

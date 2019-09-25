@@ -1,8 +1,8 @@
 module.exports = (function() {
   const knex = require('../../knex');
 
-  async function fetchVotes(userId) {
-    const response = await knex.raw(`
+  function fetchVotes(userId) {
+    return knex.raw(`
       SELECT
         c.region
       FROM
@@ -16,7 +16,6 @@ module.exports = (function() {
       userId
     });
 
-    return response.rows;
   }
 
   return {

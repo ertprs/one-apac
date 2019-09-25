@@ -1,8 +1,8 @@
 module.exports = (function() {
-  function responses(payload) {
+  function responses(accessToken, payload, recipientId, userId) {
     const
       placeholder = 'https://via.placeholder.com/1910x1000',
-
+      { reply } = require('../reply-handler/'),
       Attachment = require('../../utilities/models/Attachment'),
       Button = require('../../utilities/models/Button'),
       Element = require('../../utilities/models/Element'),
@@ -16,7 +16,7 @@ module.exports = (function() {
         attachment = 'Hello World';
 
         message = new Message(attachment);
-        break;
+        return reply(accessToken, recipientId, message);
 
       default:
 
