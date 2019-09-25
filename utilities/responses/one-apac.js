@@ -10,7 +10,7 @@ module.exports = (function() {
       Message = require('../../utilities/models/Message'),
       QuickReply = require('../../utilities/models/QuickReply');
 
-    let attachment, buttons, elements, message, quickReplies, payloadRegion;
+    let attachment, buttons, elements, message, quickReplies, payloadRegion, isVotingActive;
 
     switch (payload) {
       case 'Home':
@@ -712,24 +712,37 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'LipSyncBattle':
-        elements = [
-          new Element('Lip Sync Battle', 'Vote for the top 2 Lip Sync Battle champions\n*Both votes are equal 1 point each', placeholder),
-          new Element('Australia/New Zealand', null, placeholder, [new Button('Vote', 'postback', 'Vote_Australia/New Zealand')]),
-          new Element('Greater China', null, placeholder, [new Button('Vote', 'postback', 'Vote_Greater China')]),
-          new Element('India', null, placeholder, [new Button('Vote', 'postback', 'Vote_India')]),
-          new Element('Japan', null, placeholder, [new Button('Vote', 'postback', 'Vote_Japan')]),
-          new Element('Korea', null, placeholder, [new Button('Vote', 'postback', 'Vote_Korea')]),
-          new Element('Southeast Asia', null, placeholder, [new Button('Vote', 'postback', 'Vote_Southeast Asia')])
-        ];
+        return queries.controls.getStatus('Lip Sync Battle')
+          .then((result) => {
+            const { active } = result.rows[0];
 
-        attachment = new Attachment('generic', elements);
+            if (!active) {
+              attachment = 'Voting for Lip Sync Battle will open after all performances have finished.';
+            } else {
+              elements = [
+                new Element('Lip Sync Battle', 'Vote for the top 2 Lip Sync Battle champions\n*Both votes are equal 1 point each', placeholder),
+                new Element('Australia/New Zealand', null, placeholder, [new Button('Vote', 'postback', 'Vote_Australia/New Zealand')]),
+                new Element('Greater China', null, placeholder, [new Button('Vote', 'postback', 'Vote_Greater China')]),
+                new Element('India', null, placeholder, [new Button('Vote', 'postback', 'Vote_India')]),
+                new Element('Japan', null, placeholder, [new Button('Vote', 'postback', 'Vote_Japan')]),
+                new Element('Korea', null, placeholder, [new Button('Vote', 'postback', 'Vote_Korea')]),
+                new Element('Southeast Asia', null, placeholder, [new Button('Vote', 'postback', 'Vote_Southeast Asia')])
+              ];
 
-        quickReplies = [
-          new QuickReply('Back', 'Home')
-        ];
+              attachment = new Attachment('generic', elements);
+            }
 
-        message = new Message(attachment, quickReplies);
-        return reply(accessToken, recipientId, message);
+            quickReplies = [
+              new QuickReply('Back', 'Home')
+            ];
+
+            message = new Message(attachment, quickReplies);
+            return reply(accessToken, recipientId, message);
+          })
+          .catch((error) => {
+            console.log(error);
+            return;
+          });
 
       case 'Vote_Australia/New Zealand':
       case 'Vote_Greater China':
@@ -739,35 +752,50 @@ module.exports = (function() {
       case 'Vote_Southeast Asia':
         payloadRegion = payload.split('_')[1];
 
-        return queries.votes.fetchVotes(userId)
+        return queries.controls.getStatus('Lip Sync Battle')
           .then((result) => {
-            const { rows } = result;
+            const { active } = result.rows[0];
 
-            attachment = `Are you sure you want to vote for ${payloadRegion}?`;
+            isVotingActive = active;
 
-            quickReplies = [
-              new QuickReply('Confirm', `Confirm_${payloadRegion}`),
-              new QuickReply('Cancel', 'LipSyncBattle')
-            ];
+            return queries.votes.fetchVotes(userId);
+          })
+          .then((result) => {
+            if (!isVotingActive) {
+              attachment = 'Voting for Lip Sync Battle is closed at this time.';
 
-            rows.forEach((row) => {
-              if (row.region === payloadRegion) {
-                attachment = `Your already voted for ${payloadRegion}!`
+              quickReplies = [
+                new QuickReply('Back', 'Home')
+              ];
+            } else {
+              const { rows } = result;
+
+              attachment = `Are you sure you want to vote for ${payloadRegion}?`;
+
+              quickReplies = [
+                new QuickReply('Confirm', `Confirm_${payloadRegion}`),
+                new QuickReply('Cancel', 'LipSyncBattle')
+              ];
+
+              rows.forEach((row) => {
+                if (row.region === payloadRegion) {
+                  attachment = `You already placed your vote for ${payloadRegion}!`
+
+                  quickReplies = [
+                    new QuickReply('Back', 'LipSyncBattle'),
+                    new QuickReply('Home', 'Home')
+                  ];
+                }
+              });
+
+              if (rows.length >= 2) {
+                attachment = 'You already placed both of your votes!';
 
                 quickReplies = [
                   new QuickReply('Back', 'LipSyncBattle'),
                   new QuickReply('Home', 'Home')
                 ];
               }
-            });
-
-            if (rows.length >= 2) {
-              attachment = 'You already casted both of your votes!';
-
-              quickReplies = [
-                new QuickReply('Back', 'LipSyncBattle'),
-                new QuickReply('Home', 'Home')
-              ];
             }
 
             message = new Message(attachment, quickReplies);
