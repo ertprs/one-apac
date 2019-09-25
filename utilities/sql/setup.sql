@@ -28,3 +28,19 @@ INSERT INTO
   controls (description)
 VALUES
   ('Lip Sync Battle');
+
+-- views
+INSERT INTO
+  views (description)
+VALUES
+  ('Home'),
+  ('Agenda&Maps'),
+  ('Agenda'),
+  ('Day1'),
+  ('Day1Part1'),
+  ('Day1'),
+  ('Home'),
+  ('Home'),
+  ('Home'),
+  ('Home'),
+  ('Home'),
