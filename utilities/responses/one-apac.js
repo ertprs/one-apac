@@ -770,13 +770,6 @@ module.exports = (function() {
             } else {
               const { rows } = result;
 
-              attachment = `Are you sure you want to vote for ${payloadRegion}?`;
-
-              quickReplies = [
-                new QuickReply('Confirm', `Confirm_${payloadRegion}`),
-                new QuickReply('Cancel', 'LipSyncBattle')
-              ];
-
               rows.forEach((row) => {
                 if (row.region === payloadRegion) {
                   attachment = `You already placed your vote for ${payloadRegion}!`
@@ -795,6 +788,22 @@ module.exports = (function() {
                   new QuickReply('Back', 'LipSyncBattle'),
                   new QuickReply('Home', 'Home')
                 ];
+              } else {
+                attachment = `Your 1st of 2 votes is final. Are you sure you want to vote for ${payloadRegion}?`;
+
+                quickReplies = [
+                  new QuickReply('Confirm', 'LipSyncBattle')
+                ];
+
+                if (rows.length > 0) {
+                  attachment = `Your 2nd of 2 votes is final. Are you sure you want to vote for ${payloadRegion}?`
+
+                  quickReplies = [
+                    new QuickReply('Confirm', `Confirm_${payloadRegion}`),
+                  ];
+                }
+
+                quickReplies.push(new QuickReply('Cancel', 'LipSyncBattle'))
               }
             }
 
