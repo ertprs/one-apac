@@ -781,7 +781,7 @@ module.exports = (function() {
                 }
               });
 
-              if (rows.length >= 2) {
+              if (rows.length === 2) {
                 attachment = 'You already placed both of your votes!';
 
                 quickReplies = [
