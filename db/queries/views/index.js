@@ -1,5 +1,7 @@
 module.exports = (function() {
-  const knex = require('../../knex');
+  const
+    knex = require('../../knex'),
+    { logError } = require('../errors');
 
   function addView(menu) {
     return knex.raw(`
@@ -11,7 +13,13 @@ module.exports = (function() {
         description = :menu
     `, {
       menu
-    });
+    })
+      .then(() => {
+        return;
+      })
+      .catch((error) => {
+        return logError(error.name, error.message, error.stack);
+      });
   }
 
   function getViews() {
