@@ -60,3 +60,5 @@ router.route('/login')
         return response.status(error.status).send(error.message);
       });
   });
+
+module.exports = router;
