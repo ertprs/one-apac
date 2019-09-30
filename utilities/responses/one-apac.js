@@ -15,7 +15,7 @@ module.exports = (function() {
 
     switch (payload) {
       case 'Home':
-        queries.views.addView(menus.home);
+        queries.views.addView(menus.oneApac.home);
 
         buttons = [
           new Button('Agenda & Maps', 'postback', 'Agenda&Maps'),
@@ -33,7 +33,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Agenda&Maps':
-        queries.views.addView(menus.agendaAndMaps);
+        queries.views.addView(menus.oneApac.agendaAndMaps);
 
         buttons = [
           new Button('Agenda', 'postback', 'Agenda'),
@@ -55,7 +55,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Agenda':
-        queries.views.addView(menus.agenda);
+        queries.views.addView(menus.oneApac.agenda);
 
         buttons = [
           new Button('Day 1', 'postback', 'Day1'),
@@ -78,7 +78,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day1':
-        queries.views.addView(menus.agendaDayOne);
+        queries.views.addView(menus.oneApac.agendaDayOne);
 
         buttons = [
           new Button('9:00 am - 12:35 pm', 'postback', 'Day1Part1'),
@@ -101,7 +101,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day1Part1':
-        queries.views.addView(menus.agendaDayOnePartOne);
+        queries.views.addView(menus.oneApac.agendaDayOnePartOne);
 
         elements = [
           new Element('9:00 am - 10:00 am', 'APAC Vision & Priorities\n\nDan Neary\nVP, GBG APAC', placeholder),
@@ -127,7 +127,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day1Part2':
-        queries.views.addView(menus.agendaDayOnePartTwo);
+        queries.views.addView(menus.oneApac.agendaDayOnePartTwo);
 
         elements = [
           new Element('12:35 pm - 2:05 pm', 'Lunch', placeholder),
@@ -149,7 +149,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day1Part3':
-        queries.views.addView(menus.agendaDayOnePartThree);
+        queries.views.addView(menus.oneApac.agendaDayOnePartThree);
 
         elements = [
           new Element('3:25 pm - 4:00 pm', 'Break', placeholder),
@@ -173,7 +173,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2':
-        queries.views.addView(menus.agendaDayTwo);
+        queries.views.addView(menus.oneApac.agendaDayTwo);
 
         buttons = [
           new Button('Full Day Agenda', 'postback', 'Day2FullDayAgenda'),
@@ -196,7 +196,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2FullDayAgenda':
-        queries.views.addView(menus.agendaDayTwoFull);
+        queries.views.addView(menus.oneApac.agendaDayTwoFull);
 
         buttons = [
           new Button('9:00 am - 12:00 pm', 'postback', 'Day2FullDayAgendaPart1'),
@@ -218,7 +218,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2FullDayAgendaPart1':
-        queries.views.addView(menus.agendaDayTwoFullPartOne);
+        queries.views.addView(menus.oneApac.agendaDayTwoFullPartOne);
 
         elements = [
           new Element('9:00 am - 9:30 am', 'Opening & Kick Off\n\nKaren Teo\nVP, Head of APAC GBG Scaled', placeholder),
@@ -241,7 +241,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2FullDayAgendaPart2':
-        queries.views.addView(menus.agendaDayTwoFullPartTwo);
+        queries.views.addView(menus.oneApac.agendaDayTwoFullPartTwo);
 
         elements = [
           new Element('12:00 pm - 1:15 pm', 'Lunch Break', placeholder),
@@ -261,7 +261,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessions':
-        queries.views.addView(menus.agendaDayTwoBreakout);
+        queries.views.addView(menus.oneApac.agendaDayTwoBreakout);
 
         buttons = [
           new Button('A - L', 'postback', 'Day2BreakoutSessionsPart1'),
@@ -283,7 +283,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart1':
-        queries.views.addView(menus.agendaDayTwoBreakoutPartOne);
+        queries.views.addView(menus.oneApac.agendaDayTwoBreakoutPartOne);
 
         elements = [
           new Element('Breakouts A - L', 'Choose 3 of 11 breakout sessions to attend at:\n9:45 am\n10:45 am\n11:30 am', placeholder),
@@ -306,7 +306,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart1Details1':
-        queries.views.addView(menus.agendaDayTwoBreakoutPartOneDetailsOne);
+        queries.views.addView(menus.oneApac.agendaDayTwoBreakoutPartOneDetailsOne);
 
         attachment = 'Review the latest brand safety framework, our approach to reporting & enforcing community standards and evaluate new advertiser controls built for contextual placements.\n\n#Blocklist #Inventory Filters #Dynamic Content Sets #Publisher Whitelisting';
 
@@ -319,7 +319,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart1Details2':
-        queries.views.addView(menus.agendaDayTwoBreakoutPartOneDetailsTwo);
+        queries.views.addView(menus.oneApac.agendaDayTwoBreakoutPartOneDetailsTwo);
 
         attachment = 'Learn about the many ways that commerce is taking place across the family of apps and how clients can leverage the growing opportunity.\n\n#Marketplace #IG Shopping #Facebook Pay #Facebook Pages #Messenger #WhatsApp';
 
@@ -332,7 +332,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart1Details3':
-        queries.views.addView(menus.agendaDayTwoBreakoutPartOneDetailsThree);
+        queries.views.addView(menus.oneApac.agendaDayTwoBreakoutPartOneDetailsThree);
 
         attachment = 'An in-depth, tactical session going beyond placement and audience liquidity to explore tools, including placement asset customization and campaign budget optimization to increase performance at a lower cost.\n\n#Placement Liquidity #Audience Liquidity #Campaign Budget Optimization #Placement Asset Customization #Dynamic Creative Optimization';
 
@@ -345,7 +345,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart1Details4':
-        queries.views.addView(menus.agendaDayTwoBreakoutPartOneDetailsFour);
+        queries.views.addView(menus.oneApac.agendaDayTwoBreakoutPartOneDetailsFour);
 
         attachment = 'Signals are fundamental to our targeting and measurement capabilities. Learn how the changes in the ecosystem impact your clients and our product developments in the areas of signal resiliency and privacy.\n\n#Signals (Pixel, SDK, Offline Conversions) #Advanced Matching #Server-side Events';
 
@@ -358,7 +358,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart1Details5':
-        queries.views.addView(menus.agendaDayTwoBreakoutPartOneDetailsFive);
+        queries.views.addView(menus.oneApac.agendaDayTwoBreakoutPartOneDetailsFive);
 
         attachment = '52% of APAC cross-channel revenue goes across borders. Get the latest updates on our cross border products, tools and insights; and programs to remove operational barriers for market diversification.\n\n#Auto Translate for Dynamic Language Optimization (DLO) #Localized Catalog #Multi-Language and Country Dynamic Ads (MMDA)';
 
@@ -371,7 +371,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart1Details6':
-        queries.views.addView(menus.agendaDayTwoBreakoutPartOneDetailsSix);
+        queries.views.addView(menus.oneApac.agendaDayTwoBreakoutPartOneDetailsSix);
 
         attachment = 'Instagram is at the epicenter of the creator ecosystem. We will review the influencer landscape, client best practices, and deep dive into our branded content solutions.\n\n#Branded Content Ads';
 
@@ -384,7 +384,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart2':
-        queries.views.addView(menus.agendaDayTwoBreakoutPartTwo);
+        queries.views.addView(menus.oneApac.agendaDayTwoBreakoutPartTwo);
 
         elements = [
           new Element('Breakouts M - Z', 'Choose 3 of 11 breakout sessions to attend at:\n9:45 am\n10:45 am\n11:30 am', placeholder),
@@ -406,7 +406,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart2Details1':
-        queries.views.addView(menus.agendaDayTwoBreakoutPartTwoDetailsOne);
+        queries.views.addView(menus.oneApac.agendaDayTwoBreakoutPartTwoDetailsOne);
 
         attachment = 'Learn how we are building a video ecosystem comprising Users (role of WATCH in our ecosystem), Media Companies (getting premium video content) & Advertisers (new monetization products like Reserve).\n\n#Watch #In-stream #Reserve #Contextual Targeting';
 
@@ -419,7 +419,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart2Details2':
-        queries.views.addView(menus.agendaDayTwoBreakoutPartTwoDetailsTwo);
+        queries.views.addView(menus.oneApac.agendaDayTwoBreakoutPartTwoDetailsTwo);
 
         attachment = 'A dual session focused on the latest ad products for Stories creative including tools like Stories Templates, Editing Toolkits and stickers, paired with a fun session on creative best practices.\n\n#IG Stories #Stories Templates #Video Cropping and Editing #Stickers & Templates';
 
@@ -432,7 +432,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart2Details3':
-        queries.views.addView(menus.agendaDayTwoBreakoutPartTwoDetailsThree);
+        queries.views.addView(menus.oneApac.agendaDayTwoBreakoutPartTwoDetailsThree);
 
         attachment = 'Come learn about our journey launching an APAC-centric, QR-code powered loyalty product and forging partnerships with Point of Sale (POS) providers to help businesses bridge the O2O divide.\n\n#Loyalty #QR code #Offline Signals #Retargeting';
 
@@ -445,7 +445,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart2Details4':
-        queries.views.addView(menus.agendaDayTwoBreakoutPartTwoDetailsFour);
+        queries.views.addView(menus.oneApac.agendaDayTwoBreakoutPartTwoDetailsFour);
 
         attachment = 'SBG: Growing businesses through the funnel';
 
@@ -458,7 +458,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2BreakoutSessionsPart2Details5':
-        queries.views.addView(menus.agendaDayTwoBreakoutPartTwoDetailsFive);
+        queries.views.addView(menus.oneApac.agendaDayTwoBreakoutPartTwoDetailsFive);
 
         attachment = 'How strong XFN partnership between GBM, CAP & FCS can unlock short-form video adoption by inspiring, educating and empowering creative agencies to believe \'Powerful storytelling is possible in <10 secs\'.\n\n#Short Form Video Ads';
 
@@ -471,7 +471,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2TrainingSessions':
-        queries.views.addView(menus.agendaDayTwoTraining);
+        queries.views.addView(menus.oneApac.agendaDayTwoTraining);
 
         elements = [
           new Element('Training Sessions', 'Choose from one Training Session from 1:15 pm - 2:45 pm', placeholder),
@@ -493,7 +493,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2TrainingSessionsDetails1':
-        queries.views.addView(menus.agendaDayTwoTrainingDetailOne);
+        queries.views.addView(menus.oneApac.agendaDayTwoTrainingDetailOne);
 
         attachment = 'Interactive session on handling difficult situations in the workplace. The outcome is to build your confidence and collective capability in this area as leaders at Facebook.';
 
@@ -506,7 +506,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2TrainingSessionsDetails2':
-        queries.views.addView(menus.agendaDayTwoTrainingDetailTwo);
+        queries.views.addView(menus.oneApac.agendaDayTwoTrainingDetailTwo);
 
         attachment = 'Learn the skills needed to engage in difficult conversations with external audiences from one of the most influential executive media trainers, Lee Woodruff.';
 
@@ -519,7 +519,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2TrainingSessionsDetails3':
-        queries.views.addView(menus.agendaDayTwoTrainingDetailThree);
+        queries.views.addView(menus.oneApac.agendaDayTwoTrainingDetailThree);
 
         attachment = 'Aspire to always be your own culture champion? Discuss/reflect on where you could reinvest energy to optimize your personal values individually and in our community, in order to be fully authentic and engaged!';
 
@@ -532,7 +532,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2TrainingSessionsDetails4':
-        queries.views.addView(menus.agendaDayTwoTrainingDetailFour);
+        queries.views.addView(menus.oneApac.agendaDayTwoTrainingDetailFour);
 
         attachment = 'Get great tips to enhance our resilience, stay true to ourselves and thrive in an environment where we are expected to move fast and create impact!';
 
@@ -545,7 +545,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Day2TrainingSessionsDetails5':
-        queries.views.addView(menus.agendaDayTwoTrainingDetailFive);
+        queries.views.addView(menus.oneApac.agendaDayTwoTrainingDetailFive);
 
         attachment = 'Coaching skills enables us to realize our potential in a variety of contexts. In this interactive workshop you’ll learn, practice and apply key coaching principles to better support and align with your XFN colleagues.';
 
@@ -558,7 +558,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'DinnerEvents':
-        queries.views.addView(menus.agendaDinnerEvents);
+        queries.views.addView(menus.oneApac.agendaDinnerEvents);
 
         elements = [
           new Element('Welcome Dinner', 'Date: Nov 13, Wed\nTime: 6:30 pm - 10:00 pm\nVenue: ArtScience Museum', placeholder, [new Button('Getting There', 'postback', 'DinnerEventsPart1')]),
@@ -576,7 +576,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'DinnerEventsPart1':
-        queries.views.addView(menus.agendaDinnerEventsArtScience);
+        queries.views.addView(menus.oneApac.agendaDinnerEventsArtScience);
 
         attachment = 'ArtScience museum is a 5 minute walk from Marina Bay Sands.';
 
@@ -589,7 +589,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'DinnerEventsPart2':
-        queries.views.addView(menus.agendaDinnerEventsMarquee);
+        queries.views.addView(menus.oneApac.agendaDinnerEventsMarquee);
 
         attachment = 'Marquee is located at B1-67, Galleria Level, The Shoppes at Marina Bay Sands.  It is a 5 minute walk from the hotel towers.';
 
@@ -602,7 +602,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'ExperienceShowcase':
-        queries.views.addView(menus.experience);
+        queries.views.addView(menus.oneApac.experience);
 
         buttons = [
           new Button('Business', 'postback', 'ExperienceShowcaseBusiness'),
@@ -625,7 +625,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'ExperienceShowcaseBusiness':
-        queries.views.addView(menus.experienceBusiness);
+        queries.views.addView(menus.oneApac.experienceBusiness);
 
         elements = [
           new Element('Analog Lab', null, placeholder),
@@ -648,7 +648,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'ExperienceShowcaseCommunity':
-        queries.views.addView(menus.experienceCommunity);
+        queries.views.addView(menus.oneApac.experienceCommunity);
 
         elements = [
           new Element('Pride@', null, placeholder),
@@ -669,7 +669,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'ExperienceShowcasePeople':
-        queries.views.addView(menus.experiencePeople);
+        queries.views.addView(menus.oneApac.experiencePeople);
 
         elements = [
           new Element('Fuel', null, placeholder),
@@ -687,7 +687,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'VenueMaps':
-        queries.views.addView(menus.maps);
+        queries.views.addView(menus.oneApac.maps);
 
         buttons = [
           new Button('Breakout Rooms', 'postback', 'VenueMapsBreakout'),
@@ -709,7 +709,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'VenueMapsBreakout':
-        queries.views.addView(menus.mapsBreakout);
+        queries.views.addView(menus.oneApac.mapsBreakout);
 
         buttons = [
           new Button('Breakout Sessions', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/breakout+sessions+map.jpg'),
@@ -732,7 +732,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Transport&Contacts':
-        queries.views.addView(menus.transportAndContacts);
+        queries.views.addView(menus.oneApac.transportAndContacts);
 
         buttons = [
           new Button('Transportation', 'postback', 'Transportation'),
@@ -753,7 +753,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Transportation':
-        queries.views.addView(menus.transportAndContactsTransportation);
+        queries.views.addView(menus.oneApac.transportAndContactsTransportation);
 
         buttons = [
           new Button('Marina Bay Sands', 'postback', 'TransportationMBS'),
@@ -775,7 +775,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'TransportationMBS':
-        queries.views.addView(menus.transportAndContactsTransportationMBS);
+        queries.views.addView(menus.oneApac.transportAndContactsTransportationMBS);
 
         attachment = 'MRT:\nMarina Bay Sands is linked directly to Bayfront MRT station (CE1, Exit B, C, D, E) along the Circle Line Extension.\n\nBus:\nThe following bus routes serve Marina Bay Sands Hotel: 97, 106, 133, 502 and 518.\n\nTaxi:\nTo get around, we recommend Grab or calling +65-6552-1111 for a local cab.\nPlease alight at the drop-off point at the Sands Expo & Convention Centre.\n\nIf you are driving, please collect your complimentary parking coupons from the registration counter daily. Please note that parking coupons will be issued on a first-come-first-serve basis. Kindly refer to map below for entrance to the car park of Sands Expo & Convention Centre.'
 
@@ -788,7 +788,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'Contacts':
-        queries.views.addView(menus.transportAndContactsContacts);
+        queries.views.addView(menus.oneApac.transportAndContactsContacts);
 
         attachment = '[Emergency Contacts]\nPolice\n999\n\nAmbulance/Fire\n995\n\nISOS APAC\n+65-6338-7800\n\nFB GSOC\n+1-650-384-2000\n\nFB SOC-APAC\n+65-6704-3000\n\nEmail\nsecurity@fb.com\n\n[Facebook Onsite Help]\nHours of Operations\n13 November 2019\n8am-10pm\n\n14 November 2019\n8am-12am\n\n[Hotel Contacts]\nHotel Address\n10 Bayfront Avenue, Singapore 018956\n\nDuty Manager\n+65-6688-8833\n\nConcierge\n+65-6688-6061\n\nLost & Found\n+65-6688-0966';
 
@@ -801,7 +801,7 @@ module.exports = (function() {
         return reply(accessToken, recipientId, message);
 
       case 'LipSyncBattle':
-        queries.views.addView(menus.lipSyncBattle);
+        queries.views.addView(menus.oneApac.lipSyncBattle);
 
         return queries.controls.getStatus('Lip Sync Battle')
           .then((result) => {
@@ -843,7 +843,7 @@ module.exports = (function() {
       case 'Vote_Southeast Asia':
         payloadRegion = payload.split('_')[1];
 
-        queries.views.addView(menus.lipSyncBattleVote + payloadRegion);
+        queries.views.addView(menus.oneApac.lipSyncBattleVote + payloadRegion);
 
         return queries.controls.getStatus('Lip Sync Battle')
           .then((result) => {
