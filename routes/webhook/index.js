@@ -4,8 +4,7 @@ const
   { parsePayload, processEntryId, processPayload } = require('../../utilities/event-handler'),
   queries = require('../../db/queries');
 
-const
-  router = express.Router();
+const router = express.Router();
 
 router.route('/')
   .get((request, response) => {
