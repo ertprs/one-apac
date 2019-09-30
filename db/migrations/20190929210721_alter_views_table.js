@@ -8,7 +8,6 @@ exports.up = function(knex) {
 
 exports.down = function(knex) {
   return knex.schema.alterTable('views', (table) => {
-    table.string('description').unique().alter();
     table.integer('event_id').nullable().alter();
   });
 };
