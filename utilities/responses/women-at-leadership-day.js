@@ -112,8 +112,8 @@ module.exports = (function() {
 
       case 'MainSessions':
         buttons = [
-          new Button('Morning', 'postback', 'MainSessionsPart1'),
-          new Button('Afternoon', 'postback', 'MainSessionsPart2')
+          new Button('Morning Sessions', 'postback', 'MainSessionsPart1'),
+          new Button('Afternoon Sessions', 'postback', 'MainSessionsPart2')
         ];
 
         elements = [
@@ -206,7 +206,7 @@ module.exports = (function() {
 
       case 'Experiences':
         elements = [
-          new Element('Belong Exhibition', 'A collection of personal items by our women community that tells each of their story about belonging', placeholder),
+          new Element('Belong Exhibition', 'Exhibition by our women community that tells each of their story about belonging', placeholder),
           new Element('Art Installation', 'A special art installation by 8eyedspud, made for WLD APAC', placeholder, [new Button('Full Details', 'web_url', 'https://facebook.com')]),
           new Element('Analog Lab Pop-Up', 'Create your own silk screen poster or block post card', placeholder, [new Button('Full Details', 'web_url', 'https://facebook.com')]),
           new Element('Life@ Pop-Up', 'Learn more about how Facebook is supporting women', placeholder, [new Button('Full Details', 'web_url', 'https://facebook.com')]),
