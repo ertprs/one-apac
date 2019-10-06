@@ -168,19 +168,57 @@ module.exports = (function() {
 
       case 'BreakoutSessions':
         elements = [
-          new Element('Moms & Work', 'Facilitator 1, Room 1', placeholder),
-          new Element('Women Supporting Women', 'Facilitator 2, Room 2', placeholder),
-          new Element('Building Empathy', 'Facilitator 3, Room 3', placeholder),
-          new Element('50 Ways To Fight Bias', 'Facilitator 4, Room 4', placeholder),
-          new Element('Career Breakthrough: Build Your Personal Branding', 'Facilitator 5, Room 5', placeholder),
-          new Element('Career Breakthrough: Diversifying your Career', 'Facilitator 6, Room 6', placeholder),
-          new Element('Career Breakthrough: Leadership', 'Facilitator 7, Room 7', placeholder)
+          new Element('Moms & Work', 'Facilitator 1, Room 1', placeholder, [
+            new Button('View Map', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg'),
+            new Button('Details', 'postback', 'BreakoutSessionsDetails1')
+          ]),
+          new Element('Women Supporting Women', 'Facilitator 2, Room 2', placeholder, [
+            new Button('View Map', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg'),
+            new Button('Details', 'postback', 'BreakoutSessionsDetails2')
+          ]),
+          new Element('Building Empathy', 'Facilitator 3, Room 3', placeholder, [
+            new Button('View Map', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg'),
+            new Button('Details', 'postback', 'BreakoutSessionsDetails3')
+          ]),
+          new Element('50 Ways To Fight Bias', 'Facilitator 4, Room 4', placeholder, [
+            new Button('View Map', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg'),
+            new Button('Details', 'postback', 'BreakoutSessionsDetails4')
+          ]),
+          new Element('Career Breakthrough: Build Your Personal Branding', 'Facilitator 5, Room 5', placeholder, [
+            new Button('View Map', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg'),
+            new Button('Details', 'postback', 'BreakoutSessionsDetails5')
+          ]),
+          new Element('Career Breakthrough: Diversifying your Career', 'Facilitator 6, Room 6', placeholder, [
+            new Button('View Map', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg'),
+            new Button('Details', 'postback', 'BreakoutSessionsDetails6')
+          ]),
+          new Element('Career Breakthrough: Leadership', 'Facilitator 7, Room 7', placeholder, [
+            new Button('View Map', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg'),
+            new Button('Details', 'postback', 'BreakoutSessionsDetails8')
+          ])
         ];
 
         attachment = new Attachment('generic', elements);
 
         quickReplies = [
           new QuickReply('Back', 'Conference'),
+          new QuickReply('Home', 'Home')
+        ];
+
+        message = new Message(attachment, quickReplies);
+        return reply(accessToken, recipientId, message);
+
+      case 'BreakoutSessionsDetails1':
+      case 'BreakoutSessionsDetails2':
+      case 'BreakoutSessionsDetails3':
+      case 'BreakoutSessionsDetails4':
+      case 'BreakoutSessionsDetails5':
+      case 'BreakoutSessionsDetails6':
+      case 'BreakoutSessionsDetails7':
+        attachment = 'Details on specific sessions';
+
+        quickReplies = [
+          new QuickReply('Back', 'BreakoutSessions'),
           new QuickReply('Home', 'Home')
         ];
 
@@ -227,8 +265,8 @@ module.exports = (function() {
       case 'VenueMaps':
         buttons = [
           new Button('Event Floor', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg'),
-          new Button('Breakout Rooms', 'postback', 'BreakoutRooms'),
-          new Button('Experiences & Facilities', 'postback', 'Experiences&Facilities')
+          new Button('Breakout Rooms', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg'),
+          new Button('Facilities', 'postback', 'Facilities')
         ];
 
         elements = [
@@ -239,47 +277,6 @@ module.exports = (function() {
 
         quickReplies = [
           new QuickReply('Back', 'Home')
-        ];
-
-        message = new Message(attachment, quickReplies);
-        return reply(accessToken, recipientId, message);
-
-      case 'BreakoutRooms':
-        elements = [
-          new Element('Breakout', 'Room A', placeholder, [new Button('See Full Image', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg')]),
-          new Element('Breakout', 'Room B', placeholder, [new Button('See Full Image', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg')]),
-          new Element('Breakout', 'Room C', placeholder, [new Button('See Full Image', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg')]),
-          new Element('Breakout', 'Room D', placeholder, [new Button('See Full Image', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg')]),
-          new Element('Breakout', 'Room E', placeholder, [new Button('See Full Image', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg')]),
-          new Element('Breakout', 'Room F', placeholder, [new Button('See Full Image', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg')]),
-          new Element('Breakout', 'Room G', placeholder, [new Button('See Full Image', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg')])
-        ];
-
-        attachment = new Attachment('generic', elements);
-
-        quickReplies = [
-          new QuickReply('Back', 'VenueMaps'),
-          new QuickReply('Home', 'Home')
-        ];
-
-        message = new Message(attachment, quickReplies);
-        return reply(accessToken, recipientId, message);
-
-      case 'Experiences&Facilities':
-        buttons = [
-          new Button('Experiences', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg'),
-          new Button('Facilities', 'postback', 'Facilities')
-        ];
-
-        elements = [
-          new Element('Experiences & Facilities', null, placeholder, buttons)
-        ];
-
-        attachment = new Attachment('generic', elements);
-
-        quickReplies = [
-          new QuickReply('Back', 'VenueMaps'),
-          new QuickReply('Home', 'Home')
         ];
 
         message = new Message(attachment, quickReplies);
