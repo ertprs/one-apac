@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"component\" id=\"login\">\r\n  <div class=\"title roboto\">Please login to access your event dashboard.</div>\r\n  <form class=\"form\" id=\"form-login\">\r\n    <div class=\"fields\">\r\n      <input type=\"text\" placeholder=\"username\" required [(ngModel)]=\"form.username\" name=\"username\">\r\n      <input type=\"password\" placeholder=\"password\" required [(ngModel)]=\"form.password\" name=\"password\">\r\n    </div>\r\n    <button class=\"button oswald\" (click)=\"login\">Login</button>\r\n  </form>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"component\" id=\"login\">\r\n  <div class=\"title roboto\">Please login to access your event dashboard.</div>\r\n  <form class=\"form\" id=\"form-login\">\r\n    <div class=\"fields\">\r\n      <input type=\"text\" placeholder=\"username\" required [(ngModel)]=\"form.username\" name=\"username\">\r\n      <input type=\"password\" placeholder=\"password\" required [(ngModel)]=\"form.password\" name=\"password\">\r\n    </div>\r\n    <button class=\"button oswald\" (click)=\"login()\">Login</button>\r\n  </form>\r\n</div>");
 
 /***/ }),
 
