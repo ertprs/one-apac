@@ -28,6 +28,7 @@ router.route('/')
 
 router.route('/login')
   .post((request, response) => {
+    console.log('hit');
     const
       { body } = request,
       { username } = body;
