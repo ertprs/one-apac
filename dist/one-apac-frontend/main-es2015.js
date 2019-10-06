@@ -707,6 +707,7 @@ let LoginComponent = class LoginComponent {
     ngOnInit() {
     }
     login() {
+        console.log('hit');
         return this.administratorService.login(this.form['username'], this.form['password']);
     }
 };
@@ -945,6 +946,7 @@ let AdministratorService = class AdministratorService {
             username,
             password
         };
+        console.log('hit in service');
         return this.http.post('/api/administrators/login', body)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])((response) => {
             console.log(response);
