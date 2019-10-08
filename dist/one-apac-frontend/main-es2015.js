@@ -711,6 +711,7 @@ let LoginComponent = class LoginComponent {
             .subscribe((response) => {
             console.log('response: ', response);
         }, (error) => {
+            console.log('handle error here');
             console.log('error: ', error);
         });
     }
