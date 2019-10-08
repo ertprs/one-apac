@@ -707,8 +707,11 @@ let LoginComponent = class LoginComponent {
     ngOnInit() {
     }
     login() {
-        this.loginSubscription = this.administratorService.login(this.form['username'], this.form['password']).subscribe((response) => {
+        this.loginSubscription = this.administratorService.login(this.form['username'], this.form['password'])
+            .subscribe((response) => {
             console.log('response: ', response);
+        }, (error) => {
+            console.log('error: ', error);
         });
     }
     ngOnDestroy() {
