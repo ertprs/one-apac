@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <app-login *ngIf=\"!isLoggedIn()\"></app-login>\r\n  <div class=\"content\" *ngIf=\"administrator\">\r\n    Welcome {{administrator.username}}!\r\n  </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <app-login *ngIf=\"!isLoggedIn()\"></app-login>\r\n  <div class=\"content\" *ngIf=\"administrator.id\">\r\n    Welcome {{administrator.username}}!\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -872,16 +872,9 @@ __webpack_require__.r(__webpack_exports__);
 let HomeComponent = class HomeComponent {
     constructor(administratorService) {
         this.administratorService = administratorService;
-        this.loggedIn = this.isLoggedIn();
     }
     ngOnInit() {
         this.administrator = this.administratorService.administrator;
-    }
-    isLoggedIn() {
-        if (this.administrator.id) {
-            return true;
-        }
-        return false;
     }
 };
 HomeComponent.ctorParameters = () => [
