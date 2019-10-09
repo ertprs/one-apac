@@ -45,7 +45,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"component\" id=\"alert\">\n  {{alert.message}}\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"component\" id=\"alert\">\n  {{alert}}\n</div>");
 
 /***/ }),
 
