@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <app-login></app-login>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <app-login *ngIf=\"!isLoggedIn()\"></app-login>\r\n  <div class=\"content\" *ngIf=\"isLoggedIn()\">\r\n    Welcome {{administrator.username}}!\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -713,7 +713,7 @@ let LoginComponent = class LoginComponent {
         }, (error) => {
             return alert(error.error);
         }, () => {
-            console.log(`Login complete! Welcome ${this.administratorService.administrator.username}`);
+            console.log(`Login complete! Welcome ${this.administratorService.administrator.username}.`);
             return;
         });
     }
@@ -865,13 +865,27 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeComponent", function() { return HomeComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_administrator_administrator_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/administrator/administrator.service */ "./src/app/services/administrator/administrator.service.ts");
+
 
 
 let HomeComponent = class HomeComponent {
-    constructor() { }
+    constructor(administratorService) {
+        this.administratorService = administratorService;
+    }
     ngOnInit() {
+        this.administrator = this.administratorService.administrator;
+    }
+    isLoggedIn() {
+        if (this.administrator) {
+            return true;
+        }
+        return false;
     }
 };
+HomeComponent.ctorParameters = () => [
+    { type: _services_administrator_administrator_service__WEBPACK_IMPORTED_MODULE_2__["AdministratorService"] }
+];
 HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-home',

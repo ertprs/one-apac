@@ -18,7 +18,6 @@ router.route('/')
 
     return queries.administrators.insertAdministrator(username, password, eventId)
       .then(() => {
-        console.log('Administrator created');
         return response.sendStatus(httpStatusCodes.ok);
       })
       .catch((error) => {
@@ -42,13 +41,13 @@ router.route('/login')
 
         if (!administrator) {
           const usernameError = new Error('Incorrect username');
-          usernameError.status = 400;
+          usernameError.status = httpStatusCodes.badRequest;
           throw usernameError;
         }
 
         if (administrator.password !== password) {
           const passwordError = new Error('Incorrect password');
-          passwordError.status = 400;
+          passwordError.status = httpStatusCodes.badRequest;
           throw passwordError;
         }
 
@@ -61,7 +60,7 @@ router.route('/login')
         return response.status(httpStatusCodes.ok).json(payload);
       })
       .catch((error) => {
-        if (error.status !== 400) {
+        if (error.status !== httpStatusCodes.badRequest) {
           // ignoring bad request errors since it's being handled gracefully
           queries.errors.logError(error.name, error.message, error.stack);
         }
