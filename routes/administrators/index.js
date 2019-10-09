@@ -6,24 +6,24 @@ const
 
 const router = express.Router();
 
-router.route('/')
-  .post((request, response) => {
-    const
-      { body } = request,
-      { username, eventId } = body;
+// router.route('/')
+//   .post((request, response) => {
+//     const
+//       { body } = request,
+//       { username, eventId } = body;
 
-    let { password } = body;
+//     let { password } = body;
 
-    password = hashPassword(password);
+//     password = hashPassword(password);
 
-    return queries.administrators.insertAdministrator(username, password, eventId)
-      .then(() => {
-        return response.sendStatus(httpStatusCodes.ok);
-      })
-      .catch((error) => {
-        return queries.errors.logError(error.name, error.message, error.stack);
-      });
-  });
+//     return queries.administrators.insertAdministrator(username, password, eventId)
+//       .then(() => {
+//         return response.sendStatus(httpStatusCodes.ok);
+//       })
+//       .catch((error) => {
+//         return queries.errors.logError(error.name, error.message, error.stack);
+//       });
+//   });
 
 router.route('/login')
   .post((request, response) => {
