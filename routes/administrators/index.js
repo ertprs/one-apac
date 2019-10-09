@@ -52,7 +52,13 @@ router.route('/login')
           throw passwordError;
         }
 
-        return response.status(httpStatusCodes.ok).json(administrator);
+        const payload = {
+          id: administrator.id,
+          username: administrator.username,
+          eventId: administrator.eventId
+        };
+
+        return response.status(httpStatusCodes.ok).json(payload);
       })
       .catch((error) => {
         if (error.status !== 400) {

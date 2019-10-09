@@ -709,13 +709,18 @@ let LoginComponent = class LoginComponent {
     login() {
         this.loginSubscription = this.administratorService.login(this.form['username'], this.form['password'])
             .subscribe((response) => {
-            console.log('response: ', response);
+            return this.administratorService.setAdministrator(response);
         }, (error) => {
-            alert(error.error);
+            return alert(error.error);
+        }, () => {
+            console.log(`Login complete! Welcome ${this.administratorService.administrator.username}`);
+            return;
         });
     }
     ngOnDestroy() {
-        this.loginSubscription.unsubscribe();
+        if (this.loginSubscription) {
+            this.loginSubscription.unsubscribe();
+        }
     }
 };
 LoginComponent.ctorParameters = () => [
@@ -955,6 +960,10 @@ let AdministratorService = class AdministratorService {
         };
         return this.http.post('/api/administrators/login', body)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(data => data));
+    }
+    setAdministrator(administrator) {
+        this.administrator = administrator;
+        return;
     }
 };
 AdministratorService.ctorParameters = () => [
