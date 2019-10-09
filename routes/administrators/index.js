@@ -54,7 +54,7 @@ router.route('/login')
         const payload = {
           id: administrator.id,
           username: administrator.username,
-          eventId: administrator.eventId
+          eventId: administrator.event_id
         };
 
         return response.status(httpStatusCodes.ok).json(payload);
