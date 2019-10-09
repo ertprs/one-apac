@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <app-login *ngIf=\"!administrator.id\"></app-login>\r\n  <div class=\"content\" *ngIf=\"administrator.id\">\r\n    Welcome {{administrator.username}}!\r\n  </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <app-login *ngIf=\"!administrator\"></app-login>\r\n  <div class=\"content\" *ngIf=\"administrator\">\r\n    Welcome {{administrator.username}}!\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -582,24 +582,6 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
-/***/ "./src/app/classes/administrator/administrator.ts":
-/*!********************************************************!*\
-  !*** ./src/app/classes/administrator/administrator.ts ***!
-  \********************************************************/
-/*! exports provided: Administrator */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Administrator", function() { return Administrator; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-
-class Administrator {
-}
-
-
-/***/ }),
-
 /***/ "./src/app/classes/navigation/navigation.ts":
 /*!**************************************************!*\
   !*** ./src/app/classes/navigation/navigation.ts ***!
@@ -950,8 +932,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
-/* harmony import */ var _classes_administrator_administrator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../classes/administrator/administrator */ "./src/app/classes/administrator/administrator.ts");
-
 
 
 
@@ -959,7 +939,6 @@ __webpack_require__.r(__webpack_exports__);
 let AdministratorService = class AdministratorService {
     constructor(http) {
         this.http = http;
-        this.administrator = new _classes_administrator_administrator__WEBPACK_IMPORTED_MODULE_4__["Administrator"]();
     }
     login(username, password) {
         const body = {
