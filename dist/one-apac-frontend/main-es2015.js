@@ -971,6 +971,7 @@ let AdministratorService = class AdministratorService {
     }
     setAdministrator(administrator) {
         this.administrator = administrator;
+        console.log(this.administrator, 'service SetAdministrator');
         return;
     }
 };
