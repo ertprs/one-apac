@@ -32,7 +32,20 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"app\" [@routeTransitionAnimation]=\"prepareRoute(outlet)\">\r\n  <app-header></app-header>\r\n  <router-outlet #outlet=\"outlet\"></router-outlet>\r\n  <app-navigation></app-navigation>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"app\" [@routeTransitionAnimation]=\"prepareRoute(outlet)\">\r\n  <app-header></app-header>\r\n  <app-alert *ngIf=\"alert.message\"></app-alert>\r\n  <router-outlet #outlet=\"outlet\"></router-outlet>\r\n  <app-navigation></app-navigation>\r\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/alert/alert.component.html":
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/alert/alert.component.html ***!
+  \*********************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"component\" id=\"alert\">\n  {{alert.message}}\n</div>");
 
 /***/ }),
 
@@ -494,14 +507,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _animations_route_transition_animation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./animations/route-transition/animation */ "./src/app/animations/route-transition/animation.ts");
+/* harmony import */ var _services_alert_alert_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/alert/alert.service */ "./src/app/services/alert/alert.service.ts");
+
 
 
 
 let AppComponent = class AppComponent {
+    constructor(alertService) {
+        this.alertService = alertService;
+        this.alert = {
+            message: ''
+        };
+    }
+    ngOnInit() {
+        this.alert = this.alertService.alert;
+    }
     prepareRoute(outlet) {
         return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
     }
 };
+AppComponent.ctorParameters = () => [
+    { type: _services_alert_alert_service__WEBPACK_IMPORTED_MODULE_3__["AlertService"] }
+];
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-root',
@@ -539,6 +566,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./components/navigation/navigation.component */ "./src/app/components/navigation/navigation.component.ts");
 /* harmony import */ var _pages_statistics_statistics_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/statistics/statistics.component */ "./src/app/pages/statistics/statistics.component.ts");
 /* harmony import */ var _pages_broadcast_broadcast_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/broadcast/broadcast.component */ "./src/app/pages/broadcast/broadcast.component.ts");
+/* harmony import */ var _components_alert_alert_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/alert/alert.component */ "./src/app/components/alert/alert.component.ts");
+
 
 
 
@@ -564,7 +593,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _components_header_header_component__WEBPACK_IMPORTED_MODULE_10__["HeaderComponent"],
             _components_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_11__["NavigationComponent"],
             _pages_statistics_statistics_component__WEBPACK_IMPORTED_MODULE_12__["StatisticsComponent"],
-            _pages_broadcast_broadcast_component__WEBPACK_IMPORTED_MODULE_13__["BroadcastComponent"]
+            _pages_broadcast_broadcast_component__WEBPACK_IMPORTED_MODULE_13__["BroadcastComponent"],
+            _components_alert_alert_component__WEBPACK_IMPORTED_MODULE_14__["AlertComponent"]
         ],
         imports: [
             _app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"],
@@ -623,6 +653,50 @@ class Navigation {
 
 /***/ }),
 
+/***/ "./src/app/components/alert/alert.component.scss":
+/*!*******************************************************!*\
+  !*** ./src/app/components/alert/alert.component.scss ***!
+  \*******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvYWxlcnQvYWxlcnQuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/components/alert/alert.component.ts":
+/*!*****************************************************!*\
+  !*** ./src/app/components/alert/alert.component.ts ***!
+  \*****************************************************/
+/*! exports provided: AlertComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AlertComponent", function() { return AlertComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let AlertComponent = class AlertComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+AlertComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-alert',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./alert.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/alert/alert.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./alert.component.scss */ "./src/app/components/alert/alert.component.scss")).default]
+    })
+], AlertComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/header/header.component.scss":
 /*!*********************************************************!*\
   !*** ./src/app/components/header/header.component.scss ***!
@@ -632,7 +706,7 @@ class Navigation {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("#header {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  background-color: rgba(100, 120, 140, 0.5);\n  color: white;\n  font-size: 40px;\n  padding: 8px;\n}\n#header .title {\n  margin-left: 4px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9oZWFkZXIvQzpcXFVzZXJzXFxLaSBKdW5nIEtpbVxcRGVza3RvcFxcUHJvamVjdHNcXG9uZS1hcGFjLWZyb250ZW5kL3NyY1xcYXBwXFxjb21wb25lbnRzXFxoZWFkZXJcXGhlYWRlci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29tcG9uZW50cy9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBQTtFQUNBLG1CQUFBO0VBQ0EsbUJBQUE7RUFFQSwwQ0FBQTtFQUVBLFlBQUE7RUFFQSxlQUFBO0VBRUEsWUFBQTtBQ0hGO0FES0U7RUFDRSxnQkFBQTtBQ0hKIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI2hlYWRlciB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XHJcblxyXG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMTAwLCAxMjAsIDE0MCwgMC41KTtcclxuXHJcbiAgY29sb3I6IHdoaXRlO1xyXG5cclxuICBmb250LXNpemU6IDQwcHg7XHJcblxyXG4gIHBhZGRpbmc6IDhweDtcclxuXHJcbiAgLnRpdGxlIHtcclxuICAgIG1hcmdpbi1sZWZ0OiA0cHg7XHJcbiAgfVxyXG59IiwiI2hlYWRlciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMTAwLCAxMjAsIDE0MCwgMC41KTtcbiAgY29sb3I6IHdoaXRlO1xuICBmb250LXNpemU6IDQwcHg7XG4gIHBhZGRpbmc6IDhweDtcbn1cbiNoZWFkZXIgLnRpdGxlIHtcbiAgbWFyZ2luLWxlZnQ6IDRweDtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("#header {\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  height: 60px;\n  background-color: rgba(100, 120, 140, 0.5);\n  color: white;\n  font-size: 40px;\n  padding: 8px;\n}\n#header .title {\n  margin-left: 4px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9oZWFkZXIvQzpcXFVzZXJzXFxLaSBKdW5nIEtpbVxcRGVza3RvcFxcUHJvamVjdHNcXG9uZS1hcGFjLWZyb250ZW5kL3NyY1xcYXBwXFxjb21wb25lbnRzXFxoZWFkZXJcXGhlYWRlci5jb21wb25lbnQuc2NzcyIsInNyYy9hcHAvY29tcG9uZW50cy9oZWFkZXIvaGVhZGVyLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsYUFBQTtFQUNBLG1CQUFBO0VBQ0EsbUJBQUE7RUFFQSxZQUFBO0VBRUEsMENBQUE7RUFFQSxZQUFBO0VBRUEsZUFBQTtFQUVBLFlBQUE7QUNKRjtBRE1FO0VBQ0UsZ0JBQUE7QUNKSiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvaGVhZGVyL2hlYWRlci5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIiNoZWFkZXIge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgZmxleC1kaXJlY3Rpb246IHJvdztcclxuICBhbGlnbi1pdGVtczogY2VudGVyO1xyXG5cclxuICBoZWlnaHQ6IDYwcHg7XHJcblxyXG4gIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMTAwLCAxMjAsIDE0MCwgMC41KTtcclxuXHJcbiAgY29sb3I6IHdoaXRlO1xyXG5cclxuICBmb250LXNpemU6IDQwcHg7XHJcblxyXG4gIHBhZGRpbmc6IDhweDtcclxuXHJcbiAgLnRpdGxlIHtcclxuICAgIG1hcmdpbi1sZWZ0OiA0cHg7XHJcbiAgfVxyXG59IiwiI2hlYWRlciB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XG4gIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gIGhlaWdodDogNjBweDtcbiAgYmFja2dyb3VuZC1jb2xvcjogcmdiYSgxMDAsIDEyMCwgMTQwLCAwLjUpO1xuICBjb2xvcjogd2hpdGU7XG4gIGZvbnQtc2l6ZTogNDBweDtcbiAgcGFkZGluZzogOHB4O1xufVxuI2hlYWRlciAudGl0bGUge1xuICBtYXJnaW4tbGVmdDogNHB4O1xufSJdfQ== */");
 
 /***/ }),
 
@@ -693,12 +767,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_administrator_administrator_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/administrator/administrator.service */ "./src/app/services/administrator/administrator.service.ts");
+/* harmony import */ var _services_alert_alert_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/alert/alert.service */ "./src/app/services/alert/alert.service.ts");
+
 
 
 
 let LoginComponent = class LoginComponent {
-    constructor(administratorService) {
+    constructor(administratorService, alertService) {
         this.administratorService = administratorService;
+        this.alertService = alertService;
         this.form = {
             username: '',
             password: ''
@@ -711,7 +788,7 @@ let LoginComponent = class LoginComponent {
             .subscribe((response) => {
             console.log('response: ', response);
         }, (error) => {
-            alert(error.error);
+            this.alertService.displayAlert(error.error);
         });
     }
     ngOnDestroy() {
@@ -719,7 +796,8 @@ let LoginComponent = class LoginComponent {
     }
 };
 LoginComponent.ctorParameters = () => [
-    { type: _services_administrator_administrator_service__WEBPACK_IMPORTED_MODULE_2__["AdministratorService"] }
+    { type: _services_administrator_administrator_service__WEBPACK_IMPORTED_MODULE_2__["AdministratorService"] },
+    { type: _services_alert_alert_service__WEBPACK_IMPORTED_MODULE_3__["AlertService"] }
 ];
 LoginComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -965,6 +1043,44 @@ AdministratorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         providedIn: 'root'
     })
 ], AdministratorService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/alert/alert.service.ts":
+/*!*************************************************!*\
+  !*** ./src/app/services/alert/alert.service.ts ***!
+  \*************************************************/
+/*! exports provided: AlertService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AlertService", function() { return AlertService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let AlertService = class AlertService {
+    constructor() {
+        this.alert = {
+            message: ''
+        };
+    }
+    displayAlert(message) {
+        this.alert['message'] = message;
+        setTimeout(() => {
+            this.alert['message'] = '';
+        }, 3000);
+        return;
+    }
+};
+AlertService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], AlertService);
 
 
 
