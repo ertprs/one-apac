@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <app-login *ngIf=\"!administrator\"></app-login>\r\n  <div class=\"content\" *ngIf=\"administrator\">\r\n    Welcome {{administrator.username}}!\r\n  </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <div>{{administrator}}</div>\r\n  <app-login *ngIf=\"!administrator\"></app-login>\r\n  <div class=\"content\" *ngIf=\"administrator\">\r\n    Welcome {{administrator.username}}!\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -950,7 +950,6 @@ let AdministratorService = class AdministratorService {
     }
     setAdministrator(administrator) {
         this.administrator = administrator;
-        console.log(this.administrator, 'service SetAdministrator');
         return;
     }
 };
