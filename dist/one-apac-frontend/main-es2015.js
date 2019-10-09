@@ -878,7 +878,7 @@ let HomeComponent = class HomeComponent {
         console.log(this.administrator);
     }
     isLoggedIn() {
-        if (this.administrator) {
+        if (this.administrator.id) {
             return true;
         }
         return false;
