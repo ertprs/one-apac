@@ -875,7 +875,6 @@ let HomeComponent = class HomeComponent {
     }
     ngOnInit() {
         this.administrator = this.administratorService.administrator;
-        console.log(this.administrator);
     }
     isLoggedIn() {
         if (this.administrator.id) {
