@@ -55,7 +55,10 @@ router.route('/login')
         return response.status(httpStatusCodes.ok).json(administrator);
       })
       .catch((error) => {
-        queries.errors.logError(error.name, error.message, error.stack);
+        if (error.status !== 400) {
+          // ignoring bad request errors since it's being handled gracefully
+          queries.errors.logError(error.name, error.message, error.stack);
+        }
 
         return response.status(error.status).send(error.message);
       });
