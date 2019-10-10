@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"app\" [@routeTransitionAnimation]=\"prepareRoute(outlet)\">\r\n  <app-header></app-header>\r\n  <router-outlet #outlet=\"outlet\"></router-outlet>\r\n  <app-navigation></app-navigation>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"app\" [@routeTransitionAnimation]=\"prepareRoute(outlet)\">\r\n  <app-header></app-header>\r\n  <router-outlet #outlet=\"outlet\"></router-outlet>\r\n  <app-navigation [@navigationAppearAnimation]=\"administrator.id ? 'loggedIn' : 'notLoggedIn'\"></app-navigation>\r\n</div>");
 
 /***/ }),
 
@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <app-login *ngIf=\"!administrator.id\"></app-login>\r\n  <div class=\"content\" *ngIf=\"administrator.id\">\r\n    Welcome {{administrator.username}}!\r\n  </div>\r\n  <button (click)=\"test()\">test</button>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <app-login *ngIf=\"!administrator.id\"></app-login>\r\n  <div class=\"content\" *ngIf=\"administrator.id\">\r\n    Welcome {{administrator.username}}!\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -343,6 +343,33 @@ function __importDefault(mod) {
 
 /***/ }),
 
+/***/ "./src/app/animations/navigation-appear/animation.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/animations/navigation-appear/animation.ts ***!
+  \***********************************************************/
+/*! exports provided: navigationAppearAnimation */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "navigationAppearAnimation", function() { return navigationAppearAnimation; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_animations__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/animations */ "./node_modules/@angular/animations/fesm2015/animations.js");
+
+
+const navigationAppearAnimation = Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["trigger"])('navigationAppearAnimation', [
+    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('notLoggedIn', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
+        opacity: '0'
+    })),
+    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('loggedIn', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
+        opacity: '1'
+    })),
+    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('notLoggedIn <=> loggedIn', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('1000ms ease-in-out'))
+]);
+
+
+/***/ }),
+
 /***/ "./src/app/animations/route-transition/animation.ts":
 /*!**********************************************************!*\
   !*** ./src/app/animations/route-transition/animation.ts ***!
@@ -494,19 +521,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _animations_route_transition_animation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./animations/route-transition/animation */ "./src/app/animations/route-transition/animation.ts");
+/* harmony import */ var _services_administrator_administrator_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./services/administrator/administrator.service */ "./src/app/services/administrator/administrator.service.ts");
+/* harmony import */ var _animations_navigation_appear_animation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./animations/navigation-appear/animation */ "./src/app/animations/navigation-appear/animation.ts");
+
+
 
 
 
 let AppComponent = class AppComponent {
+    constructor(administratorService) {
+        this.administratorService = administratorService;
+    }
+    ngOnInit() {
+        this.administrator = this.administratorService.administrator;
+    }
     prepareRoute(outlet) {
         return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
     }
 };
+AppComponent.ctorParameters = () => [
+    { type: _services_administrator_administrator_service__WEBPACK_IMPORTED_MODULE_3__["AdministratorService"] }
+];
 AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-root',
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./app.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/app.component.html")).default,
-        animations: [_animations_route_transition_animation__WEBPACK_IMPORTED_MODULE_2__["routeTransitionAnimation"]],
+        animations: [_animations_route_transition_animation__WEBPACK_IMPORTED_MODULE_2__["routeTransitionAnimation"], _animations_navigation_appear_animation__WEBPACK_IMPORTED_MODULE_4__["navigationAppearAnimation"]],
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./app.component.scss */ "./src/app/app.component.scss")).default]
     })
 ], AppComponent);
@@ -768,9 +808,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let NavigationComponent = class NavigationComponent {
-    constructor() {
-        this.navigations = new Array();
-    }
+    constructor() { }
     ngOnInit() {
         const navigations = [
             new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Home', 'fas fa-home', '/'),
@@ -875,9 +913,6 @@ let HomeComponent = class HomeComponent {
     }
     ngOnInit() {
         this.administrator = this.administratorService.administrator;
-    }
-    test() {
-        console.log(this.administrator);
     }
 };
 HomeComponent.ctorParameters = () => [
