@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <app-login *ngIf=\"!administrator.id\"></app-login>\r\n  <div class=\"content\" [@loginAnimation]=\"administrator.id ? 'loggedIn' : 'notLoggedIn'\">\r\n    Welcome {{administrator.username}}!\r\n  </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <app-login *ngIf=\"!administrator.id\"></app-login>\r\n  <div class=\"content\" [@loginAnimation]=\"administrator.id ? 'loggedIn' : 'notLoggedIn'\">\r\n    <div class=\"oswald title\">\r\n      Welcome {{administrator.username}}!\r\n    </div>\r\n    <div class=\"roboto subtitle\">\r\n      For any questions or problems, please contact the developer directly at kimkijung@icloud.com\r\n    </div>\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -889,7 +889,7 @@ BroadcastComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2hvbWUvaG9tZS5jb21wb25lbnQuc2NzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = ("#home .content {\n  width: 600px;\n  display: flex;\n  flex-direction: column;\n}\n#home .content .title {\n  font-size: 32px;\n  font-weight: bold;\n}\n#home .content .subtitle {\n  font-size: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvaG9tZS9DOlxcVXNlcnNcXEtpIEp1bmcgS2ltXFxEZXNrdG9wXFxQcm9qZWN0c1xcb25lLWFwYWMtZnJvbnRlbmQvc3JjXFxhcHBcXHBhZ2VzXFxob21lXFxob21lLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9wYWdlcy9ob21lL2hvbWUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0U7RUFDRSxZQUFBO0VBRUEsYUFBQTtFQUNBLHNCQUFBO0FDREo7QURHSTtFQUNFLGVBQUE7RUFDQSxpQkFBQTtBQ0ROO0FESUk7RUFDRSxlQUFBO0FDRk4iLCJmaWxlIjoic3JjL2FwcC9wYWdlcy9ob21lL2hvbWUuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjaG9tZSB7XHJcbiAgLmNvbnRlbnQge1xyXG4gICAgd2lkdGg6IDYwMHB4O1xyXG5cclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG5cclxuICAgIC50aXRsZSB7XHJcbiAgICAgIGZvbnQtc2l6ZTogMzJweDtcclxuICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICB9XHJcblxyXG4gICAgLnN1YnRpdGxlIHtcclxuICAgICAgZm9udC1zaXplOiAyMHB4O1xyXG4gICAgfVxyXG4gIH1cclxufSIsIiNob21lIC5jb250ZW50IHtcbiAgd2lkdGg6IDYwMHB4O1xuICBkaXNwbGF5OiBmbGV4O1xuICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xufVxuI2hvbWUgLmNvbnRlbnQgLnRpdGxlIHtcbiAgZm9udC1zaXplOiAzMnB4O1xuICBmb250LXdlaWdodDogYm9sZDtcbn1cbiNob21lIC5jb250ZW50IC5zdWJ0aXRsZSB7XG4gIGZvbnQtc2l6ZTogMjBweDtcbn0iXX0= */");
 
 /***/ }),
 
