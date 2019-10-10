@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <app-login *ngIf=\"!administrator.id\"></app-login>\r\n  <div class=\"content\" *ngIf=\"administrator.id\">\r\n    Welcome {{administrator.username}}!\r\n  </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <app-login *ngIf=\"!administrator.id\"></app-login>\r\n  <div class=\"content\" *ngIf=\"administrator.id\"\r\n    [@navigationAppearAnimation]=\"administrator.id ? 'loggedIn' : 'notLoggedIn'\">\r\n    Welcome {{administrator.username}}!\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -904,6 +904,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _services_administrator_administrator_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/administrator/administrator.service */ "./src/app/services/administrator/administrator.service.ts");
+/* harmony import */ var _animations_navigation_appear_animation__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../animations/navigation-appear/animation */ "./src/app/animations/navigation-appear/animation.ts");
+
 
 
 
@@ -922,6 +924,7 @@ HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-home',
         template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./home.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/home/home.component.html")).default,
+        animations: [_animations_navigation_appear_animation__WEBPACK_IMPORTED_MODULE_3__["navigationAppearAnimation"]],
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./home.component.scss */ "./src/app/pages/home/home.component.scss")).default]
     })
 ], HomeComponent);
