@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <app-login *ngIf=\"!administrator.id\"></app-login>\r\n  <div class=\"content\" [@loginAnimation]=\"administrator.id ? 'loggedIn' : 'notLoggedIn'\">\r\n    <div class=\"oswald title\">\r\n      Welcome {{administrator.username}}!\r\n    </div>\r\n    <div class=\"roboto subtitle\">\r\n      For any questions or problems, please contact the developer directly at kimkijung@icloud.com\r\n    </div>\r\n  </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <app-login *ngIf=\"!administrator.id\"></app-login>\r\n  <div class=\"content\" [@loginAnimation]=\"administrator.id ? 'loggedIn' : 'notLoggedIn'\">\r\n    <div class=\"oswald title\">\r\n      Welcome {{administrator.username}}!\r\n    </div>\r\n    <div class=\"roboto subtitle\">\r\n      If you need to login to another account, please <span class=\"logout-button\" (click)=\"logout()\">logout</span>\r\n      first. For any questions or\r\n      problems, please contact\r\n      the developer directly at kimkijung@icloud.com\r\n    </div>\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -959,7 +959,7 @@ BroadcastComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("#home .content {\n  display: flex;\n  flex-direction: column;\n}\n#home .content .title {\n  font-size: 32px;\n  font-weight: bold;\n}\n#home .content .subtitle {\n  font-size: 20px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvaG9tZS9DOlxcVXNlcnNcXEtpIEp1bmcgS2ltXFxEZXNrdG9wXFxQcm9qZWN0c1xcb25lLWFwYWMtZnJvbnRlbmQvc3JjXFxhcHBcXHBhZ2VzXFxob21lXFxob21lLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9wYWdlcy9ob21lL2hvbWUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0U7RUFDRSxhQUFBO0VBQ0Esc0JBQUE7QUNBSjtBREVJO0VBQ0UsZUFBQTtFQUNBLGlCQUFBO0FDQU47QURHSTtFQUNFLGVBQUE7QUNETiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2hvbWUvaG9tZS5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIiNob21lIHtcclxuICAuY29udGVudCB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuXHJcbiAgICAudGl0bGUge1xyXG4gICAgICBmb250LXNpemU6IDMycHg7XHJcbiAgICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gICAgfVxyXG5cclxuICAgIC5zdWJ0aXRsZSB7XHJcbiAgICAgIGZvbnQtc2l6ZTogMjBweDtcclxuICAgIH1cclxuICB9XHJcbn0iLCIjaG9tZSAuY29udGVudCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG59XG4jaG9tZSAuY29udGVudCAudGl0bGUge1xuICBmb250LXNpemU6IDMycHg7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xufVxuI2hvbWUgLmNvbnRlbnQgLnN1YnRpdGxlIHtcbiAgZm9udC1zaXplOiAyMHB4O1xufSJdfQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("#home .content {\n  display: flex;\n  flex-direction: column;\n}\n#home .content .title {\n  font-size: 32px;\n  font-weight: bold;\n}\n#home .content .subtitle {\n  font-size: 20px;\n}\n#home .content .subtitle .logout-button {\n  text-decoration: underline;\n}\n#home .content .subtitle .logout-button:hover {\n  cursor: pointer;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvaG9tZS9DOlxcVXNlcnNcXEtpIEp1bmcgS2ltXFxEZXNrdG9wXFxQcm9qZWN0c1xcb25lLWFwYWMtZnJvbnRlbmQvc3JjXFxhcHBcXHBhZ2VzXFxob21lXFxob21lLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9wYWdlcy9ob21lL2hvbWUuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0U7RUFDRSxhQUFBO0VBQ0Esc0JBQUE7QUNBSjtBREVJO0VBQ0UsZUFBQTtFQUNBLGlCQUFBO0FDQU47QURHSTtFQUNFLGVBQUE7QUNETjtBREdNO0VBQ0UsMEJBQUE7QUNEUjtBREdRO0VBQ0UsZUFBQTtBQ0RWIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvaG9tZS9ob21lLmNvbXBvbmVudC5zY3NzIiwic291cmNlc0NvbnRlbnQiOlsiI2hvbWUge1xyXG4gIC5jb250ZW50IHtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG5cclxuICAgIC50aXRsZSB7XHJcbiAgICAgIGZvbnQtc2l6ZTogMzJweDtcclxuICAgICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICB9XHJcblxyXG4gICAgLnN1YnRpdGxlIHtcclxuICAgICAgZm9udC1zaXplOiAyMHB4O1xyXG5cclxuICAgICAgLmxvZ291dC1idXR0b24ge1xyXG4gICAgICAgIHRleHQtZGVjb3JhdGlvbjogdW5kZXJsaW5lO1xyXG5cclxuICAgICAgICAmOmhvdmVyIHtcclxuICAgICAgICAgIGN1cnNvcjogcG9pbnRlcjtcclxuICAgICAgICB9XHJcbiAgICAgIH1cclxuICAgIH1cclxuICB9XHJcbn0iLCIjaG9tZSAuY29udGVudCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG59XG4jaG9tZSAuY29udGVudCAudGl0bGUge1xuICBmb250LXNpemU6IDMycHg7XG4gIGZvbnQtd2VpZ2h0OiBib2xkO1xufVxuI2hvbWUgLmNvbnRlbnQgLnN1YnRpdGxlIHtcbiAgZm9udC1zaXplOiAyMHB4O1xufVxuI2hvbWUgLmNvbnRlbnQgLnN1YnRpdGxlIC5sb2dvdXQtYnV0dG9uIHtcbiAgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7XG59XG4jaG9tZSAuY29udGVudCAuc3VidGl0bGUgLmxvZ291dC1idXR0b246aG92ZXIge1xuICBjdXJzb3I6IHBvaW50ZXI7XG59Il19 */");
 
 /***/ }),
 
@@ -987,6 +987,9 @@ let HomeComponent = class HomeComponent {
     }
     ngOnInit() {
         this.administrator = this.administratorService.administrator;
+    }
+    logout() {
+        return this.administratorService.logout();
     }
 };
 HomeComponent.ctorParameters = () => [
@@ -1130,6 +1133,12 @@ let AdministratorService = class AdministratorService {
         this.administrator.id = administrator.id;
         this.administrator.username = administrator.username;
         this.administrator.eventId = administrator.eventId;
+        return;
+    }
+    logout() {
+        this.administrator.id = null;
+        this.administrator.username = null;
+        this.administrator.eventId = null;
         return;
     }
 };
