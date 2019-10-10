@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <app-login *ngIf=\"!administrator.id\"></app-login>\r\n  <div class=\"content\" *ngIf=\"administrator.id\"\r\n    [@navigationAppearAnimation]=\"administrator.id ? 'loggedIn' : 'notLoggedIn'\">\r\n    Welcome {{administrator.username}}!\r\n  </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <app-login *ngIf=\"!administrator.id\"></app-login>\r\n  <div class=\"content\" [@navigationAppearAnimation]=\"administrator.id ? 'loggedIn' : 'notLoggedIn'\">\r\n    Welcome {{administrator.username}}!\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -359,6 +359,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const navigationAppearAnimation = Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["trigger"])('navigationAppearAnimation', [
     Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('notLoggedIn', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
+        display: 'none',
         opacity: '0'
     })),
     Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('loggedIn', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
