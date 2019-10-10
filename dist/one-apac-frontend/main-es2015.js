@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"broadcast\">\r\n  Broadcast works!\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"broadcast\">\r\n  <div class=\"content\">\r\n\r\n    <select [(ngModel)]=\"selectedBroadcast\">\r\n      <option value=\"\" disabled selected hidden>Select broadcast message or type your own below</option>\r\n      <option *ngFor=\"let broadcast of broadcasts | async\" value={{broadcast}}>\r\n        {{broadcastMessage.description}}</option>\r\n    </select>\r\n\r\n    <form>\r\n      <textarea cols=\"30\" rows=\"20\" [(ngModel)]=\"message\"></textarea>\r\n      <button class=\"button oswald\" (click)=\"test()\">Send Broadcast</button>\r\n    </form>\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -931,13 +931,52 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BroadcastComponent", function() { return BroadcastComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_administrator_administrator_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/administrator/administrator.service */ "./src/app/services/administrator/administrator.service.ts");
+/* harmony import */ var _services_broadcast_broadcast_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/broadcast/broadcast.service */ "./src/app/services/broadcast/broadcast.service.ts");
+
+
 
 
 let BroadcastComponent = class BroadcastComponent {
-    constructor() { }
+    constructor(administratorService, broadcastService) {
+        this.administratorService = administratorService;
+        this.broadcastService = broadcastService;
+    }
     ngOnInit() {
+        this.administrator = this.administratorService.administrator;
+        this.broadcasts = this.getBroadcastMessages(this.administrator.eventId);
+    }
+    getBroadcastMessages(eventId) {
+        return this.broadcastService.getBroadcasts(eventId);
+    }
+    sendBroadcast() {
+        if (!this.selectedBroadcast) {
+        }
+        this.broadcastSubscription = this.broadcastService.sendBroadcast(this.selectedBroadcast)
+            .subscribe(() => {
+            // successful
+            console.log('success');
+            return;
+        }, (error) => {
+            return alert(error.message);
+        }, () => {
+            console.log('request ended');
+            return;
+        });
+    }
+    test() {
+        console.log(this.selectedBroadcast);
+    }
+    ngOnDestroy() {
+        if (this.broadcastSubscription) {
+            this.broadcastSubscription.unsubscribe();
+        }
     }
 };
+BroadcastComponent.ctorParameters = () => [
+    { type: _services_administrator_administrator_service__WEBPACK_IMPORTED_MODULE_2__["AdministratorService"] },
+    { type: _services_broadcast_broadcast_service__WEBPACK_IMPORTED_MODULE_3__["BroadcastService"] }
+];
 BroadcastComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-broadcast',
@@ -1150,6 +1189,50 @@ AdministratorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         providedIn: 'root'
     })
 ], AdministratorService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/broadcast/broadcast.service.ts":
+/*!*********************************************************!*\
+  !*** ./src/app/services/broadcast/broadcast.service.ts ***!
+  \*********************************************************/
+/*! exports provided: BroadcastService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "BroadcastService", function() { return BroadcastService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+let BroadcastService = class BroadcastService {
+    constructor(http) {
+        this.http = http;
+    }
+    getBroadcasts(eventId) {
+        return this.http.get('/api/broadcasts' + `?eventId=${eventId}`)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(data => data));
+    }
+    sendBroadcast(broadcast) {
+        return this.http.post('/api/broadcasts', broadcast)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(data => data));
+    }
+};
+BroadcastService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+BroadcastService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], BroadcastService);
 
 
 
