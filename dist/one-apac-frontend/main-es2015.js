@@ -359,11 +359,12 @@ __webpack_require__.r(__webpack_exports__);
 
 const navigationAppearAnimation = Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["trigger"])('navigationAppearAnimation', [
     Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('notLoggedIn', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
-        display: 'none',
-        opacity: '0'
+        opacity: '0',
+        color: 'rgba(0, 0, 0, 0)'
     })),
     Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('loggedIn', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
-        opacity: '1'
+        opacity: '1',
+        color: 'black'
     })),
     Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('notLoggedIn <=> loggedIn', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('1000ms ease-in-out'))
 ]);
