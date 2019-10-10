@@ -6,25 +6,24 @@ const
 
 const router = express.Router();
 
-router.route('/')
-  .post((request, response) => {
-    const
-      { body } = request,
-      { username, eventId } = body;
+// router.route('/')
+//   .post((request, response) => {
+//     const
+//       { body } = request,
+//       { username, eventId } = body;
 
-    let { password } = body;
+//     let { password } = body;
 
-    password = hashPassword(password);
+//     password = hashPassword(password);
 
-    return queries.administrators.insertAdministrator(username, password, eventId)
-      .then(() => {
-        console.log('Administrator created');
-        return response.sendStatus(httpStatusCodes.ok);
-      })
-      .catch((error) => {
-        return queries.errors.logError(error.name, error.message, error.stack);
-      });
-  });
+//     return queries.administrators.insertAdministrator(username, password, eventId)
+//       .then(() => {
+//         return response.sendStatus(httpStatusCodes.ok);
+//       })
+//       .catch((error) => {
+//         return queries.errors.logError(error.name, error.message, error.stack);
+//       });
+//   });
 
 router.route('/login')
   .post((request, response) => {
@@ -42,20 +41,29 @@ router.route('/login')
 
         if (!administrator) {
           const usernameError = new Error('Incorrect username');
-          usernameError.status = 400;
+          usernameError.status = httpStatusCodes.badRequest;
           throw usernameError;
         }
 
         if (administrator.password !== password) {
           const passwordError = new Error('Incorrect password');
-          passwordError.status = 400;
+          passwordError.status = httpStatusCodes.badRequest;
           throw passwordError;
         }
 
-        return response.status(httpStatusCodes.ok).json(administrator);
+        const payload = {
+          id: administrator.id,
+          username: administrator.username,
+          eventId: administrator.event_id
+        };
+
+        return response.status(httpStatusCodes.ok).json(payload);
       })
       .catch((error) => {
-        queries.errors.logError(error.name, error.message, error.stack);
+        if (error.status !== httpStatusCodes.badRequest) {
+          // ignoring bad request errors since it's being handled gracefully
+          queries.errors.logError(error.name, error.message, error.stack);
+        }
 
         return response.status(error.status).send(error.message);
       });
