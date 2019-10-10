@@ -379,7 +379,7 @@ const loginAnimation = Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["
         opacity: '1',
         color: 'black'
     })),
-    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('hide <=> show', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('1000ms ease-in-out'))
+    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('hide => show', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('1000ms ease-in-out'))
 ]);
 
 
