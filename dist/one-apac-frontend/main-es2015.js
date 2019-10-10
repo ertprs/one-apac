@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <app-login *ngIf=\"!administrator.id\" [@loginAnimation]=\"administrator.id ? 'hide' : 'show'\"></app-login>\r\n  <div class=\"content\" [@loginAnimation]=\"administrator.id ? 'show' : 'hide'\">\r\n    <div class=\"oswald title\">\r\n      Welcome {{administrator.username}}!\r\n    </div>\r\n    <div class=\"roboto subtitle\">\r\n      If you need to login to another account, please <span class=\"logout-button\" (click)=\"logout()\">logout</span>\r\n      first. For any questions or\r\n      problems, please contact\r\n      the developer directly at kimkijung@icloud.com\r\n    </div>\r\n  </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <app-login *ngIf=\"!administrator.id\"></app-login>\r\n  <div class=\"content\" [@loginAnimation]=\"administrator.id ? 'show' : 'hide'\">\r\n    <div class=\"oswald title\">\r\n      Welcome {{administrator.username}}!\r\n    </div>\r\n    <div class=\"roboto subtitle\">\r\n      If you need to login to another account, please <span class=\"logout-button\" (click)=\"logout()\">logout</span>\r\n      first. For any questions or\r\n      problems, please contact\r\n      the developer directly at kimkijung@icloud.com\r\n    </div>\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<p>page-not-found works!</p>\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<p>page-not-found works!</p>\r\n");
 
 /***/ }),
 
