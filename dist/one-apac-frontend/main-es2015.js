@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"app\" [@routeTransitionAnimation]=\"prepareRoute(outlet)\">\r\n  <app-header></app-header>\r\n  <router-outlet #outlet=\"outlet\"></router-outlet>\r\n  <app-navigation [@loginAnimation]=\"administrator.id ? 'loggedIn' : 'notLoggedIn'\"></app-navigation>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div id=\"app\" [@routeTransitionAnimation]=\"prepareRoute(outlet)\">\r\n  <app-header></app-header>\r\n  <router-outlet #outlet=\"outlet\"></router-outlet>\r\n  <app-navigation [@loginAnimation]=\"administrator.id ? 'show' : 'hide'\"></app-navigation>\r\n</div>");
 
 /***/ }),
 
@@ -97,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <app-login *ngIf=\"!administrator.id\" [@loginAnimation]=\"administrator.id ? 'loggedIn' : 'notLoggedIn'\"></app-login>\r\n  <div class=\"content\" [@loginAnimation]=\"administrator.id ? 'loggedIn' : 'notLoggedIn'\">\r\n    <div class=\"oswald title\">\r\n      Welcome {{administrator.username}}!\r\n    </div>\r\n    <div class=\"roboto subtitle\">\r\n      If you need to login to another account, please <span class=\"logout-button\" (click)=\"logout()\">logout</span>\r\n      first. For any questions or\r\n      problems, please contact\r\n      the developer directly at kimkijung@icloud.com\r\n    </div>\r\n  </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"home\">\r\n  <app-login *ngIf=\"!administrator.id\" [@loginAnimation]=\"administrator.id ? 'hide' : 'show'\"></app-login>\r\n  <div class=\"content\" [@loginAnimation]=\"administrator.id ? 'show' : 'hide'\">\r\n    <div class=\"oswald title\">\r\n      Welcome {{administrator.username}}!\r\n    </div>\r\n    <div class=\"roboto subtitle\">\r\n      If you need to login to another account, please <span class=\"logout-button\" (click)=\"logout()\">logout</span>\r\n      first. For any questions or\r\n      problems, please contact\r\n      the developer directly at kimkijung@icloud.com\r\n    </div>\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -371,15 +371,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const loginAnimation = Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["trigger"])('loginAnimation', [
-    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('notLoggedIn', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
+    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('hide', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
         opacity: '0',
         color: 'rgba(0, 0, 0, 0)'
     })),
-    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('loggedIn', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
+    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["state"])('show', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({
         opacity: '1',
         color: 'black'
     })),
-    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('notLoggedIn <=> loggedIn', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('1000ms ease-in-out'))
+    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('hide <=> show', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('1000ms ease-in-out'))
 ]);
 
 
