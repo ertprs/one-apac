@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.route('/')
   .get((request, response) => {
-    const { eventId } = request.params;
+    const { eventId } = request.query;
     console.log(eventId);
 
     return queries.broadcasts.getBroadcasts(eventId)
