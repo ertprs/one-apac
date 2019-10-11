@@ -84,3 +84,14 @@ VALUES
   ('Lip Sync Battle > Vote Confirmation > Japan', 1),
   ('Lip Sync Battle > Vote Confirmation > Korea', 1),
   ('Lip Sync Battle > Vote Confirmation > Southeast Asia', 1);
+
+-- broadcasts
+INSERT INTO
+  broadcasts (description, message, event_id)
+VALUES
+  ('Test Message 1', 'Spicy jalapeno jowl buffalo kevin rump flank picanha alcatra. Swine short ribs t-bone sausage pig. Beef pig alcatra spare ribs, pork chop t-bone frankfurter chuck jowl ham rump ribeye strip steak short ribs. ', 1),
+  ('Test Message 2', 'Rump doner chicken spare ribs pancetta, andouille landjaeger meatball jerky.', 1),
+  ('Test Message 3', 'Short ribs drumstick meatball jowl, shank chuck boudin bresaola porchetta cow filet mignon ham hock pastrami kielbasa.', 1),
+  ('Test Message 1', 'Spicy jalapeno jowl buffalo kevin rump flank picanha alcatra. Swine short ribs t-bone sausage pig. Beef pig alcatra spare ribs, pork chop t-bone frankfurter chuck jowl ham rump ribeye strip steak short ribs. ', 2),
+  ('Test Message 2', 'Rump doner chicken spare ribs pancetta, andouille landjaeger meatball jerky.', 2),
+  ('Test Message 3', 'Short ribs drumstick meatball jowl, shank chuck boudin bresaola porchetta cow filet mignon ham hock pastrami kielbasa.', 2);
