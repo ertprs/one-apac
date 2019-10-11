@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"broadcast\">\r\n  <div class=\"content\">\r\n\r\n    <select [(ngModel)]=\"selectedBroadcast | async\" (ngModelChange)=\"test()\">\r\n      <option value=\"\" disabled selected hidden>Select broadcast message or type your own below</option>\r\n      <option *ngFor=\"let broadcast of broadcasts | async\" [ngValue]=\"broadcast\">\r\n        {{broadcast.description}}</option>\r\n    </select>\r\n\r\n    <form>\r\n      <textarea cols=\"30\" rows=\"20\" [(ngModel)]=\"message\" name=\"message\"></textarea>\r\n      <button class=\"button oswald\" (click)=\"sendBroadcast()\">Send Broadcast</button>\r\n    </form>\r\n  </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"broadcast\">\r\n  <div class=\"content\">\r\n\r\n    <select [(ngModel)]=\"selectedBroadcast\" (ngModelChange)=\"test()\">\r\n      <option value=\"\" disabled selected hidden>Select broadcast message or type your own below</option>\r\n      <option *ngFor=\"let broadcast of broadcasts | async\" [ngValue]=\"broadcast\">\r\n        {{broadcast.description}}</option>\r\n    </select>\r\n\r\n    <form>\r\n      <textarea cols=\"30\" rows=\"20\" [(ngModel)]=\"message\" name=\"message\"></textarea>\r\n      <button class=\"button oswald\" (click)=\"sendBroadcast()\">Send Broadcast</button>\r\n    </form>\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -966,6 +966,7 @@ let BroadcastComponent = class BroadcastComponent {
     }
     test() {
         console.log(this.selectedBroadcast.message);
+        this.message = this.selectedBroadcast.message;
     }
     ngOnDestroy() {
         if (this.broadcastSubscription) {
