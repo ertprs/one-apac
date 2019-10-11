@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"broadcast\">\r\n  <div class=\"content\">\r\n\r\n    <select [(ngModel)]=\"selectedBroadcast\" (ngModelChange)=\"test()\">\r\n      <option value=\"\" disabled selected hidden>Select broadcast message or type your own below</option>\r\n      <option *ngFor=\"let broadcast of broadcasts | async\" [ngValue]=\"broadcast\">\r\n        {{broadcast.description}}</option>\r\n    </select>\r\n\r\n    <form>\r\n      <textarea cols=\"30\" rows=\"20\" [(ngModel)]=\"message\" name=\"message\"></textarea>\r\n      <button class=\"button oswald\" (click)=\"sendBroadcast()\">Send Broadcast</button>\r\n    </form>\r\n  </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"broadcast\">\r\n  <div class=\"content\">\r\n\r\n    <select class=\"select\" [(ngModel)]=\"selectedBroadcast\" (ngModelChange)=\"setSelectedBroadcastAsMessage()\">\r\n      <option value=\"\" disabled selected>Select broadcast message or type your own below</option>\r\n      <option *ngFor=\"let broadcast of broadcasts | async\" [ngValue]=\"broadcast\">\r\n        {{broadcast.description}}</option>\r\n    </select>\r\n\r\n    <textarea cols=\"30\" rows=\"20\" [(ngModel)]=\"message\" name=\"message\"></textarea>\r\n\r\n    <button class=\"button oswald\" (click)=\"sendBroadcast()\">Send Broadcast</button>\r\n\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -915,7 +915,7 @@ AuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2Jyb2FkY2FzdC9icm9hZGNhc3QuY29tcG9uZW50LnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("#broadcast .content {\n  display: flex;\n  flex-direction: column;\n}\n#broadcast .content .select {\n  width: 100%;\n  border: none;\n  outline: none;\n  font-size: 20px;\n  padding: 8px;\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);\n}\n#broadcast .content .select::after {\n  content: \"<>\";\n  width: 100%;\n  transform: rotate(\"90deg\");\n  right: 0;\n  top: 0;\n  text-align: center;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvYnJvYWRjYXN0L0M6XFxVc2Vyc1xcS2kgSnVuZyBLaW1cXERlc2t0b3BcXFByb2plY3RzXFxvbmUtYXBhYy1mcm9udGVuZC9zcmNcXGFwcFxccGFnZXNcXGJyb2FkY2FzdFxcYnJvYWRjYXN0LmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9wYWdlcy9icm9hZGNhc3QvYnJvYWRjYXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVFO0VBQ0UsYUFBQTtFQUNBLHNCQUFBO0FDREo7QURHSTtFQUNFLFdBQUE7RUFFQSxZQUFBO0VBQ0EsYUFBQTtFQUVBLGVBQUE7RUFFQSxZQUFBO0VBRUEsd0JBQUE7S0FBQSxxQkFBQTtVQUFBLGdCQUFBO0VBRUEsc0NBQUE7QUNOTjtBRFFNO0VBQ0UsYUFBQTtFQUNBLFdBQUE7RUFFQSwwQkFBQTtFQUNBLFFBQUE7RUFDQSxNQUFBO0VBQ0Esa0JBQUE7QUNQUiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2Jyb2FkY2FzdC9icm9hZGNhc3QuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjYnJvYWRjYXN0IHtcclxuXHJcbiAgLmNvbnRlbnQge1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcblxyXG4gICAgLnNlbGVjdCB7XHJcbiAgICAgIHdpZHRoOiAxMDAlO1xyXG5cclxuICAgICAgYm9yZGVyOiBub25lO1xyXG4gICAgICBvdXRsaW5lOiBub25lO1xyXG5cclxuICAgICAgZm9udC1zaXplOiAyMHB4O1xyXG5cclxuICAgICAgcGFkZGluZzogOHB4O1xyXG5cclxuICAgICAgYXBwZWFyYW5jZTogbm9uZTtcclxuXHJcbiAgICAgIGJveC1zaGFkb3c6IDAgMCA0cHggcmdiYSgwLCAwLCAwLCAwLjUpO1xyXG5cclxuICAgICAgJjo6YWZ0ZXIge1xyXG4gICAgICAgIGNvbnRlbnQ6ICc8Pic7XHJcbiAgICAgICAgd2lkdGg6IDEwMCU7XHJcblxyXG4gICAgICAgIHRyYW5zZm9ybTogcm90YXRlKCc5MGRlZycpO1xyXG4gICAgICAgIHJpZ2h0OiAwO1xyXG4gICAgICAgIHRvcDogMDtcclxuICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbiAgICAgIH1cclxuXHJcbiAgICB9XHJcbiAgfVxyXG59IiwiI2Jyb2FkY2FzdCAuY29udGVudCB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XG59XG4jYnJvYWRjYXN0IC5jb250ZW50IC5zZWxlY3Qge1xuICB3aWR0aDogMTAwJTtcbiAgYm9yZGVyOiBub25lO1xuICBvdXRsaW5lOiBub25lO1xuICBmb250LXNpemU6IDIwcHg7XG4gIHBhZGRpbmc6IDhweDtcbiAgYXBwZWFyYW5jZTogbm9uZTtcbiAgYm94LXNoYWRvdzogMCAwIDRweCByZ2JhKDAsIDAsIDAsIDAuNSk7XG59XG4jYnJvYWRjYXN0IC5jb250ZW50IC5zZWxlY3Q6OmFmdGVyIHtcbiAgY29udGVudDogXCI8PlwiO1xuICB3aWR0aDogMTAwJTtcbiAgdHJhbnNmb3JtOiByb3RhdGUoXCI5MGRlZ1wiKTtcbiAgcmlnaHQ6IDA7XG4gIHRvcDogMDtcbiAgdGV4dC1hbGlnbjogY2VudGVyO1xufSJdfQ== */");
 
 /***/ }),
 
@@ -964,13 +964,13 @@ let BroadcastComponent = class BroadcastComponent {
             return;
         });
     }
-    test() {
-        console.log(this.selectedBroadcast.message);
+    setSelectedBroadcastAsMessage() {
         this.message = this.selectedBroadcast.message;
+        return;
     }
     ngOnDestroy() {
         if (this.broadcastSubscription) {
-            this.broadcastSubscription.unsubscribe();
+            return this.broadcastSubscription.unsubscribe();
         }
     }
 };
