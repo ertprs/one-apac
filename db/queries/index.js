@@ -1,5 +1,6 @@
 const
   administrators = require('./administrators'),
+  broadcasts = require('./broadcasts'),
   controls = require('./controls'),
   errors = require('./errors'),
   events = require('./events'),
@@ -9,6 +10,7 @@ const
 
 const queries = {
   administrators,
+  broadcasts,
   controls,
   errors,
   events,
