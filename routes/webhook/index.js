@@ -1,6 +1,8 @@
 const
   express = require('express'),
+  rp = require('request-promise'),
   httpStatusCodes = require('../../utilities/constants/http-status-codes'),
+  entryIdLabels = require('../../utilities/constants/entry-id-labels'),
   { parsePayload, processEntryId, processPayload } = require('../../utilities/event-handler'),
   queries = require('../../db/queries');
 
@@ -29,7 +31,7 @@ router.route('/')
   .post((request, response) => {
     const body = request.body;
 
-    let entryId, event, senderId, payload, accessToken, eventId;
+    let entryId, event, senderId, payload, accessToken, eventId, userId;
 
     if (body.object !== 'page') {
       return response.sendStatus(httpStatusCodes.notFound);
@@ -43,7 +45,7 @@ router.route('/')
       payload = parsePayload(event); // get payload based on event type
     });
 
-    return queries.events.fetchByPageId(entryId)
+    return queries.events.getByPageId(entryId)
       .then((result) => {
         const { id } = result.rows[0]; // id of events table
 
@@ -53,6 +55,7 @@ router.route('/')
       })
       .then((result) => {
         const user = result.rows[0]; // id of users table
+        user.existing = true;
 
         if (!user) {
           return queries.users.insert(senderId, eventId);
@@ -61,8 +64,30 @@ router.route('/')
         return { rows: [user] };
       })
       .then((result) => {
-        const userId = result.rows[0].id; // id of users table
+        userId = result.rows[0].id; // id of users table
 
+        const
+          existingUser = result.rows[0].existing,
+          facebookId = result.rows[0].facebook_id; // page scoped id
+
+        if (!existingUser) {
+          const attachLabelToUserOptions = {
+            uri: `https://graph.facebook.com/v2.11/${entryIdLabels[entryId]}/label`,
+            qs: {
+              access_token
+            },
+            method: "POST",
+            json: {
+              user: facebookId
+            }
+          }
+
+          return rp(attachLabelToUserOptions);
+        }
+
+        return;
+      })
+      .then(() => {
         return processPayload(accessToken, payload, senderId, userId);
       })
       .catch((error) => {
