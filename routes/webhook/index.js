@@ -55,11 +55,12 @@ router.route('/')
       })
       .then((result) => {
         const user = result.rows[0]; // id of users table
-        user.existing = true;
 
         if (!user) {
           return queries.users.insert(senderId, eventId);
         }
+
+        user.existing = true;
 
         return { rows: [user] };
       })
