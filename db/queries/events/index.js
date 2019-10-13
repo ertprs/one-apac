@@ -1,7 +1,7 @@
 module.exports = (function() {
   const knex = require('../../knex');
 
-  function fetchByPageId(pageId) {
+  function getByPageId(pageId) {
     return knex.raw(`
       SELECT
         *
@@ -14,7 +14,21 @@ module.exports = (function() {
     });
   }
 
+  function getById(id) {
+    return knex.raw(`
+      SELECT
+        *
+      FROM
+        events
+      WHERE
+        id = :id
+    `, {
+      id
+    });
+  }
+
   return {
-    fetchByPageId
+    getById,
+    getByPageId
   };
 })();
