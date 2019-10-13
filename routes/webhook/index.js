@@ -75,7 +75,7 @@ router.route('/')
           const attachLabelToUserOptions = {
             uri: `https://graph.facebook.com/v2.11/${entryIdLabels[entryId]}/label`,
             qs: {
-              access_token
+              access_token: accessToken
             },
             method: "POST",
             json: {
