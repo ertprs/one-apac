@@ -69,7 +69,7 @@ router.route('/')
 
         const
           existingUser = result.rows[0].existing,
-          facebookId = result.rows[0].facebook_id; // page scoped id
+          pageUserId = result.rows[0].page_user_id; // page scoped id
 
         if (!existingUser) {
           const attachLabelToUserOptions = {
@@ -79,7 +79,7 @@ router.route('/')
             },
             method: "POST",
             json: {
-              user: facebookId
+              user: pageUserId
             }
           }
 
