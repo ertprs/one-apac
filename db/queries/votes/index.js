@@ -1,7 +1,21 @@
 module.exports = (function() {
   const knex = require('../../knex');
 
-  function fetchVotes(userId) {
+  function fetchVotes() {
+    return knex.raw(`
+      SELECT
+        c.region, COUNT(cu.user_id)
+      FROM
+        contestants_users cu
+      JOIN
+        contestants c
+        ON c.id = cu.contestant_id
+      GROUP BY
+        c.region
+    `);
+  }
+
+  function fetchVotesByUser(userId) {
     return knex.raw(`
       SELECT
         c.region
@@ -36,6 +50,7 @@ module.exports = (function() {
 
   return {
     castVote,
-    fetchVotes
+    fetchVotes,
+    fetchVotesByUser
   };
 })();
