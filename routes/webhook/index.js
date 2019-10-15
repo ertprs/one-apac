@@ -55,11 +55,12 @@ router.route('/')
       })
       .then((result) => {
         const user = result.rows[0]; // id of users table
-        user.existing = true;
 
         if (!user) {
           return queries.users.insert(senderId, eventId);
         }
+
+        user.existing = true;
 
         return { rows: [user] };
       })
@@ -68,17 +69,17 @@ router.route('/')
 
         const
           existingUser = result.rows[0].existing,
-          facebookId = result.rows[0].facebook_id; // page scoped id
+          pageUserId = result.rows[0].page_user_id; // page scoped id
 
         if (!existingUser) {
           const attachLabelToUserOptions = {
             uri: `https://graph.facebook.com/v2.11/${entryIdLabels[entryId]}/label`,
             qs: {
-              access_token
+              access_token: accessToken
             },
             method: "POST",
             json: {
-              user: facebookId
+              user: pageUserId
             }
           }
 
