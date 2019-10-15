@@ -4,14 +4,18 @@ const
   entryIdLabels = require('../../utilities/constants/entry-id-labels'),
   httpStatusCodes = require('../../utilities/constants/http-status-codes'),
   { processEntryId } = require('../../utilities/event-handler'),
-  Message = require('../../utilities/models/Message');
-queries = require('../../db/queries');
+  Message = require('../../utilities/models/Message'),
+  queries = require('../../db/queries');
 
 const router = express.Router();
 
 router.route('/')
   .get((request, response) => {
     const { eventId } = request.query;
+
+    if (!eventId) {
+      return response.sendStatus(httpStatusCodes.badRequest);
+    }
 
     return queries.broadcasts.getBroadcasts(eventId)
       .then((result) => {
