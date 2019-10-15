@@ -5,7 +5,7 @@ const
 
 const router = express.Router();
 
-router.Route('/')
+router.route('/')
   .get((request, response) => {
     return queries.votes.fetchVotes()
       .then((result) => {
