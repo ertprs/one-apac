@@ -21,7 +21,7 @@ module.exports = (function() {
       VALUES
         (:pageUserId, :eventId)
       RETURNING
-        id
+        id, page_user_id
     `, {
       eventId,
       pageUserId

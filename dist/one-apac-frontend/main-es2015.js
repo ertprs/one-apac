@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"broadcast\">\r\n  <div class=\"content\">\r\n\r\n    <select [(ngModel)]=\"selectedBroadcast\">\r\n      <option value=\"\" disabled selected hidden>Select broadcast message or type your own below</option>\r\n      <option *ngFor=\"let broadcast of broadcasts | async\" value={{broadcast}}>\r\n        {{broadcastMessage.description}}</option>\r\n    </select>\r\n\r\n    <form>\r\n      <textarea cols=\"30\" rows=\"20\" [(ngModel)]=\"message\"></textarea>\r\n      <button class=\"button oswald\" (click)=\"test()\">Send Broadcast</button>\r\n    </form>\r\n  </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"broadcast\">\r\n  <div class=\"content\">\r\n\r\n    <select class=\"select\" [(ngModel)]=\"selectedBroadcast\" (ngModelChange)=\"setSelectedBroadcastAsMessage()\">\r\n      <option value=\"\" disabled selected>Select broadcast message or type your own below</option>\r\n      <option *ngFor=\"let broadcast of broadcasts | async\" [ngValue]=\"broadcast\">\r\n        {{broadcast.description}}\r\n      </option>\r\n    </select>\r\n\r\n    <textarea class=\"textarea\" cols=\"30\" rows=\"20\" [(ngModel)]=\"message\" name=\"message\"></textarea>\r\n\r\n    <button class=\"button oswald\" (click)=\"sendBroadcast()\">Send Broadcast</button>\r\n\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"statistics\">\r\n  statistics works!\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"statistics\">\r\n  <div class=\"content\">\r\n\r\n    <div class=\"view\" *ngFor=\"let view of views | async\">{{view.description}}</div>\r\n\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -915,7 +915,7 @@ AuthGuard = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2Jyb2FkY2FzdC9icm9hZGNhc3QuY29tcG9uZW50LnNjc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = ("#broadcast .content {\n  display: flex;\n  flex-direction: column;\n}\n#broadcast .content .select {\n  width: 100%;\n  border: none;\n  outline: none;\n  font-size: 20px;\n  margin-bottom: 24px;\n  padding: 8px;\n  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5);\n}\n#broadcast .content .textarea {\n  margin-bottom: 24px;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvYnJvYWRjYXN0L0M6XFxVc2Vyc1xcS2kgSnVuZyBLaW1cXERlc2t0b3BcXFByb2plY3RzXFxvbmUtYXBhYy1mcm9udGVuZC9zcmNcXGFwcFxccGFnZXNcXGJyb2FkY2FzdFxcYnJvYWRjYXN0LmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9wYWdlcy9icm9hZGNhc3QvYnJvYWRjYXN0LmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUVFO0VBQ0UsYUFBQTtFQUNBLHNCQUFBO0FDREo7QURHSTtFQUNFLFdBQUE7RUFFQSxZQUFBO0VBQ0EsYUFBQTtFQUVBLGVBQUE7RUFFQSxtQkFBQTtFQUVBLFlBQUE7RUFFQSxzQ0FBQTtBQ05OO0FEU0k7RUFDRSxtQkFBQTtBQ1BOIiwiZmlsZSI6InNyYy9hcHAvcGFnZXMvYnJvYWRjYXN0L2Jyb2FkY2FzdC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIiNicm9hZGNhc3Qge1xyXG5cclxuICAuY29udGVudCB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcclxuXHJcbiAgICAuc2VsZWN0IHtcclxuICAgICAgd2lkdGg6IDEwMCU7XHJcblxyXG4gICAgICBib3JkZXI6IG5vbmU7XHJcbiAgICAgIG91dGxpbmU6IG5vbmU7XHJcblxyXG4gICAgICBmb250LXNpemU6IDIwcHg7XHJcblxyXG4gICAgICBtYXJnaW4tYm90dG9tOiAyNHB4O1xyXG5cclxuICAgICAgcGFkZGluZzogOHB4O1xyXG5cclxuICAgICAgYm94LXNoYWRvdzogMCAwIDRweCByZ2JhKDAsIDAsIDAsIDAuNSk7XHJcbiAgICB9XHJcblxyXG4gICAgLnRleHRhcmVhIHtcclxuICAgICAgbWFyZ2luLWJvdHRvbTogMjRweDtcclxuICAgIH1cclxuICB9XHJcbn0iLCIjYnJvYWRjYXN0IC5jb250ZW50IHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IGNvbHVtbjtcbn1cbiNicm9hZGNhc3QgLmNvbnRlbnQgLnNlbGVjdCB7XG4gIHdpZHRoOiAxMDAlO1xuICBib3JkZXI6IG5vbmU7XG4gIG91dGxpbmU6IG5vbmU7XG4gIGZvbnQtc2l6ZTogMjBweDtcbiAgbWFyZ2luLWJvdHRvbTogMjRweDtcbiAgcGFkZGluZzogOHB4O1xuICBib3gtc2hhZG93OiAwIDAgNHB4IHJnYmEoMCwgMCwgMCwgMC41KTtcbn1cbiNicm9hZGNhc3QgLmNvbnRlbnQgLnRleHRhcmVhIHtcbiAgbWFyZ2luLWJvdHRvbTogMjRweDtcbn0iXX0= */");
 
 /***/ }),
 
@@ -950,9 +950,10 @@ let BroadcastComponent = class BroadcastComponent {
         return this.broadcastService.getBroadcasts(eventId);
     }
     sendBroadcast() {
-        if (!this.selectedBroadcast) {
+        if (!this.message) {
+            return alert('Message cannot be blank!');
         }
-        this.broadcastSubscription = this.broadcastService.sendBroadcast(this.selectedBroadcast)
+        this.broadcastSubscription = this.broadcastService.sendBroadcast(this.message, this.administrator.eventId)
             .subscribe(() => {
             // successful
             console.log('success');
@@ -964,12 +965,13 @@ let BroadcastComponent = class BroadcastComponent {
             return;
         });
     }
-    test() {
-        console.log(this.selectedBroadcast);
+    setSelectedBroadcastAsMessage() {
+        this.message = this.selectedBroadcast.message;
+        return;
     }
     ngOnDestroy() {
         if (this.broadcastSubscription) {
-            this.broadcastSubscription.unsubscribe();
+            return this.broadcastSubscription.unsubscribe();
         }
     }
 };
@@ -1116,13 +1118,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StatisticsComponent", function() { return StatisticsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_administrator_administrator_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/administrator/administrator.service */ "./src/app/services/administrator/administrator.service.ts");
+/* harmony import */ var _services_statistics_statistics_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/statistics/statistics.service */ "./src/app/services/statistics/statistics.service.ts");
+
+
 
 
 let StatisticsComponent = class StatisticsComponent {
-    constructor() { }
+    constructor(administratorService, statisticsService) {
+        this.administratorService = administratorService;
+        this.statisticsService = statisticsService;
+    }
     ngOnInit() {
+        this.administrator = this.administratorService.administrator;
     }
 };
+StatisticsComponent.ctorParameters = () => [
+    { type: _services_administrator_administrator_service__WEBPACK_IMPORTED_MODULE_2__["AdministratorService"] },
+    { type: _services_statistics_statistics_service__WEBPACK_IMPORTED_MODULE_3__["StatisticsService"] }
+];
 StatisticsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-statistics',
@@ -1220,8 +1234,8 @@ let BroadcastService = class BroadcastService {
         return this.http.get('/api/broadcasts' + `?eventId=${eventId}`)
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(data => data));
     }
-    sendBroadcast(broadcast) {
-        return this.http.post('/api/broadcasts', broadcast)
+    sendBroadcast(message, eventId) {
+        return this.http.post('/api/broadcasts', { text: message, eventId })
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(data => data));
     }
 };
@@ -1233,6 +1247,50 @@ BroadcastService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         providedIn: 'root'
     })
 ], BroadcastService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/statistics/statistics.service.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/services/statistics/statistics.service.ts ***!
+  \***********************************************************/
+/*! exports provided: StatisticsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StatisticsService", function() { return StatisticsService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+let StatisticsService = class StatisticsService {
+    constructor(http) {
+        this.http = http;
+    }
+    getViews(eventId) {
+        return this.http.get('/api/views' + `?eventId=${eventId}`)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(data => data));
+    }
+    getVotes() {
+        return this.http.get('/api/votes')
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(data => data));
+    }
+};
+StatisticsService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+StatisticsService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], StatisticsService);
 
 
 

@@ -22,13 +22,19 @@ module.exports = (function() {
       });
   }
 
-  function getViews() {
+  function getViews(eventId) {
     return knex.raw(`
       SELECT
         *
       FROM
         views
-    `);
+      WHERE
+        event_id = :eventId
+      ORDER BY
+        id
+    `, {
+      eventId
+    });
   }
 
   return {
