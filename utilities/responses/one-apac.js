@@ -851,7 +851,7 @@ module.exports = (function() {
 
             isVotingActive = active;
 
-            return queries.votes.fetchVotes(userId);
+            return queries.votes.fetchVotesByUser(userId);
           })
           .then((result) => {
             if (!isVotingActive) {
@@ -882,7 +882,6 @@ module.exports = (function() {
                   new QuickReply('Home', 'Home')
                 ];
               } else {
-                console.log(rows.length);
                 attachment = `Your 1st of 2 votes is final. Are you sure you want to vote for ${payloadRegion}?`;
 
                 if (rows.length > 0) {
@@ -915,7 +914,7 @@ module.exports = (function() {
         return queries.votes.castVote(payloadRegion, userId)
           .then(() => {
 
-            return queries.votes.fetchVotes(userId);
+            return queries.votes.fetchVotesByUser(userId);
           })
           .then((result) => {
             const { rows } = result;
