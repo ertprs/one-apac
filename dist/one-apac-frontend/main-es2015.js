@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"statistics\">\r\n  statistics works!\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"statistics\">\r\n  <div class=\"content\">\r\n\r\n    <div class=\"view\" *ngFor=\"let view of views | async\">{{view.description}}</div>\r\n\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -1118,13 +1118,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StatisticsComponent", function() { return StatisticsComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_administrator_administrator_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/administrator/administrator.service */ "./src/app/services/administrator/administrator.service.ts");
+/* harmony import */ var _services_statistics_statistics_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/statistics/statistics.service */ "./src/app/services/statistics/statistics.service.ts");
+
+
 
 
 let StatisticsComponent = class StatisticsComponent {
-    constructor() { }
+    constructor(administratorService, statisticsService) {
+        this.administratorService = administratorService;
+        this.statisticsService = statisticsService;
+    }
     ngOnInit() {
+        this.administrator = this.administratorService.administrator;
     }
 };
+StatisticsComponent.ctorParameters = () => [
+    { type: _services_administrator_administrator_service__WEBPACK_IMPORTED_MODULE_2__["AdministratorService"] },
+    { type: _services_statistics_statistics_service__WEBPACK_IMPORTED_MODULE_3__["StatisticsService"] }
+];
 StatisticsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-statistics',
@@ -1235,6 +1247,50 @@ BroadcastService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         providedIn: 'root'
     })
 ], BroadcastService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/statistics/statistics.service.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/services/statistics/statistics.service.ts ***!
+  \***********************************************************/
+/*! exports provided: StatisticsService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StatisticsService", function() { return StatisticsService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+let StatisticsService = class StatisticsService {
+    constructor(http) {
+        this.http = http;
+    }
+    getViews(eventId) {
+        return this.http.get('/api/views' + `?eventId=${eventId}`)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(data => data));
+    }
+    getVotes() {
+        return this.http.get('/api/votes')
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(data => data));
+    }
+};
+StatisticsService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+StatisticsService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], StatisticsService);
 
 
 
