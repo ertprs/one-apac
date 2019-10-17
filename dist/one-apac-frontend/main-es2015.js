@@ -1131,6 +1131,7 @@ let StatisticsComponent = class StatisticsComponent {
     }
     ngOnInit() {
         this.administrator = this.administratorService.administrator;
+        this.views = this.statisticsService.getViews(this.administrator.eventId);
     }
 };
 StatisticsComponent.ctorParameters = () => [
