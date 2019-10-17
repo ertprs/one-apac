@@ -643,7 +643,7 @@ module.exports = (function() {
           new Element('Small Business Group', null, placeholder),
           new Element('Product Service and Operations', null, placeholder),
           new Element('Instagram Business Marketing', null, placeholder),
-          new Element('Business Intergrity', null, placeholder)
+          new Element('Business Integrity', null, placeholder)
         ];
 
         attachment = new Attachment('generic', elements);
