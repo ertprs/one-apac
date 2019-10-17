@@ -580,9 +580,9 @@ module.exports = (function() {
       case 'Dinner Events Welcome Dinner':
         elements = [
           new Element('Welcome Dinner', 'Date: Nov 13, Wed\nTime: 6:30 pm - 10:00 pm\nVenue: ArtScience Museum', placeholder, [new Button('Getting There', 'postback', 'Welcome Dinner Getting There')]),
-          new Element('DPole', 'Dance with Dpole on B1', placeholder, [new Button('Discover More', 'web_url', 'https://www.instagram.com/dpole_arts/')]),
-          new Element('Miss Lou Duo', 'R&B and jazz soul with Miss Lou on L2', placeholder, [new Button('Discover More', 'web_url', 'https://www.instagram.com/hellomisslou/')]),
-          new Element('NationOne', 'Rock & Roll with NationOne on L3', placeholder, [new Button('Discover More', 'web_url', 'https://www.instagram.com/thebandnationone/')])
+          new Element('DPole', 'Dance with Dpole on B1', placeholder, [new Button('Discover More', 'web_url', 'https://tinyurl.com/dpole-arts')]),
+          new Element('Miss Lou Duo', 'R&B and jazz soul with Miss Lou on L2', placeholder, [new Button('Discover More', 'web_url', 'https://tinyurl.com/hellomisslou')]),
+          new Element('NationOne', 'Rock & Roll with NationOne on L3', placeholder, [new Button('Discover More', 'web_url', 'https://tinyurl.com/thebandnationone')])
         ];
 
         attachment = new Attachment('generic', elements);
