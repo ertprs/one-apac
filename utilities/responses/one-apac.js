@@ -178,7 +178,7 @@ module.exports = (function() {
       case 'Agenda Day 2':
         buttons = [
           new Button('Full Day Agenda', 'postback', 'Agenda Day 2 Full Day Agenda'),
-          new Button('Sessions', 'postback', 'Agenda Day 2 Breakouts')
+          new Button('Breakouts', 'postback', 'Agenda Day 2 Breakouts')
         ];
 
         elements = [
@@ -560,7 +560,7 @@ module.exports = (function() {
       case 'Dinner Events':
         buttons = [
           new Button('Welcome Dinner', 'postback', 'Dinner Events Welcome Dinner'),
-          new Button('Closing Dinner & Party', 'postback', 'Dinner Events Closing Dinner & Party')
+          new Button('Closing Party', 'postback', 'Dinner Events Closing Party')
         ];
 
         elements = [
@@ -585,6 +585,8 @@ module.exports = (function() {
           new Element('NationOne', 'Rock & Roll with NationOne on L3', placeholder, [new Button('Discover More', 'web_url', 'https://www.instagram.com/thebandnationone')])
         ];
 
+        attachment = new Attachment('generic', elements);
+
         quickReplies = [
           new QuickReply('Back', 'Dinner Events'),
           new QuickReply('Home', 'Home')
@@ -604,8 +606,8 @@ module.exports = (function() {
         message = new Message(attachment, quickReplies);
         return reply(accessToken, recipientId, message);
 
-      case 'Dinner Events Closing Dinner & Party':
-        attachment = 'Closing Dinner & Party\n\nDate: Nov 14, Thurs\nTime: 8:00 pm - 1:00 am\nVenue: Marquee\n\nGetting There:\nMarquee is located at B1-67, Galleria Level, The Shoppes at Marina Bay Sands. It is a 5 minute walk from the hotel towers.';
+      case 'Dinner Events Closing Party':
+        attachment = 'Closing Party\n\nDate: Nov 14, Thurs\nTime: 8:00 pm - 1:00 am\nVenue: Marquee\n\nGetting There:\nMarquee is located at B1-67, Galleria Level, The Shoppes at Marina Bay Sands. It is a 5 minute walk from the hotel towers.';
 
         quickReplies = [
           new QuickReply('Back', 'Dinner Events'),
