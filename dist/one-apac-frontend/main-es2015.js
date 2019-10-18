@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"statistics\">\r\n  <div class=\"content\">\r\n\r\n    <div class=\"view\" *ngFor=\"let view of views | async\">{{view.description}}</div>\r\n\r\n  </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"statistics\">\r\n  <div class=\"content\">\r\n\r\n    <div class=\"view\" *ngFor=\"let view of views | async\">\r\n      <div class=\"roboto view-description\">{{view.description}}:</div>\r\n      <div class=\"roboto view-count\">{{view.description}}</div>\r\n    </div>\r\n\r\n  </div>\r\n</div>");
 
 /***/ }),
 
@@ -962,7 +962,7 @@ let BroadcastComponent = class BroadcastComponent {
         }, (error) => {
             return alert(error.message);
         }, () => {
-            console.log('request ended');
+            console.log('Broadcast sent');
             return;
         });
     }
@@ -1103,7 +1103,7 @@ PageNotFoundComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3N0YXRpc3RpY3Mvc3RhdGlzdGljcy5jb21wb25lbnQuc2NzcyJ9 */");
+/* harmony default export */ __webpack_exports__["default"] = ("#statistics .content .view {\n  display: flex;\n  flex-direction: row;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvc3RhdGlzdGljcy9DOlxcVXNlcnNcXEtpIEp1bmcgS2ltXFxEZXNrdG9wXFxQcm9qZWN0c1xcb25lLWFwYWMtZnJvbnRlbmQvc3JjXFxhcHBcXHBhZ2VzXFxzdGF0aXN0aWNzXFxzdGF0aXN0aWNzLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9wYWdlcy9zdGF0aXN0aWNzL3N0YXRpc3RpY3MuY29tcG9uZW50LnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBR0k7RUFDRSxhQUFBO0VBQ0EsbUJBQUE7QUNGTiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL3N0YXRpc3RpY3Mvc3RhdGlzdGljcy5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbIiNzdGF0aXN0aWNzIHtcclxuICAuY29udGVudCB7XHJcblxyXG4gICAgLnZpZXcge1xyXG4gICAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG4gICAgfVxyXG4gIH1cclxufSIsIiNzdGF0aXN0aWNzIC5jb250ZW50IC52aWV3IHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IHJvdztcbn0iXX0= */");
 
 /***/ }),
 
