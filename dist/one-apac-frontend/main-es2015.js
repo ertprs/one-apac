@@ -954,9 +954,10 @@ let BroadcastComponent = class BroadcastComponent {
             return alert('Message cannot be blank!');
         }
         this.broadcastSubscription = this.broadcastService.sendBroadcast(this.message, this.administrator.eventId)
-            .subscribe(() => {
-            // successful
-            console.log('success');
+            .subscribe((response) => {
+            if (response['success']) {
+                this.message = '';
+            }
             return;
         }, (error) => {
             return alert(error.message);

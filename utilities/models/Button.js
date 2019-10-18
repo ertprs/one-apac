@@ -6,6 +6,7 @@ module.exports = class Button {
     switch (this.type) {
       case 'web_url':
         this.url = payload;
+        this.webview_height_ratio = 'tall';
         break;
 
       case 'postback':
