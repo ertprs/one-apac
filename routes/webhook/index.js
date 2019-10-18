@@ -89,7 +89,7 @@ router.route('/')
         return;
       })
       .then(() => {
-        return processPayload(accessToken, payload, senderId, userId);
+        return processPayload(accessToken, payload, senderId, userId, eventId);
       })
       .catch((error) => {
         return queries.errors.logError(error.name, error.message, error.stack);

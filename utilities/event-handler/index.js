@@ -34,13 +34,13 @@ module.exports = (function() {
     }
   }
 
-  function processPayload(accessToken, payload, recipientId, userId) {
+  function processPayload(accessToken, payload, recipientId, userId, eventId) {
     switch (accessToken) {
       case process.env.ONE_APAC_ACCESS_TOKEN:
-        return oneApac.responses(accessToken, payload, recipientId, userId);
+        return oneApac.responses(accessToken, payload, recipientId, userId, eventId);
 
       case process.env.WLD_ACCESS_TOKEN:
-        return wld.responses(accessToken, payload, recipientId, userId);
+        return wld.responses(accessToken, payload, recipientId, userId, eventId);
     }
   }
 

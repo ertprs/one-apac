@@ -1,5 +1,5 @@
 module.exports = (function() {
-  function responses(accessToken, payload, recipientId, userId) {
+  function responses(accessToken, payload, recipientId, userId, eventId) {
     const
       placeholder = 'https://via.placeholder.com/1910x1000',
       menus = require('../constants/menus'),
