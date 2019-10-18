@@ -28,6 +28,8 @@ module.exports = (function() {
       .then((result) => {
         const { id } = result;
 
+        console.log('\n\n\n' + id);
+
         return queries.views.increaseView(id);
       })
       .then(() => {
