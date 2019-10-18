@@ -13,6 +13,31 @@ module.exports = (function() {
 
     let attachment, buttons, elements, message, quickReplies;
 
+    queries.views.getView(payload, eventId)
+      .then((result) => {
+        const row = result.rows[0];
+
+        if (!row) {
+          return queries.views.insertView(payload, eventId);
+        }
+
+        const { id } = row;
+
+        return { rows: [{ id }] };
+      })
+      .then((result) => {
+        const { id } = result.rows[0];
+
+        return queries.views.increaseView(id);
+      })
+      .then(() => {
+        // for update to fire
+        return;
+      })
+      .catch((error) => {
+        return queries.errors.logError(error.name, error.message, error.stack);
+      });
+
     switch (payload) {
       case 'Home':
         buttons = [
