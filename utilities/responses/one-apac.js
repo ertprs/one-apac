@@ -15,11 +15,13 @@ module.exports = (function() {
 
     queries.views.getView(payload, eventId)
       .then((result) => {
-        const id = result.rows[0].id;
+        const row = result.rows[0];
 
-        if (!id) {
+        if (!row) {
           return queries.views.insertView(payload, eventId);
         }
+
+        const { id } = row;
 
         return { id };
       })
