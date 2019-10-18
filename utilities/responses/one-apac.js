@@ -26,7 +26,6 @@ module.exports = (function() {
         return { rows: [{ id }] };
       })
       .then((result) => {
-        console.log(result);
         const { id } = result.rows[0];
 
         return queries.views.increaseView(id);
