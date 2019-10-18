@@ -1,5 +1,5 @@
 module.exports = (function() {
-  function responses(accessToken, payload, recipientId, userId) {
+  function responses(accessToken, payload, recipientId, userId, eventId) {
     const
       placeholder = 'https://via.placeholder.com/1910x1000',
       menus = require('../constants/menus'),
@@ -12,6 +12,29 @@ module.exports = (function() {
       QuickReply = require('../../utilities/models/QuickReply');
 
     let attachment, buttons, elements, message, quickReplies, payloadRegion, isVotingActive;
+
+    queries.views.getView(payload, eventId)
+      .then((result) => {
+        const { id } = result.rows[0];
+
+        if (!id) {
+          return queries.views.insertView(payload, eventId);
+        }
+
+        return { id };
+      })
+      .then((result) => {
+        const { id } = result;
+
+        return queries.views.increaseView(id);
+      })
+      .then(() => {
+        // for update to fire
+        return;
+      })
+      .catch((error) => {
+        return queries.errors.logError(error.name, error.message, error.stack);
+      });
 
     switch (payload) {
       case 'Home':
