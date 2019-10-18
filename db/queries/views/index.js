@@ -1,7 +1,5 @@
 module.exports = (function() {
-  const
-    knex = require('../../knex'),
-    { logError } = require('../errors');
+  const knex = require('../../knex');
 
   function getView(payload, eventId) {
     return knex.raw(`
