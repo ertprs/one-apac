@@ -23,12 +23,11 @@ module.exports = (function() {
 
         const { id } = row;
 
-        return { id };
+        return { rows: [{ id }] };
       })
       .then((result) => {
-        const { id } = result;
-
-        console.log('\n\n\n' + id);
+        console.log(result);
+        const { id } = result.rows[0];
 
         return queries.views.increaseView(id);
       })
