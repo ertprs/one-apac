@@ -81,9 +81,8 @@ router.route('/')
 
         return rp(broadcastSendOptions);
       })
-      .then((result) => {
-        console.log(result);
-        return;
+      .then(() => {
+        return response.status(httpStatusCodes.ok).json({ success: true });
       })
       .catch((error) => {
         return queries.errors.logError(error.name, error.message, error.stack);

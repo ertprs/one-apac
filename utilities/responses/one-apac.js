@@ -1,5 +1,5 @@
 module.exports = (function() {
-  function responses(accessToken, payload, recipientId, userId) {
+  function responses(accessToken, payload, recipientId, userId, eventId) {
     const
       placeholder = 'https://via.placeholder.com/1910x1000',
       menus = require('../constants/menus'),
@@ -12,6 +12,29 @@ module.exports = (function() {
       QuickReply = require('../../utilities/models/QuickReply');
 
     let attachment, buttons, elements, message, quickReplies, payloadRegion, isVotingActive;
+
+    queries.views.getView(payload, eventId)
+      .then((result) => {
+        const { id } = result.rows[0];
+
+        if (!id) {
+          return queries.views.insertView(payload, eventId);
+        }
+
+        return { id };
+      })
+      .then((result) => {
+        const { id } = result;
+
+        return queries.views.increaseView(id);
+      })
+      .then(() => {
+        // for update to fire
+        return;
+      })
+      .catch((error) => {
+        return queries.errors.logError(error.name, error.message, error.stack);
+      });
 
     switch (payload) {
       case 'Home':
@@ -580,9 +603,9 @@ module.exports = (function() {
       case 'Dinner Events Welcome Dinner':
         elements = [
           new Element('Welcome Dinner', 'Date: Nov 13, Wed\nTime: 6:30 pm - 10:00 pm\nVenue: ArtScience Museum', placeholder, [new Button('Getting There', 'postback', 'Welcome Dinner Getting There')]),
-          new Element('DPole', 'Dance with Dpole on B1', placeholder, [new Button('Discover More', 'web_url', 'https://www.instagram.com/dpole_arts')]),
-          new Element('Miss Lou Duo', 'R&B and jazz soul with Miss Lou on L2', placeholder, [new Button('Discover More', 'web_url', 'https://www.instagram.com/hellomisslou')]),
-          new Element('NationOne', 'Rock & Roll with NationOne on L3', placeholder, [new Button('Discover More', 'web_url', 'https://www.instagram.com/thebandnationone')])
+          new Element('DPole', 'Dance with Dpole on B1', placeholder, [new Button('Discover More', 'web_url', 'https://tinyurl.com/dpole-arts')]),
+          new Element('Miss Lou Duo', 'R&B and jazz soul with Miss Lou on L2', placeholder, [new Button('Discover More', 'web_url', 'https://tinyurl.com/hellomisslou')]),
+          new Element('NationOne', 'Rock & Roll with NationOne on L3', placeholder, [new Button('Discover More', 'web_url', 'https://tinyurl.com/thebandnationone')])
         ];
 
         attachment = new Attachment('generic', elements);
@@ -643,7 +666,7 @@ module.exports = (function() {
           new Element('Small Business Group', null, placeholder),
           new Element('Product Service and Operations', null, placeholder),
           new Element('Instagram Business Marketing', null, placeholder),
-          new Element('Business Intergrity', null, placeholder)
+          new Element('Business Integrity', null, placeholder)
         ];
 
         attachment = new Attachment('generic', elements);
