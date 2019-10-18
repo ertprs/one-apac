@@ -954,9 +954,10 @@ let BroadcastComponent = class BroadcastComponent {
             return alert('Message cannot be blank!');
         }
         this.broadcastSubscription = this.broadcastService.sendBroadcast(this.message, this.administrator.eventId)
-            .subscribe(() => {
-            // successful
-            console.log('success');
+            .subscribe((response) => {
+            if (response['success']) {
+                this.message = '';
+            }
             return;
         }, (error) => {
             return alert(error.message);
@@ -1236,7 +1237,8 @@ let BroadcastService = class BroadcastService {
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(data => data));
     }
     sendBroadcast(message, eventId) {
-        return this.http.post('/api/broadcasts', { text: message, eventId });
+        return this.http.post('/api/broadcasts', { text: message, eventId })
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(data => data));
     }
 };
 BroadcastService.ctorParameters = () => [
