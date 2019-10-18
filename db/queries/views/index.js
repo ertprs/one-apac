@@ -3,23 +3,46 @@ module.exports = (function() {
     knex = require('../../knex'),
     { logError } = require('../errors');
 
-  function addView(menu) {
+  function getView(payload, eventId) {
+    return knex.raw(`
+        SELECT
+          id
+        FROM
+          views
+        WHERE
+          description = :payload
+        AND event_id = :eventId
+      `, {
+      eventId,
+      payload
+    });
+  }
+
+  function insertView(payload, eventId) {
+    return knex.raw(`
+      INSERT INTO
+        views(description, event_id)
+      VALUES
+        (:payload, :eventId)
+      RETURNING
+        id
+    `, {
+      eventId,
+      payload
+    });
+  }
+
+  function increaseView(id) {
     return knex.raw(`
       UPDATE
         views
       SET
         views = views + 1
       WHERE
-        description = :menu
+        id = :id
     `, {
-      menu
-    })
-      .then(() => {
-        return;
-      })
-      .catch((error) => {
-        return logError(error.name, error.message, error.stack);
-      });
+      id
+    });
   }
 
   function getViews(eventId) {
@@ -38,7 +61,9 @@ module.exports = (function() {
   }
 
   return {
-    addView,
-    getViews
+    getView,
+    getViews,
+    increaseView,
+    insertView
   };
 })();
