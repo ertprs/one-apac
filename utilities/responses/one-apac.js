@@ -15,7 +15,7 @@ module.exports = (function() {
 
     queries.views.getView(payload, eventId)
       .then((result) => {
-        const { id } = result.rows[0];
+        const id = result.rows[0].id;
 
         if (!id) {
           return queries.views.insertView(payload, eventId);
