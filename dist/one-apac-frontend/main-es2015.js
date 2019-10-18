@@ -1236,8 +1236,7 @@ let BroadcastService = class BroadcastService {
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(data => data));
     }
     sendBroadcast(message, eventId) {
-        return this.http.post('/api/broadcasts', { text: message, eventId })
-            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(data => data));
+        return this.http.post('/api/broadcasts', { text: message, eventId });
     }
 };
 BroadcastService.ctorParameters = () => [
