@@ -77,7 +77,7 @@ router.route('/')
             qs: {
               access_token: accessToken
             },
-            method: "POST",
+            method: 'POST',
             json: {
               user: pageUserId
             }
