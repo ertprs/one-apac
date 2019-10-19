@@ -41,8 +41,8 @@ module.exports = (function() {
     switch (payload) {
       case 'Home':
         buttons = [
-          new Button('Agenda & Experiences', 'postback', 'Agenda&Experiences'),
-          new Button('Venue Maps', 'postback', 'VenueMaps'),
+          new Button('Agenda & Experiences', 'postback', 'Agenda & Experiences'),
+          new Button('Venue Maps', 'postback', 'Venue Maps'),
           new Button('Contacts', 'postback', 'Contacts')
         ];
 
@@ -55,7 +55,7 @@ module.exports = (function() {
         message = new Message(attachment);
         return reply(accessToken, recipientId, message);
 
-      case 'Agenda&Experiences':
+      case 'Agenda & Experiences':
         buttons = [
           new Button('Agenda', 'postback', 'Agenda'),
           new Button('Experiences', 'postback', 'Experiences')
@@ -76,9 +76,9 @@ module.exports = (function() {
 
       case 'Agenda':
         buttons = [
-          new Button('Agenda at a Glance', 'postback', 'AgendaAtAGlance'),
+          new Button('Agenda at a Glance', 'postback', 'Agenda at a Glance'),
           new Button('Conference', 'postback', 'Conference'),
-          new Button('Social & Networking', 'postback', 'Social&Networking')
+          new Button('Social & Networking', 'postback', 'Social & Networking')
         ];
 
         elements = [
@@ -88,14 +88,14 @@ module.exports = (function() {
         attachment = new Attachment('generic', elements);
 
         quickReplies = [
-          new QuickReply('Back', 'Agenda&Experiences'),
+          new QuickReply('Back', 'Agenda & Experiences'),
           new QuickReply('Home', 'Home')
         ];
 
         message = new Message(attachment, quickReplies);
         return reply(accessToken, recipientId, message);
 
-      case 'AgendaAtAGlance':
+      case 'Agenda at a Glance':
         buttons = [
           new Button('8.00am - 12.00pm', 'web_url', 'https://facebook.com'),
           new Button('12.00pm - 6.00pm', 'web_url', 'https://facebook.com')
@@ -117,8 +117,8 @@ module.exports = (function() {
 
       case 'Conference':
         buttons = [
-          new Button('Main Sessions', 'postback', 'MainSessions'),
-          new Button('Breakout Sessions', 'postback', 'BreakoutSessions')
+          new Button('Main Sessions', 'postback', 'Conference Main Sessions'),
+          new Button('Breakout Sessions', 'postback', 'Conference Breakout Sessions')
         ];
 
         elements = [
@@ -135,10 +135,10 @@ module.exports = (function() {
         message = new Message(attachment, quickReplies);
         return reply(accessToken, recipientId, message);
 
-      case 'MainSessions':
+      case 'Conference Main Sessions':
         buttons = [
-          new Button('Morning Sessions', 'postback', 'MainSessionsPart1'),
-          new Button('Afternoon Sessions', 'postback', 'MainSessionsPart2')
+          new Button('Morning Sessions', 'postback', 'Conference Main Sessions Morning'),
+          new Button('Afternoon Sessions', 'postback', 'Conference Main Sessions Afternoon')
         ];
 
         elements = [
@@ -155,7 +155,7 @@ module.exports = (function() {
         message = new Message(attachment, quickReplies);
         return reply(accessToken, recipientId, message);
 
-      case 'MainSessionsPart1':
+      case 'Conference Main Sessions Morning':
         elements = [
           new Element('9.00am - 9.10am', 'Opening', placeholder),
           new Element('9.10am - 9.50am', 'Main Session 1', placeholder),
@@ -167,14 +167,14 @@ module.exports = (function() {
         attachment = new Attachment('generic', elements);
 
         quickReplies = [
-          new QuickReply('Back', 'MainSessions'),
+          new QuickReply('Back', 'Conference Main Sessions'),
           new QuickReply('Home', 'Home')
         ];
 
         message = new Message(attachment, quickReplies);
         return reply(accessToken, recipientId, message);
 
-      case 'MainSessionsPart2':
+      case 'Conference Main Sessions Afternoon':
         elements = [
           new Element('3.30pm - 4.10pm', 'Main Session 5', placeholder),
           new Element('4.10pm - 4.50pm', 'Main Session 6', placeholder),
@@ -184,42 +184,42 @@ module.exports = (function() {
         attachment = new Attachment('generic', elements);
 
         quickReplies = [
-          new QuickReply('Back', 'MainSessions'),
+          new QuickReply('Back', 'Conference Main Sessions'),
           new QuickReply('Home', 'Home')
         ];
 
         message = new Message(attachment, quickReplies);
         return reply(accessToken, recipientId, message);
 
-      case 'BreakoutSessions':
+      case 'Conference Breakout Sessions':
         elements = [
           new Element('Moms & Work', 'Facilitator 1, Room 1', placeholder, [
             new Button('View Map', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg'),
-            new Button('Details', 'postback', 'BreakoutSessionsDetails1')
+            new Button('Details', 'postback', 'Breakout Details Moms & Work')
           ]),
           new Element('Women Supporting Women', 'Facilitator 2, Room 2', placeholder, [
             new Button('View Map', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg'),
-            new Button('Details', 'postback', 'BreakoutSessionsDetails2')
+            new Button('Details', 'postback', 'Breakout Details Women Supporting Women')
           ]),
           new Element('Building Empathy', 'Facilitator 3, Room 3', placeholder, [
             new Button('View Map', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg'),
-            new Button('Details', 'postback', 'BreakoutSessionsDetails3')
+            new Button('Details', 'postback', 'Breakout Details Building Empathy')
           ]),
           new Element('50 Ways To Fight Bias', 'Facilitator 4, Room 4', placeholder, [
             new Button('View Map', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg'),
-            new Button('Details', 'postback', 'BreakoutSessionsDetails4')
+            new Button('Details', 'postback', 'Breakout Details Fight Bias')
           ]),
           new Element('Career Breakthrough: Build Your Personal Branding', 'Facilitator 5, Room 5', placeholder, [
             new Button('View Map', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg'),
-            new Button('Details', 'postback', 'BreakoutSessionsDetails5')
+            new Button('Details', 'postback', 'Breakout Details Personal Branding')
           ]),
           new Element('Career Breakthrough: Diversifying your Career', 'Facilitator 6, Room 6', placeholder, [
             new Button('View Map', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg'),
-            new Button('Details', 'postback', 'BreakoutSessionsDetails6')
+            new Button('Details', 'postback', 'Breakout Details Career Breakthrough Diversifying')
           ]),
           new Element('Career Breakthrough: Leadership', 'Facilitator 7, Room 7', placeholder, [
             new Button('View Map', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg'),
-            new Button('Details', 'postback', 'BreakoutSessionsDetails8')
+            new Button('Details', 'postback', 'Breakout Details Career Breakthrouh Leadership')
           ])
         ];
 
@@ -233,24 +233,24 @@ module.exports = (function() {
         message = new Message(attachment, quickReplies);
         return reply(accessToken, recipientId, message);
 
-      case 'BreakoutSessionsDetails1':
-      case 'BreakoutSessionsDetails2':
-      case 'BreakoutSessionsDetails3':
-      case 'BreakoutSessionsDetails4':
-      case 'BreakoutSessionsDetails5':
-      case 'BreakoutSessionsDetails6':
-      case 'BreakoutSessionsDetails7':
+      case 'Breakout Details Moms & Work':
+      case 'Breakout Details Women Supporting Women':
+      case 'Breakout Details Building Empathy':
+      case 'Breakout Details Fight Bias':
+      case 'Breakout Details Personal Branding':
+      case 'Breakout Details Career Breakthrough Diversifying':
+      case 'Breakout Details Career Breakthrouh Leadership':
         attachment = 'Details on specific sessions';
 
         quickReplies = [
-          new QuickReply('Back', 'BreakoutSessions'),
+          new QuickReply('Back', 'Conference Breakout Sessions'),
           new QuickReply('Home', 'Home')
         ];
 
         message = new Message(attachment, quickReplies);
         return reply(accessToken, recipientId, message);
 
-      case 'Social&Networking':
+      case 'Social & Networking':
         elements = [
           new Element('Breakfast & Belong Exhibition', 'Foyer', placeholder),
           new Element('Lunch', 'Lunch Room', placeholder),
@@ -280,14 +280,14 @@ module.exports = (function() {
         attachment = new Attachment('generic', elements);
 
         quickReplies = [
-          new QuickReply('Back', 'Agenda&Experiences'),
+          new QuickReply('Back', 'Agenda & Experiences'),
           new QuickReply('Home', 'Home')
         ];
 
         message = new Message(attachment, quickReplies);
         return reply(accessToken, recipientId, message);
 
-      case 'VenueMaps':
+      case 'Venue Maps':
         buttons = [
           new Button('Event Floor', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg'),
           new Button('Breakout Rooms', 'web_url', 'https://kimkijung-one-apac.s3-ap-southeast-1.amazonaws.com/learning+map.jpg'),
