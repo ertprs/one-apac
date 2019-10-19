@@ -24,7 +24,8 @@ router.route('/')
         return response.status(httpStatusCodes.ok).send(rows);
       })
       .catch((error) => {
-        return queries.errors.logError(error.name, error.message, error.stack);
+        queries.errors.logError(error.name, error.message, error.stack);
+        return response.status(500).send(error);
       });
   })
 
@@ -85,7 +86,8 @@ router.route('/')
         return response.status(httpStatusCodes.ok).json({ success: true });
       })
       .catch((error) => {
-        return queries.errors.logError(error.name, error.message, error.stack);
+        queries.errors.logError(error.name, error.message, error.stack);
+        return response.status(500).send(error);
       });
   });
 module.exports = router;

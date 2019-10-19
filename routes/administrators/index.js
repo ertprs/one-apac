@@ -21,7 +21,8 @@ const router = express.Router();
 //         return response.sendStatus(httpStatusCodes.ok);
 //       })
 //       .catch((error) => {
-//         return queries.errors.logError(error.name, error.message, error.stack);
+//         queries.errors.logError(error.name, error.message, error.stack);
+//         return response.sendStatus(500);
 //       });
 //   });
 

@@ -1,5 +1,7 @@
 module.exports = (function() {
-  const rp = require('request-promise');
+  const
+    rp = require('request-promise'),
+    queries = require('../../db/queries');
 
   function reply(access_token, recipientId, message) {
     const body = {
@@ -23,9 +25,7 @@ module.exports = (function() {
         console.log(`Message successfully sent to recipient: ${response.recipient_id}`);
       })
       .catch((error) => {
-        // TODO: error log
-        console.log(`Error during POST operation to Send API:\n\n${error}\n\n`)
-        return;
+        return queries.errors.logError(error.name, error.message, error.stack);
       });
   }
 

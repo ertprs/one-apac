@@ -863,8 +863,7 @@ module.exports = (function() {
             return reply(accessToken, recipientId, message);
           })
           .catch((error) => {
-            console.log(error);
-            return;
+            return queries.errors.logError(error.name, error.message, error.stack);
           });
 
       case 'Vote_Australia/New Zealand':
@@ -929,8 +928,7 @@ module.exports = (function() {
             return reply(accessToken, recipientId, message);
           })
           .catch((error) => {
-            console.log(error);
-            return;
+            return queries.errors.logError(error.name, error.message, error.stack);
           });
 
       case 'Confirm_Australia/New Zealand':
@@ -975,8 +973,7 @@ module.exports = (function() {
             return reply(accessToken, recipientId, message);
           })
           .catch((error) => {
-            console.log(error);
-            return;
+            return queries.errors.logError(error.name, error.message, error.stack);
           });
 
       default:
