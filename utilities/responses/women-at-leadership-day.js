@@ -320,7 +320,7 @@ module.exports = (function() {
         attachment = new Attachment('generic', elements);
 
         quickReplies = [
-          new QuickReply('Back', 'Experiences&Facilities'),
+          new QuickReply('Back', 'Venue Maps'),
           new QuickReply('Home', 'Home')
         ];
 
