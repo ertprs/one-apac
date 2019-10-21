@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"lip-sync-battle\">\n  <div class=\"content\">\n    <input class=\"vote-toggle\" type=\"checkbox\" [(ngModel)]=\"voteStatus\" (change)=\"setVoteStatus()\" />\n\n    <div class=\"vote-statistics\" *ngFor=\"let vote of votes | async\">\n      <div class=\"roboto vote-region\">{{vote.region}}: </div>\n      <div class=\"roboto vote-count\">{{vote.count}}</div>\n    </div>\n  </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"lip-sync-battle\">\n  <div class=\"content\">\n    <input class=\"vote-toggle\" type=\"checkbox\" [(ngModel)]=\"voteStatus.isActive\" (change)=\"setVoteStatus()\" />\n\n    <div class=\"vote-statistics\" *ngFor=\"let vote of votes | async\">\n      <div class=\"roboto vote-region\">{{vote.region}}: </div>\n      <div class=\"roboto vote-count\">{{vote.count}}</div>\n    </div>\n  </div>\n</div>");
 
 /***/ }),
 
@@ -1168,11 +1168,9 @@ let LipSyncBattleComponent = class LipSyncBattleComponent {
         this.votes = this.lipSyncBattleService.getVotes();
         this.voteStatusSubscription = this.lipSyncBattleService.getVoteStatus()
             .subscribe((response) => {
-            console.log(response, 'the initial get vote status');
             this.voteStatus = response;
             return;
         }, (error) => {
-            console.log(error);
             return alert(error.error);
         }, () => {
             console.log(`Vote Status successfully retrieved. The status is ${this.voteStatus ? 'Active' : 'Locked'}`);
@@ -1180,10 +1178,9 @@ let LipSyncBattleComponent = class LipSyncBattleComponent {
         });
     }
     setVoteStatus() {
-        if (!confirm(`Are you sure you want to turn ${this.voteStatus ? 'off' : 'on'} the voting feature?`)) {
+        if (!confirm(`Are you sure you want to turn ${this.voteStatus.isActive ? 'off' : 'on'} the voting feature?`)) {
             return;
         }
-        console.log(this.voteStatus, 'right before method');
         this.lipSyncBattleService.setVoteStatus(this.voteStatus)
             .subscribe((response) => {
             if (response['success']) {
