@@ -1324,7 +1324,7 @@ let AdministratorService = class AdministratorService {
         this.administrator.id = administrator.id;
         this.administrator.username = administrator.username;
         this.administrator.eventId = administrator.eventId;
-        this.navigationService.addLipSyncBattleNavigation();
+        this.navigationService.addLipSyncBattleNavigation(this.administrator.username);
         return;
     }
     logout() {
@@ -1455,15 +1455,27 @@ __webpack_require__.r(__webpack_exports__);
 
 let NavigationService = class NavigationService {
     constructor() {
-        this.navigations = [
-            new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Home', 'fas fa-home', '/'),
-            new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Statistics', 'fas fa-chart-bar', '/statistics'),
-            new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Broadcast', 'fas fa-bullhorn', '/broadcast')
-        ];
+        this.navigations = new Array();
     }
-    addLipSyncBattleNavigation() {
-        this.navigations.splice(1, 0, new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Lip Sync Battle', 'fas fa-microphone-alt', '/lip-sync-battle'));
+    addLipSyncBattleNavigation(username) {
+        this.resetNavigation();
+        if (this.isOneApac(username)) {
+            this.navigations.splice(1, 0, new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Lip Sync Battle', 'fas fa-microphone-alt', '/lip-sync-battle'));
+        }
         return;
+    }
+    resetNavigation() {
+        this.navigations.length = 0;
+        this.navigations.push(new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Home', 'fas fa-home', '/'));
+        this.navigations.push(new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Statistics', 'fas fa-chart-bar', '/statistics'));
+        this.navigations.push(new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Broadcast', 'fas fa-bullhorn', '/broadcast'));
+        return;
+    }
+    isOneApac(username) {
+        if (username === 'oneapac') {
+            return true;
+        }
+        return false;
     }
 };
 NavigationService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
