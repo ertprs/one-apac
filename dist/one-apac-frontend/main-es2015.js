@@ -101,6 +101,19 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/lip-sync-battle/lip-sync-battle.component.html":
+/*!************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/lip-sync-battle/lip-sync-battle.component.html ***!
+  \************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"lip-sync-battle\">\n  Lip sync battle works!\n</div>");
+
+/***/ }),
+
 /***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/page-not-found/page-not-found.component.html":
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/pages/page-not-found/page-not-found.component.html ***!
@@ -426,6 +439,58 @@ const routeTransitionAnimation = Object(_angular_animations__WEBPACK_IMPORTED_MO
             ], { optional: true }),
         ])
     ]),
+    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('LipSyncBattle => Statistics', [
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["query"])(':enter, :leave', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ position: 'fixed', width: '100%' }), { optional: true }),
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["group"])([
+            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["query"])(':enter', [
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ transform: 'translateX(100%)' }),
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('0.5s ease-in-out', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ transform: 'translateX(0%)' }))
+            ], { optional: true }),
+            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["query"])(':leave', [
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ transform: 'translateX(0%)' }),
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('0.5s ease-in-out', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ transform: 'translateX(-100%)' }))
+            ], { optional: true }),
+        ])
+    ]),
+    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('LipSyncBattle => Broadcast', [
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["query"])(':enter, :leave', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ position: 'fixed', width: '100%' }), { optional: true }),
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["group"])([
+            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["query"])(':enter', [
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ transform: 'translateX(100%)' }),
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('0.5s ease-in-out', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ transform: 'translateX(0%)' }))
+            ], { optional: true }),
+            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["query"])(':leave', [
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ transform: 'translateX(0%)' }),
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('0.5s ease-in-out', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ transform: 'translateX(-100%)' }))
+            ], { optional: true }),
+        ])
+    ]),
+    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('LipSyncBattle => Home', [
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["query"])(':enter, :leave', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ position: 'fixed', width: '100%' }), { optional: true }),
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["group"])([
+            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["query"])(':enter', [
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ transform: 'translateX(-100%)' }),
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('0.5s ease-in-out', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ transform: 'translateX(0%)' }))
+            ], { optional: true }),
+            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["query"])(':leave', [
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ transform: 'translateX(0%)' }),
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('0.5s ease-in-out', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ transform: 'translateX(100%)' }))
+            ], { optional: true }),
+        ])
+    ]),
+    Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('Statistics => LipSyncBattle', [
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["query"])(':enter, :leave', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ position: 'fixed', width: '100%' }), { optional: true }),
+        Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["group"])([
+            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["query"])(':enter', [
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ transform: 'translateX(-100%)' }),
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('0.5s ease-in-out', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ transform: 'translateX(0%)' }))
+            ], { optional: true }),
+            Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["query"])(':leave', [
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ transform: 'translateX(0%)' }),
+                Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('0.5s ease-in-out', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ transform: 'translateX(100%)' }))
+            ], { optional: true }),
+        ])
+    ]),
     Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["transition"])('Statistics => Broadcast', [
         Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["query"])(':enter, :leave', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ position: 'fixed', width: '100%' }), { optional: true }),
         Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["group"])([
@@ -451,7 +516,7 @@ const routeTransitionAnimation = Object(_angular_animations__WEBPACK_IMPORTED_MO
                 Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["animate"])('0.5s ease-in-out', Object(_angular_animations__WEBPACK_IMPORTED_MODULE_1__["style"])({ transform: 'translateX(100%)' }))
             ], { optional: true }),
         ])
-    ]),
+    ])
 ]);
 
 
@@ -471,10 +536,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _pages_home_home_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/home/home.component */ "./src/app/pages/home/home.component.ts");
-/* harmony import */ var _pages_statistics_statistics_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/statistics/statistics.component */ "./src/app/pages/statistics/statistics.component.ts");
-/* harmony import */ var _pages_broadcast_broadcast_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/broadcast/broadcast.component */ "./src/app/pages/broadcast/broadcast.component.ts");
-/* harmony import */ var _pages_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/page-not-found/page-not-found.component */ "./src/app/pages/page-not-found/page-not-found.component.ts");
-/* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./guards/auth.guard */ "./src/app/guards/auth.guard.ts");
+/* harmony import */ var _pages_lip_sync_battle_lip_sync_battle_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/lip-sync-battle/lip-sync-battle.component */ "./src/app/pages/lip-sync-battle/lip-sync-battle.component.ts");
+/* harmony import */ var _pages_statistics_statistics_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/statistics/statistics.component */ "./src/app/pages/statistics/statistics.component.ts");
+/* harmony import */ var _pages_broadcast_broadcast_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/broadcast/broadcast.component */ "./src/app/pages/broadcast/broadcast.component.ts");
+/* harmony import */ var _pages_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./pages/page-not-found/page-not-found.component */ "./src/app/pages/page-not-found/page-not-found.component.ts");
+/* harmony import */ var _guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./guards/auth.guard */ "./src/app/guards/auth.guard.ts");
+
 
 
 
@@ -491,20 +558,26 @@ const routes = [
         data: { animation: 'Home' }
     },
     {
+        path: 'lip-sync-battle',
+        component: _pages_lip_sync_battle_lip_sync_battle_component__WEBPACK_IMPORTED_MODULE_4__["LipSyncBattleComponent"],
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]],
+        data: { animation: 'LipSyncBattle' }
+    },
+    {
         path: 'statistics',
-        component: _pages_statistics_statistics_component__WEBPACK_IMPORTED_MODULE_4__["StatisticsComponent"],
-        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]],
+        component: _pages_statistics_statistics_component__WEBPACK_IMPORTED_MODULE_5__["StatisticsComponent"],
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]],
         data: { animation: 'Statistics' }
     },
     {
         path: 'broadcast',
-        component: _pages_broadcast_broadcast_component__WEBPACK_IMPORTED_MODULE_5__["BroadcastComponent"],
-        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_7__["AuthGuard"]],
+        component: _pages_broadcast_broadcast_component__WEBPACK_IMPORTED_MODULE_6__["BroadcastComponent"],
+        canActivate: [_guards_auth_guard__WEBPACK_IMPORTED_MODULE_8__["AuthGuard"]],
         data: { animation: 'Broadcast' }
     },
     {
         path: '**',
-        component: _pages_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_6__["PageNotFoundComponent"]
+        component: _pages_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_7__["PageNotFoundComponent"]
     }
 ];
 let AppRoutingModule = class AppRoutingModule {
@@ -605,6 +678,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_statistics_statistics_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./pages/statistics/statistics.component */ "./src/app/pages/statistics/statistics.component.ts");
 /* harmony import */ var _pages_broadcast_broadcast_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./pages/broadcast/broadcast.component */ "./src/app/pages/broadcast/broadcast.component.ts");
 /* harmony import */ var _pages_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./pages/page-not-found/page-not-found.component */ "./src/app/pages/page-not-found/page-not-found.component.ts");
+/* harmony import */ var _pages_lip_sync_battle_lip_sync_battle_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./pages/lip-sync-battle/lip-sync-battle.component */ "./src/app/pages/lip-sync-battle/lip-sync-battle.component.ts");
+
 
 
 
@@ -632,7 +707,8 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _components_login_login_component__WEBPACK_IMPORTED_MODULE_9__["LoginComponent"],
             _components_navigation_navigation_component__WEBPACK_IMPORTED_MODULE_11__["NavigationComponent"],
             _pages_statistics_statistics_component__WEBPACK_IMPORTED_MODULE_12__["StatisticsComponent"],
-            _pages_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_14__["PageNotFoundComponent"]
+            _pages_page_not_found_page_not_found_component__WEBPACK_IMPORTED_MODULE_14__["PageNotFoundComponent"],
+            _pages_lip_sync_battle_lip_sync_battle_component__WEBPACK_IMPORTED_MODULE_15__["LipSyncBattleComponent"]
         ],
         imports: [
             _app_routing_module__WEBPACK_IMPORTED_MODULE_6__["AppRoutingModule"],
@@ -832,17 +908,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../classes/navigation/navigation */ "./src/app/classes/navigation/navigation.ts");
+/* harmony import */ var _services_administrator_administrator_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/administrator/administrator.service */ "./src/app/services/administrator/administrator.service.ts");
+
 
 
 
 let NavigationComponent = class NavigationComponent {
-    constructor() { }
+    constructor(administratorService) {
+        this.administratorService = administratorService;
+    }
     ngOnInit() {
+        this.administrator = this.administratorService.administrator;
         const navigations = [
             new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Home', 'fas fa-home', '/'),
             new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Statistics', 'fas fa-chart-bar', '/statistics'),
             new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Broadcast', 'fas fa-bullhorn', '/broadcast')
         ];
+        if (this.administrator.username === 'oneapac') {
+            navigations.push(new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Lip Sync Battle', 'fas fa-microphone-alt', '/lip-sync-battle'));
+        }
         this.navigations = navigations;
         this.routerLinkActiveOptions = {
             exact: true
@@ -850,6 +934,9 @@ let NavigationComponent = class NavigationComponent {
         return;
     }
 };
+NavigationComponent.ctorParameters = () => [
+    { type: _services_administrator_administrator_service__WEBPACK_IMPORTED_MODULE_3__["AdministratorService"] }
+];
 NavigationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-navigation',
@@ -1045,6 +1132,50 @@ HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./home.component.scss */ "./src/app/pages/home/home.component.scss")).default]
     })
 ], HomeComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/pages/lip-sync-battle/lip-sync-battle.component.scss":
+/*!**********************************************************************!*\
+  !*** ./src/app/pages/lip-sync-battle/lip-sync-battle.component.scss ***!
+  \**********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2xpcC1zeW5jLWJhdHRsZS9saXAtc3luYy1iYXR0bGUuY29tcG9uZW50LnNjc3MifQ== */");
+
+/***/ }),
+
+/***/ "./src/app/pages/lip-sync-battle/lip-sync-battle.component.ts":
+/*!********************************************************************!*\
+  !*** ./src/app/pages/lip-sync-battle/lip-sync-battle.component.ts ***!
+  \********************************************************************/
+/*! exports provided: LipSyncBattleComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LipSyncBattleComponent", function() { return LipSyncBattleComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+
+
+let LipSyncBattleComponent = class LipSyncBattleComponent {
+    constructor() { }
+    ngOnInit() {
+    }
+};
+LipSyncBattleComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-lip-sync-battle',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./lip-sync-battle.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/pages/lip-sync-battle/lip-sync-battle.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./lip-sync-battle.component.scss */ "./src/app/pages/lip-sync-battle/lip-sync-battle.component.scss")).default]
+    })
+], LipSyncBattleComponent);
 
 
 
