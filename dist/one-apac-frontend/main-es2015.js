@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"lip-sync-battle\">\n  <div class=\"content\">\n    <input class=\"vote-toggle\" type=\"checkbox\" *ngIf=\"voteStatus\" [(ngModel)]=\"voteStatus.isActive\"\n      (change)=\"setVoteStatus()\" />\n\n    <div class=\"vote-statistics\" *ngFor=\"let vote of votes | async\">\n      <div class=\"roboto vote-region\">{{vote.region}}: </div>\n      <div class=\"roboto vote-count\">{{vote.count}} vote(s)</div>\n    </div>\n  </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"lip-sync-battle\">\n  <div class=\"content\">\n    <div class=\"oswald\">Voting Feature</div>\n    <input class=\"vote-toggle\" type=\"checkbox\" *ngIf=\"voteStatus\" [(ngModel)]=\"voteStatus.isActive\"\n      (change)=\"setVoteStatus()\" />\n\n    <div class=\"vote-statistics\" *ngFor=\"let vote of votes | async\">\n      <div class=\"roboto vote-region\">{{vote.region}}: </div>\n      <div class=\"roboto vote-count\">{{vote.count}} vote(s)</div>\n    </div>\n  </div>\n</div>");
 
 /***/ }),
 
