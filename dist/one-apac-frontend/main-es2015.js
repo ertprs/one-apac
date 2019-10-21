@@ -925,6 +925,7 @@ let NavigationComponent = class NavigationComponent {
             new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Broadcast', 'fas fa-bullhorn', '/broadcast')
         ];
         if (this.administrator.username === 'oneapac') {
+            console.log('hit');
             navigations.push(new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Lip Sync Battle', 'fas fa-microphone-alt', '/lip-sync-battle'));
         }
         this.navigations = navigations;
