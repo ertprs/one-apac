@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"lip-sync-battle\">\n  Lip sync battle works!\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"lip-sync-battle\">\n  <div class=\"content\">\n\n    <div class=\"vote-statistics\" *ngFor=\"let vote of votes | async\">\n      <div class=\"vote-region\">{{vote.region}}</div>\n      <div class=\"vote-count\">{{vote.count}}</div>\n    </div>\n  </div>\n</div>");
 
 /***/ }),
 
@@ -1156,13 +1156,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LipSyncBattleComponent", function() { return LipSyncBattleComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_lip_sync_battle_lip_sync_battle_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/lip-sync-battle/lip-sync-battle.service */ "./src/app/services/lip-sync-battle/lip-sync-battle.service.ts");
+
 
 
 let LipSyncBattleComponent = class LipSyncBattleComponent {
-    constructor() { }
+    constructor(lipSyncBattleService) {
+        this.lipSyncBattleService = lipSyncBattleService;
+    }
     ngOnInit() {
+        this.votes = this.lipSyncBattleService.getVotes();
     }
 };
+LipSyncBattleComponent.ctorParameters = () => [
+    { type: _services_lip_sync_battle_lip_sync_battle_service__WEBPACK_IMPORTED_MODULE_2__["LipSyncBattleService"] }
+];
 LipSyncBattleComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-lip-sync-battle',
@@ -1379,6 +1387,51 @@ BroadcastService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         providedIn: 'root'
     })
 ], BroadcastService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/lip-sync-battle/lip-sync-battle.service.ts":
+/*!*********************************************************************!*\
+  !*** ./src/app/services/lip-sync-battle/lip-sync-battle.service.ts ***!
+  \*********************************************************************/
+/*! exports provided: LipSyncBattleService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LipSyncBattleService", function() { return LipSyncBattleService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+
+
+
+
+
+let LipSyncBattleService = class LipSyncBattleService {
+    constructor(http) {
+        this.http = http;
+    }
+    getVotes() {
+        return Object(rxjs__WEBPACK_IMPORTED_MODULE_3__["interval"])(5000)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["startWith"])(0))
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["flatMap"])(() => {
+            return this.http.get('/api/votes');
+        }));
+    }
+};
+LipSyncBattleService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+LipSyncBattleService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], LipSyncBattleService);
 
 
 
