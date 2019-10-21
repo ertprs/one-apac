@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"component\" id=\"navigation\">\r\n  <a class=\"navigation\" *ngFor=\"let navigation of navigations | async\" [routerLink]=\"navigation.url\"\r\n    routerLinkActive=\"active\" [routerLinkActiveOptions]=\"routerLinkActiveOptions\">\r\n    <i class={{navigation.iconClass}}></i>\r\n    <div class=\"navigation-description roboto\">\r\n      {{navigation.description}}\r\n    </div>\r\n  </a>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"component\" id=\"navigation\">\r\n  <a class=\"navigation\" *ngFor=\"let navigation of navigations\" [routerLink]=\"navigation.url\" routerLinkActive=\"active\"\r\n    [routerLinkActiveOptions]=\"routerLinkActiveOptions\">\r\n    <i class={{navigation.iconClass}}></i>\r\n    <div class=\"navigation-description roboto\">\r\n      {{navigation.description}}\r\n    </div>\r\n  </a>\r\n</div>");
 
 /***/ }),
 
@@ -907,28 +907,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavigationComponent", function() { return NavigationComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-/* harmony import */ var _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../classes/navigation/navigation */ "./src/app/classes/navigation/navigation.ts");
-/* harmony import */ var _services_administrator_administrator_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/administrator/administrator.service */ "./src/app/services/administrator/administrator.service.ts");
+/* harmony import */ var _services_administrator_administrator_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/administrator/administrator.service */ "./src/app/services/administrator/administrator.service.ts");
+/* harmony import */ var _services_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/navigation/navigation.service */ "./src/app/services/navigation/navigation.service.ts");
 
 
 
 
 let NavigationComponent = class NavigationComponent {
-    constructor(administratorService) {
+    constructor(administratorService, navigationService) {
         this.administratorService = administratorService;
+        this.navigationService = navigationService;
     }
     ngOnInit() {
         this.administrator = this.administratorService.administrator;
-        const navigations = [
-            new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Home', 'fas fa-home', '/'),
-            new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Statistics', 'fas fa-chart-bar', '/statistics'),
-            new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Broadcast', 'fas fa-bullhorn', '/broadcast')
-        ];
-        if (this.administrator.username === 'oneapac') {
-            console.log('hit');
-            navigations.push(new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Lip Sync Battle', 'fas fa-microphone-alt', '/lip-sync-battle'));
-        }
-        this.navigations = navigations;
+        this.navigations = this.navigationService.navigations;
         this.routerLinkActiveOptions = {
             exact: true
         };
@@ -936,7 +928,8 @@ let NavigationComponent = class NavigationComponent {
     }
 };
 NavigationComponent.ctorParameters = () => [
-    { type: _services_administrator_administrator_service__WEBPACK_IMPORTED_MODULE_3__["AdministratorService"] }
+    { type: _services_administrator_administrator_service__WEBPACK_IMPORTED_MODULE_2__["AdministratorService"] },
+    { type: _services_navigation_navigation_service__WEBPACK_IMPORTED_MODULE_3__["NavigationService"] }
 ];
 NavigationComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1298,14 +1291,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /* harmony import */ var _classes_administrator_administrator__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../classes/administrator/administrator */ "./src/app/classes/administrator/administrator.ts");
+/* harmony import */ var _navigation_navigation_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../navigation/navigation.service */ "./src/app/services/navigation/navigation.service.ts");
+
 
 
 
 
 
 let AdministratorService = class AdministratorService {
-    constructor(http) {
+    constructor(http, navigationService) {
         this.http = http;
+        this.navigationService = navigationService;
         this.administrator = new _classes_administrator_administrator__WEBPACK_IMPORTED_MODULE_4__["Administrator"]();
     }
     login(username, password) {
@@ -1320,6 +1316,7 @@ let AdministratorService = class AdministratorService {
         this.administrator.id = administrator.id;
         this.administrator.username = administrator.username;
         this.administrator.eventId = administrator.eventId;
+        this.navigationService.addLipSyncBattleNavigation();
         return;
     }
     logout() {
@@ -1330,7 +1327,8 @@ let AdministratorService = class AdministratorService {
     }
 };
 AdministratorService.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: _navigation_navigation_service__WEBPACK_IMPORTED_MODULE_5__["NavigationService"] }
 ];
 AdministratorService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
@@ -1381,6 +1379,45 @@ BroadcastService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         providedIn: 'root'
     })
 ], BroadcastService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/navigation/navigation.service.ts":
+/*!***********************************************************!*\
+  !*** ./src/app/services/navigation/navigation.service.ts ***!
+  \***********************************************************/
+/*! exports provided: NavigationService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavigationService", function() { return NavigationService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../classes/navigation/navigation */ "./src/app/classes/navigation/navigation.ts");
+
+
+
+let NavigationService = class NavigationService {
+    constructor() {
+        this.navigations = [
+            new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Home', 'fas fa-home', '/'),
+            new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Statistics', 'fas fa-chart-bar', '/statistics'),
+            new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Broadcast', 'fas fa-bullhorn', '/broadcast')
+        ];
+    }
+    addLipSyncBattleNavigation() {
+        this.navigations.splice(1, 0, new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Lip Sync Battle', 'fa-microphone-alt', '/lip-sync-battle'));
+        return;
+    }
+};
+NavigationService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], NavigationService);
 
 
 
