@@ -36,6 +36,8 @@ router.route('/status')
   .put((request, response) => {
     const { isActive } = request.body;
 
+    console.log(request.body);
+
     return queries.controls.setStatus('Lip Sync Battle', isActive)
       .then(() => {
         return response.status(httpStatusCodes.ok).send({ success: true });
