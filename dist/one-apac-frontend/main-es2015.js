@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"lip-sync-battle\">\n  <div class=\"content\">\n\n    <div class=\"vote-statistics\" *ngFor=\"let vote of votes | async\">\n      <div class=\"roboto vote-region\">{{vote.region}}: </div>\n      <div class=\"roboto vote-count\">{{vote.count}}</div>\n    </div>\n  </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"lip-sync-battle\">\n  <div class=\"content\">\n    <input class=\"vote-toggle\" type=\"checkbox\" [(ngModel)]=\"voteStatus\" (change)=\"setVoteStatus()\" />\n\n    <div class=\"vote-statistics\" *ngFor=\"let vote of votes | async\">\n      <div class=\"roboto vote-region\">{{vote.region}}: </div>\n      <div class=\"roboto vote-count\">{{vote.count}}</div>\n    </div>\n  </div>\n</div>");
 
 /***/ }),
 
@@ -1140,7 +1140,7 @@ HomeComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("#lip-sync-battle .content .vote-statistics {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  font-size: 24px;\n}\n#lip-sync-battle .content .vote-statistics .vote-region {\n  width: 50%;\n  text-align: right;\n  font-style: italic;\n  white-space: pre;\n}\n#lip-sync-battle .content .vote-statistics .vote-count {\n  width: 50%;\n  text-align: left;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvbGlwLXN5bmMtYmF0dGxlL0M6XFxVc2Vyc1xcS2kgSnVuZyBLaW1cXERlc2t0b3BcXFByb2plY3RzXFxvbmUtYXBhYy1mcm9udGVuZC9zcmNcXGFwcFxccGFnZXNcXGxpcC1zeW5jLWJhdHRsZVxcbGlwLXN5bmMtYmF0dGxlLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9wYWdlcy9saXAtc3luYy1iYXR0bGUvbGlwLXN5bmMtYmF0dGxlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUdJO0VBQ0UsYUFBQTtFQUNBLG1CQUFBO0VBRUEsV0FBQTtFQUVBLGVBQUE7QUNKTjtBRE1NO0VBQ0UsVUFBQTtFQUVBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxnQkFBQTtBQ0xSO0FEUU07RUFDRSxVQUFBO0VBRUEsZ0JBQUE7QUNQUiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2xpcC1zeW5jLWJhdHRsZS9saXAtc3luYy1iYXR0bGUuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjbGlwLXN5bmMtYmF0dGxlIHtcclxuICAuY29udGVudCB7XHJcblxyXG4gICAgLnZvdGUtc3RhdGlzdGljcyB7XHJcbiAgICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICAgIGZsZXgtZGlyZWN0aW9uOiByb3c7XHJcblxyXG4gICAgICB3aWR0aDogMTAwJTtcclxuXHJcbiAgICAgIGZvbnQtc2l6ZTogMjRweDtcclxuXHJcbiAgICAgIC52b3RlLXJlZ2lvbiB7XHJcbiAgICAgICAgd2lkdGg6IDUwJTtcclxuXHJcbiAgICAgICAgdGV4dC1hbGlnbjogcmlnaHQ7XHJcbiAgICAgICAgZm9udC1zdHlsZTogaXRhbGljO1xyXG4gICAgICAgIHdoaXRlLXNwYWNlOiBwcmU7XHJcbiAgICAgIH1cclxuXHJcbiAgICAgIC52b3RlLWNvdW50IHtcclxuICAgICAgICB3aWR0aDogNTAlO1xyXG5cclxuICAgICAgICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG4gICAgICB9XHJcbiAgICB9XHJcbiAgfVxyXG59IiwiI2xpcC1zeW5jLWJhdHRsZSAuY29udGVudCAudm90ZS1zdGF0aXN0aWNzIHtcbiAgZGlzcGxheTogZmxleDtcbiAgZmxleC1kaXJlY3Rpb246IHJvdztcbiAgd2lkdGg6IDEwMCU7XG4gIGZvbnQtc2l6ZTogMjRweDtcbn1cbiNsaXAtc3luYy1iYXR0bGUgLmNvbnRlbnQgLnZvdGUtc3RhdGlzdGljcyAudm90ZS1yZWdpb24ge1xuICB3aWR0aDogNTAlO1xuICB0ZXh0LWFsaWduOiByaWdodDtcbiAgZm9udC1zdHlsZTogaXRhbGljO1xuICB3aGl0ZS1zcGFjZTogcHJlO1xufVxuI2xpcC1zeW5jLWJhdHRsZSAuY29udGVudCAudm90ZS1zdGF0aXN0aWNzIC52b3RlLWNvdW50IHtcbiAgd2lkdGg6IDUwJTtcbiAgdGV4dC1hbGlnbjogbGVmdDtcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = ("#lip-sync-battle .content .vote-statistics {\n  display: flex;\n  flex-direction: row;\n  width: 100%;\n  font-size: 24px;\n}\n#lip-sync-battle .content .vote-statistics .vote-region {\n  width: 50%;\n  text-align: right;\n  font-style: italic;\n  white-space: pre;\n}\n#lip-sync-battle .content .vote-statistics .vote-count {\n  width: 50%;\n  text-align: left;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvcGFnZXMvbGlwLXN5bmMtYmF0dGxlL0M6XFxVc2Vyc1xcS2kgSnVuZyBLaW1cXERlc2t0b3BcXFByb2plY3RzXFxvbmUtYXBhYy1mcm9udGVuZC9zcmNcXGFwcFxccGFnZXNcXGxpcC1zeW5jLWJhdHRsZVxcbGlwLXN5bmMtYmF0dGxlLmNvbXBvbmVudC5zY3NzIiwic3JjL2FwcC9wYWdlcy9saXAtc3luYy1iYXR0bGUvbGlwLXN5bmMtYmF0dGxlLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUlJO0VBQ0UsYUFBQTtFQUNBLG1CQUFBO0VBRUEsV0FBQTtFQUVBLGVBQUE7QUNMTjtBRE9NO0VBQ0UsVUFBQTtFQUVBLGlCQUFBO0VBQ0Esa0JBQUE7RUFDQSxnQkFBQTtBQ05SO0FEU007RUFDRSxVQUFBO0VBRUEsZ0JBQUE7QUNSUiIsImZpbGUiOiJzcmMvYXBwL3BhZ2VzL2xpcC1zeW5jLWJhdHRsZS9saXAtc3luYy1iYXR0bGUuY29tcG9uZW50LnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIjbGlwLXN5bmMtYmF0dGxlIHtcclxuICAuY29udGVudCB7XHJcblxyXG5cclxuICAgIC52b3RlLXN0YXRpc3RpY3Mge1xyXG4gICAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgICBmbGV4LWRpcmVjdGlvbjogcm93O1xyXG5cclxuICAgICAgd2lkdGg6IDEwMCU7XHJcblxyXG4gICAgICBmb250LXNpemU6IDI0cHg7XHJcblxyXG4gICAgICAudm90ZS1yZWdpb24ge1xyXG4gICAgICAgIHdpZHRoOiA1MCU7XHJcblxyXG4gICAgICAgIHRleHQtYWxpZ246IHJpZ2h0O1xyXG4gICAgICAgIGZvbnQtc3R5bGU6IGl0YWxpYztcclxuICAgICAgICB3aGl0ZS1zcGFjZTogcHJlO1xyXG4gICAgICB9XHJcblxyXG4gICAgICAudm90ZS1jb3VudCB7XHJcbiAgICAgICAgd2lkdGg6IDUwJTtcclxuXHJcbiAgICAgICAgdGV4dC1hbGlnbjogbGVmdDtcclxuICAgICAgfVxyXG4gICAgfVxyXG4gIH1cclxufSIsIiNsaXAtc3luYy1iYXR0bGUgLmNvbnRlbnQgLnZvdGUtc3RhdGlzdGljcyB7XG4gIGRpc3BsYXk6IGZsZXg7XG4gIGZsZXgtZGlyZWN0aW9uOiByb3c7XG4gIHdpZHRoOiAxMDAlO1xuICBmb250LXNpemU6IDI0cHg7XG59XG4jbGlwLXN5bmMtYmF0dGxlIC5jb250ZW50IC52b3RlLXN0YXRpc3RpY3MgLnZvdGUtcmVnaW9uIHtcbiAgd2lkdGg6IDUwJTtcbiAgdGV4dC1hbGlnbjogcmlnaHQ7XG4gIGZvbnQtc3R5bGU6IGl0YWxpYztcbiAgd2hpdGUtc3BhY2U6IHByZTtcbn1cbiNsaXAtc3luYy1iYXR0bGUgLmNvbnRlbnQgLnZvdGUtc3RhdGlzdGljcyAudm90ZS1jb3VudCB7XG4gIHdpZHRoOiA1MCU7XG4gIHRleHQtYWxpZ246IGxlZnQ7XG59Il19 */");
 
 /***/ }),
 
@@ -1166,6 +1166,38 @@ let LipSyncBattleComponent = class LipSyncBattleComponent {
     }
     ngOnInit() {
         this.votes = this.lipSyncBattleService.getVotes();
+        this.voteStatusSubscription = this.lipSyncBattleService.getVoteStatus()
+            .subscribe((response) => {
+            this.voteStatus = response;
+            return;
+        }, (error) => {
+            return alert(error.error);
+        }, () => {
+            console.log(`Vote Status successfully retrieved. The status is ${this.voteStatus ? 'Active' : 'Locked'}`);
+            return;
+        });
+    }
+    setVoteStatus() {
+        if (!confirm(`Are you sure you want to turn ${this.voteStatus ? 'off' : 'on'} the voting feature?`)) {
+            return;
+        }
+        this.lipSyncBattleService.setVoteStatus(this.voteStatus)
+            .subscribe((response) => {
+            if (response['success']) {
+                console.log('Voting status successfully set');
+            }
+            return;
+        }, (error) => {
+            return alert(error.error);
+        }, () => {
+            console.log('Voting status setting complete');
+            return;
+        });
+    }
+    ngOnDestroy() {
+        if (this.voteStatusSubscription) {
+            this.voteStatusSubscription.unsubscribe();
+        }
     }
 };
 LipSyncBattleComponent.ctorParameters = () => [
@@ -1422,6 +1454,14 @@ let LipSyncBattleService = class LipSyncBattleService {
             .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["flatMap"])(() => {
             return this.http.get('/api/votes');
         }));
+    }
+    getVoteStatus() {
+        return this.http.get('/api/votes/status')
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(data => data));
+    }
+    setVoteStatus(voteStatus) {
+        return this.http.put('/api/votes/status', voteStatus)
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(data => data));
     }
 };
 LipSyncBattleService.ctorParameters = () => [
