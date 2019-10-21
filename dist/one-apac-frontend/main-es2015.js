@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"component\" id=\"navigation\">\r\n  <a class=\"navigation\" *ngFor=\"let navigation of navigations\" [routerLink]=\"navigation.url\" routerLinkActive=\"active\"\r\n    [routerLinkActiveOptions]=\"routerLinkActiveOptions\">\r\n    <i class={{navigation.iconClass}}></i>\r\n    <div class=\"navigation-description roboto\">\r\n      {{navigation.description}}\r\n    </div>\r\n  </a>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"component\" id=\"navigation\">\r\n  <a class=\"navigation\" *ngFor=\"let navigation of navigations | async\" [routerLink]=\"navigation.url\"\r\n    routerLinkActive=\"active\" [routerLinkActiveOptions]=\"routerLinkActiveOptions\">\r\n    <i class={{navigation.iconClass}}></i>\r\n    <div class=\"navigation-description roboto\">\r\n      {{navigation.description}}\r\n    </div>\r\n  </a>\r\n</div>");
 
 /***/ }),
 
