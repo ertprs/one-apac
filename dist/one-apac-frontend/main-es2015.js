@@ -58,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"component\" id=\"login\">\r\n  <div class=\"title roboto\">Please login to access your event dashboard.</div>\r\n  <form class=\"form\" id=\"form-login\">\r\n    <div class=\"fields\">\r\n      <input type=\"text\" placeholder=\"username\" required [(ngModel)]=\"form.username\" name=\"username\">\r\n      <input type=\"password\" placeholder=\"password\" required [(ngModel)]=\"form.password\" name=\"password\">\r\n    </div>\r\n    <button class=\"button oswald\" (click)=\"login()\">Login</button>\r\n  </form>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"component\" id=\"login\">\r\n  <div class=\"title roboto\">Please login to access your event dashboard.</div>\r\n  <form class=\"form\" id=\"form-login\">\r\n    <div class=\"fields\">\r\n      <input type=\"text\" class=\"input-text\" placeholder=\"username\" required [(ngModel)]=\"form.username\" name=\"username\">\r\n      <input type=\"password\" class=\"input-text\" placeholder=\"password\" required [(ngModel)]=\"form.password\"\r\n        name=\"password\">\r\n    </div>\r\n    <button class=\"button oswald\" (click)=\"login()\">Login</button>\r\n  </form>\r\n</div>");
 
 /***/ }),
 
@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"lip-sync-battle\">\n  <div class=\"content\">\n    <div class=\"oswald title\">Voting Feature</div>\n    <input class=\"toggle\" type=\"checkbox\" *ngIf=\"voteStatus\" [(ngModel)]=\"voteStatus.isActive\"\n      (change)=\"setVoteStatus()\" />\n\n    <div class=\"vote-statistics\" *ngFor=\"let vote of votes | async\">\n      <div class=\"roboto vote-region\">{{vote.region}}: </div>\n      <div class=\"roboto vote-count\">{{vote.count}} vote(s)</div>\n    </div>\n  </div>\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"page\" id=\"lip-sync-battle\">\n  <div class=\"content\">\n    <div class=\"oswald title\">Voting Feature</div>\n    <input class=\"input-toggle\" type=\"checkbox\" *ngIf=\"voteStatus\" [(ngModel)]=\"voteStatus.isActive\"\n      (change)=\"setVoteStatus()\" />\n\n    <div class=\"vote-statistics\" *ngFor=\"let vote of votes | async\">\n      <div class=\"roboto vote-region\">{{vote.region}}: </div>\n      <div class=\"roboto vote-count\">{{vote.count}} vote(s)</div>\n    </div>\n  </div>\n</div>");
 
 /***/ }),
 
