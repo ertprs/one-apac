@@ -15,8 +15,35 @@ router.route('/')
       })
       .catch((error) => {
         queries.errors.logError(error.name, error.message, error.stack);
-        return response.status(500).send(error);
+        return response.status(httpStatusCodes.internalServer).send(error);
       });
   })
+
+router.route('/status')
+  .get((request, response) => {
+    return queries.controls.getStatus('Lip Sync Battle')
+      .then((result) => {
+        const { active } = result.rows[0];
+
+        return response.status(httpStatusCodes.ok).send({ isActive: active });
+      })
+      .catch((error) => {
+        queries.errors.logError(error.name, error.message, error.stack);
+        return response.sendStatus(httpStatusCodes.internalServer);
+      });
+  })
+
+  .put((request, response) => {
+    const { isActive } = request.body;
+
+    return queries.controls.setStatus('Lip Sync Battle', isActive)
+      .then(() => {
+        return response.status(httpStatusCodes.ok).send({ success: true });
+      })
+      .catch((error) => {
+        queries.errors.logError(error.name, error.message, error.stack);
+        return response.sendStatus(httpStatusCodes.internalServer);
+      });
+  });
 
 module.exports = router;
