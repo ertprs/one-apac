@@ -892,6 +892,8 @@ module.exports = (function() {
             } else {
               const { rows } = result;
 
+              console.log(rows);
+
               rows.forEach((row) => {
                 if (row.region === payloadRegion) {
                   attachment = `You already placed your vote for ${payloadRegion}!`
