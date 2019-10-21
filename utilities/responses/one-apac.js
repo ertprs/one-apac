@@ -892,19 +892,6 @@ module.exports = (function() {
             } else {
               const { rows } = result;
 
-              rows.forEach((row) => {
-                console.log(row.region)
-                console.log(payloadRegion);
-                if (row.region === payloadRegion) {
-                  attachment = `You already placed your vote for ${payloadRegion}!`
-
-                  quickReplies = [
-                    new QuickReply('Back', 'Lip Sync Battle'),
-                    new QuickReply('Home', 'Home')
-                  ];
-                }
-              });
-
               if (rows.length === 2) {
                 attachment = 'You already placed both of your votes!';
 
@@ -924,6 +911,20 @@ module.exports = (function() {
                   new QuickReply('Cancel', 'Lip Sync Battle')
                 ];
               }
+
+              rows.forEach((row) => {
+                console.log(row.region)
+                console.log(payloadRegion);
+                if (row.region === payloadRegion) {
+                  attachment = `You already placed your vote for ${payloadRegion}!`
+
+                  quickReplies = [
+                    new QuickReply('Back', 'Lip Sync Battle'),
+                    new QuickReply('Home', 'Home')
+                  ];
+                }
+              });
+
             }
 
             message = new Message(attachment, quickReplies);
