@@ -1182,6 +1182,7 @@ let LipSyncBattleComponent = class LipSyncBattleComponent {
         if (!confirm(`Are you sure you want to turn ${this.voteStatus ? 'off' : 'on'} the voting feature?`)) {
             return;
         }
+        console.log(this.voteStatus, 'right before method');
         this.lipSyncBattleService.setVoteStatus(this.voteStatus)
             .subscribe((response) => {
             if (response['success']) {
