@@ -1171,6 +1171,7 @@ let LipSyncBattleComponent = class LipSyncBattleComponent {
             this.voteStatus = response;
             return;
         }, (error) => {
+            console.log(error);
             return alert(error.error);
         }, () => {
             console.log(`Vote Status successfully retrieved. The status is ${this.voteStatus ? 'Active' : 'Locked'}`);
