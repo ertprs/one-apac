@@ -1168,6 +1168,7 @@ let LipSyncBattleComponent = class LipSyncBattleComponent {
         this.votes = this.lipSyncBattleService.getVotes();
         this.voteStatusSubscription = this.lipSyncBattleService.getVoteStatus()
             .subscribe((response) => {
+            console.log(response, 'the initial get vote status');
             this.voteStatus = response;
             return;
         }, (error) => {
