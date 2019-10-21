@@ -14,8 +14,22 @@ module.exports = (function() {
     });
   }
 
+  function setStatus(description, status) {
+    return knex.raw(`
+      UPDATE
+        controls
+      SET
+        active = :status
+      WHERE
+        description = :description
+    `, {
+      description,
+      status
+    });
+  }
 
   return {
-    getStatus
+    getStatus,
+    setStatus
   };
 })();
