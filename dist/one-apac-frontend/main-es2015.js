@@ -1409,7 +1409,7 @@ let NavigationService = class NavigationService {
         ];
     }
     addLipSyncBattleNavigation() {
-        this.navigations.splice(1, 0, new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Lip Sync Battle', 'fa-microphone-alt', '/lip-sync-battle'));
+        this.navigations.splice(1, 0, new _classes_navigation_navigation__WEBPACK_IMPORTED_MODULE_2__["Navigation"]('Lip Sync Battle', 'fas fa-microphone-alt', '/lip-sync-battle'));
         return;
     }
 };
