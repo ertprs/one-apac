@@ -892,9 +892,9 @@ module.exports = (function() {
             } else {
               const { rows } = result;
 
-              console.log(rows);
-
               rows.forEach((row) => {
+                console.log(row.region)
+                console.log(payloadRegion);
                 if (row.region === payloadRegion) {
                   attachment = `You already placed your vote for ${payloadRegion}!`
 
